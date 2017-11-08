@@ -20,4 +20,44 @@ public class Physician extends Human implements Observer {
 		messageBox.add((String) message);
 	}
 
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public ArrayList<Patient> getOverseenPatients() {
+		return overseenPatients;
+	}
+
+	public void setOverseenPatients(ArrayList<Patient> overseenPatients) {
+		this.overseenPatients = overseenPatients;
+	}
+
+	public ArrayList<Patient> getTreatedPatients() {
+		return treatedPatients;
+	}
+
+	public void setTreatedPatients(ArrayList<Patient> treatedPatients) {
+		this.treatedPatients = treatedPatients;
+	}
+
+	public ArrayList<String> getMessageBox() {
+		return messageBox;
+	}
+
+	public void setMessageBox(ArrayList<String> messageBox) {
+		this.messageBox = messageBox;
+	}
+	
 }
