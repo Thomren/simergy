@@ -43,6 +43,26 @@ public class Physician extends Human implements Observer {
 	public void setOverseenPatients(ArrayList<Patient> overseenPatients) {
 		this.overseenPatients = overseenPatients;
 	}
+	
+	/**
+	 * This method add a patient to the overseen patients' list of the physician and subscribe the physician
+	 * to the patient's events diffusion.
+	 * @param patient is the patient to add the list of the physician's currently followed patients
+	 */
+	public void addOverseenPatien(Patient patient) {
+		patient.addObserver(this);
+		overseenPatients.add(patient);
+	}
+	
+	/**
+	 * This method remove a patient from the overseen patients' list of the physician and unsubscribe the
+	 * physician from the patient's events diffusion
+	 * @param patient is the patient to remove from the list of the physician's currently followed patients
+	 */
+	public void removeOverseenPatient(Patient patient) {
+		patient.deleteObserver(this);
+		overseenPatients.remove(patient);
+	}
 
 	public ArrayList<Patient> getTreatedPatients() {
 		return treatedPatients;
@@ -50,6 +70,22 @@ public class Physician extends Human implements Observer {
 
 	public void setTreatedPatients(ArrayList<Patient> treatedPatients) {
 		this.treatedPatients = treatedPatients;
+	}
+	
+	/**
+	 * This method add a patient to the treated patients' list of the physician.
+	 * @param patient is the patient to add the list of the physician's treated patients
+	 */
+	public void addTreatedPatient(Patient patient) {
+		treatedPatients.add(patient);
+	}
+	
+	/**
+	 * This method remove a patient from the treated patients' list of the physician.
+	 * @param patient is the patient to remove from the list of the physician's treated patients
+	 */
+	public void removeTreatedPatient(Patient patient) {
+		treatedPatients.remove(patient);
 	}
 
 	public ArrayList<String> getMessageBox() {

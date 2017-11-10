@@ -1,0 +1,1268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_3_xP0MU2Eee3662SoTSOhw" type="PapyrusUMLClassDiagram" name="Class Diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_QjjusMU3Eee3662SoTSOhw" type="Class_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_QkcfgMU3Eee3662SoTSOhw" type="Class_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_QkdGkMU3Eee3662SoTSOhw" type="Class_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_QkdGkcU3Eee3662SoTSOhw" y="5"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QkdGksU3Eee3662SoTSOhw" type="Class_AttributeCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UAtyEMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXXs0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAuZIMU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAvAMMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXb-QMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAvAMcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAwOUMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXfBkMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAwOUcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QkdGk8U3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkdGlMU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkdGlcU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkdGlsU3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QkdGl8U3Eee3662SoTSOhw" type="Class_OperationCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UAxccMU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QWtlgMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAxcccU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAyDgMU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QihM4MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAyDgcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QkdGmMU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkdGmcU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkdGmsU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkdGm8U3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QkdGnMU3Eee3662SoTSOhw" visible="false" type="Class_NestedClassifierCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UA0fwMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXAgcMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UA0fwcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UA0fwsU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QikQMMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UA0fw8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UA1G0MU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXqnwMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UA1G0cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UA2U8MU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXzKoMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UA2U8cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UA28AMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QX5RQMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UA28AcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UA28AsU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYAmAMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UA28A8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UA3jEMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYIh0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UA3jEcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QkdGncU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkdGnsU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkdGn8U3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkdGoMU3Eee3662SoTSOhw"/>
+    </children>
+    <element xmi:type="uml:Class" href="SimErgyModel.uml#_QSyu0MU3Eee3662SoTSOhw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QjjuscU3Eee3662SoTSOhw" x="2564" y="30"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_QkdtoMU3Eee3662SoTSOhw" type="Class_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_QkdtosU3Eee3662SoTSOhw" type="Class_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_QkeUsMU3Eee3662SoTSOhw" type="Class_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_QkeUscU3Eee3662SoTSOhw" y="5"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QkeUssU3Eee3662SoTSOhw" type="Class_AttributeCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UBq0UMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXXs0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBq0UcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBrbYMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXb-QMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBrbYcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBsCcMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXfBkMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBsCccU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QkeUs8U3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkeUtMU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkeUtcU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkeUtsU3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QkeUt8U3Eee3662SoTSOhw" type="Class_OperationCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UBsCcsU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QXhd0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBsCc8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBspgMU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QXtEAMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBspgcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBtQkMU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QX1m4MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBtQkcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBtQksU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QX8UkMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBtQk8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBt3oMU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QYDpUMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBt3ocU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QkeUuMU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkeUucU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkeUusU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkeUu8U3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QkeUvMU3Eee3662SoTSOhw" visible="false" type="Class_NestedClassifierCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UBuesMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXqnwMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBuescU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBuessU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXzKoMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBues8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBvFwMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QX5RQMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBvFwcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBvFwsU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYAmAMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBvFw8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBvs0MU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYIh0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBvs0cU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QkeUvcU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkeUvsU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkeUv8U3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkeUwMU3Eee3662SoTSOhw"/>
+    </children>
+    <element xmi:type="uml:Class" href="SimErgyModel.uml#_QXGnEMU3Eee3662SoTSOhw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkdtocU3Eee3662SoTSOhw" x="1475" y="866"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_Qke7wMU3Eee3662SoTSOhw" type="Class_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_Qke7wsU3Eee3662SoTSOhw" type="Class_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_Qke7w8U3Eee3662SoTSOhw" type="Class_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Qke7xMU3Eee3662SoTSOhw" y="5"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Qke7xcU3Eee3662SoTSOhw" type="Class_AttributeCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UBBUEsU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QYS54MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBB7IMU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBB7IcU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QYXLUMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBB7IsU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBDJQMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QYZnkMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBDJQcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBDwUMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXXs0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBDwUcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBE-cMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXb-QMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBE-ccU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBFlgMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXfBkMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBFlgcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Qke7xsU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Qke7x8U3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Qke7yMU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qke7ycU3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Qke7ysU3Eee3662SoTSOhw" type="Class_OperationCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UBGMkMU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QYdR8MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBGMkcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBGMksU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QYqtUMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBGMk8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBGzoMU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QYu-wMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBGzocU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBHasMU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QYz3QMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBHascU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBIBwMU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QY4IsMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBIBwcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Qke7y8U3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Qke7zMU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Qke7zcU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qke7zsU3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Qke7z8U3Eee3662SoTSOhw" visible="false" type="Class_NestedClassifierCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UBJ28MU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYo4IMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBJ28cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBJ28sU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYtJkMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBJ288U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBKeAMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYxbAMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBKeAcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBLFEMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QY2TgMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBLFEcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBLFEsU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QY7zEMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBLFE8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBLsIMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXqnwMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBLsIcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBMTMMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXzKoMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBMTMcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBMTMsU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QX5RQMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBMTM8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBM6QMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYAmAMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBM6QcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBM6QsU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYIh0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBM6Q8U3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Qke70MU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Qke70cU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Qke70sU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qke708U3Eee3662SoTSOhw"/>
+    </children>
+    <element xmi:type="uml:Class" href="SimErgyModel.uml#_QYOBYMU3Eee3662SoTSOhw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qke7wcU3Eee3662SoTSOhw" x="343" y="518"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_Qkfi0MU3Eee3662SoTSOhw" type="Class_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_Qkfi0sU3Eee3662SoTSOhw" type="Class_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_Qkfi08U3Eee3662SoTSOhw" type="Class_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Qkfi1MU3Eee3662SoTSOhw" y="5"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Qkfi1cU3Eee3662SoTSOhw" type="Class_AttributeCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UBktsMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QZB5sMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBktscU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBktssU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXXs0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBkts8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBlUwMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXb-QMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBlUwcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBlUwsU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXfBkMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBlUw8U3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Qkfi1sU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Qkfi18U3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Qkfi2MU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qkfi2cU3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Qkfi2sU3Eee3662SoTSOhw" type="Class_OperationCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UBl70MU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QZEV8MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBl70cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBl70sU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QZNf4MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBl708U3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Qkfi28U3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Qkfi3MU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Qkfi3cU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qkfi3sU3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Qkfi38U3Eee3662SoTSOhw" visible="false" type="Class_NestedClassifierCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UBnxAMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QZKckMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBnxAcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBoYEMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QZZGEMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBoYEcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBoYEsU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QZcwcMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBoYE8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBo_IMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QZiQAMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBo_IcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBo_IsU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXqnwMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBo_I8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBpmMMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXzKoMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBpmMcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBpmMsU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QX5RQMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBpmM8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBpmNMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYAmAMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBqNQMU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBqNQcU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYIh0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBqNQsU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Qkfi4MU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkgJ4MU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkgJ4cU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkgJ4sU3Eee3662SoTSOhw"/>
+    </children>
+    <element xmi:type="uml:Class" href="SimErgyModel.uml#_QY-PUMU3Eee3662SoTSOhw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qkfi0cU3Eee3662SoTSOhw" x="1497" y="518"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_QkgJ48U3Eee3662SoTSOhw" type="Interface_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_QkgJ5cU3Eee3662SoTSOhw" type="Interface_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_Qkgw8MU3Eee3662SoTSOhw" type="Interface_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Qkgw8cU3Eee3662SoTSOhw" y="5"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Qkgw8sU3Eee3662SoTSOhw" type="Interface_AttributeCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Qkgw88U3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Qkgw9MU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Qkgw9cU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qkgw9sU3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Qkgw98U3Eee3662SoTSOhw" type="Interface_OperationCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UA4KIMU3Eee3662SoTSOhw" type="Operation_InterfaceOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QZo9sMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UA4KIcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UA4xMMU3Eee3662SoTSOhw" type="Operation_InterfaceOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QZrZ8MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UA4xMcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UA5YQMU3Eee3662SoTSOhw" type="Operation_InterfaceOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QZt2MMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UA5YQcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Qkgw-MU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Qkgw-cU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Qkgw-sU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qkgw-8U3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Qkgw_MU3Eee3662SoTSOhw" visible="false" type="Interface_NestedClassifierCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Qkgw_cU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Qkgw_sU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Qkgw_8U3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkgxAMU3Eee3662SoTSOhw"/>
+    </children>
+    <element xmi:type="uml:Interface" href="SimErgyModel.uml#_QZnIgMU3Eee3662SoTSOhw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkgJ5MU3Eee3662SoTSOhw" x="30" y="518"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_QkgxAcU3Eee3662SoTSOhw" type="Interface_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_QkgxA8U3Eee3662SoTSOhw" type="Interface_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_QkgxBMU3Eee3662SoTSOhw" type="Interface_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_QkgxBcU3Eee3662SoTSOhw" y="5"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QkgxBsU3Eee3662SoTSOhw" type="Interface_AttributeCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QkgxB8U3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkgxCMU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkgxCcU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkgxCsU3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QkhYAMU3Eee3662SoTSOhw" type="Interface_OperationCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UBkGoMU3Eee3662SoTSOhw" type="Operation_InterfaceOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QfUu8MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBkGocU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QkhYAcU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkhYAsU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkhYA8U3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkhYBMU3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QkhYBcU3Eee3662SoTSOhw" type="Interface_NestedClassifierCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QkhYBsU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkhYB8U3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkhYCMU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkhYCcU3Eee3662SoTSOhw"/>
+    </children>
+    <element xmi:type="uml:Interface" href="SimErgyModel.uml#_QfOoUMU3Eee3662SoTSOhw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkgxAsU3Eee3662SoTSOhw" x="1965" y="518"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_QkhYCsU3Eee3662SoTSOhw" type="Class_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_QkhYDMU3Eee3662SoTSOhw" type="Class_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_QkhYDcU3Eee3662SoTSOhw" type="Class_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_QkhYDsU3Eee3662SoTSOhw" y="5"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QkhYD8U3Eee3662SoTSOhw" type="Class_AttributeCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_T_-LMMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QfixYMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_T_-LMcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UABOgMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QfoQ8MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UABOgcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAB1kMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QfqtMMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAB1kcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UACcoMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QftJcMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UACcocU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UADDsMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_Qf0eMMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UADDscU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UADqwMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_Qf2TYMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UADqwcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAER0MU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_Qf3hgMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAER0cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAE44MU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_Qf5WsMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAE44cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAFf8MU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QZB5sMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAFf8cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAGHAMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXXs0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAGHAcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAGuEMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXb-QMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAGuEcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAH8MMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXfBkMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAH8McU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QkhYEMU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkhYEcU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkhYEsU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkhYE8U3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Qkh_EMU3Eee3662SoTSOhw" type="Class_OperationCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UAIjQMU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_Qf9BEMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAIjQcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAJKUMU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QgInQMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAJKUcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAJxYMU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QgLqkMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAJxYcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAJxYsU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QgP8AMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAJxY8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UASUQMU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QZEV8MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UASUQcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAS7UMU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QZNf4MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAS7UcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Qkh_EcU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Qkh_EsU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Qkh_E8U3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qkh_FMU3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Qkh_FcU3Eee3662SoTSOhw" visible="false" type="Class_NestedClassifierCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UAWlsMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QgGyEMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAWlscU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAXMwMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QgJ1YMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAXMwcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAXMwsU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QgOG0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAXMw8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAXz0MU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QgQjEMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAXz0cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAXz0sU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QgUNcMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAXz08U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAYa4MU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QgZtAMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAYa4cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAZB8MU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QgcwUMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAZB8cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAZpAMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QgfzoMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAZpAcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAaQEMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QglTMMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAaQEcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAa3IMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QgqywMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAa3IcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAbeMMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QgudIMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAbeMcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAcsUMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_Qgw5YMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAcsUcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAdTYMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QgzVocU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAdTYcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAd6cMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_Qg3AAMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAd6ccU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAehgMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_Qg5cQMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAehgcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAfIkMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_Qg8fkMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAfIkcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAfvoMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_Qg-70MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAfvocU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAfvosU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QhBYEMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAfvo8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAgWsMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QhEbYMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAgWscU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAg9wMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QhHescU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAg9wcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAg9wsU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QZKckMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAg9w8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAhk0MU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QZZGEMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAhk0cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAhk0sU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QZcwcMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAhk08U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAiL4MU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QZiQAMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAiL4cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAiy8MU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXqnwMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAiy8cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAiy8sU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXzKoMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAiy88U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAjaAMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QX5RQMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAjaAcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAjaAsU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYAmAMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAjaA8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAkBEMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYIh0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAkBEcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Qkh_FsU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Qkh_F8U3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Qkh_GMU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qkh_GcU3Eee3662SoTSOhw"/>
+    </children>
+    <element xmi:type="uml:Class" href="SimErgyModel.uml#_QYRrwMU3Eee3662SoTSOhw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkhYC8U3Eee3662SoTSOhw" x="288" y="30"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_Qkh_GsU3Eee3662SoTSOhw" type="Class_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_Qkh_HMU3Eee3662SoTSOhw" type="Class_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_Qkh_HcU3Eee3662SoTSOhw" type="Class_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Qkh_HsU3Eee3662SoTSOhw" y="5"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Qkh_H8U3Eee3662SoTSOhw" type="Class_AttributeCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UBNhUMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QhNlUMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBNhUcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBOIYMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QhPagMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBOIYcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBOvcMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QhQooMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBOvccU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBPWgMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QhTE4MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBPWgcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBPWgsU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QhWvQMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBPWg8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBP9kMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QZB5sMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBP9kcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBQkoMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXXs0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBQkocU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBRLsMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXb-QMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBRLscU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBRywMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXfBkMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBRywcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QkimIMU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkimIcU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkimIsU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkimI8U3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QkimJMU3Eee3662SoTSOhw" type="Class_OperationCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UBRywsU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QhZLgMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBRyw8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBXSUsU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QZEV8MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBXSU8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBX5YMU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QZNf4MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBX5YcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QkimJcU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkimJsU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkimJ8U3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkimKMU3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QkimKcU3Eee3662SoTSOhw" visible="false" type="Class_NestedClassifierCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UBaVoMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QhbnwMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBaVocU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBaVosU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QherEMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBaVo8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBaVpMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QhiVcMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBaVpcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBa8sMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_Qhl_0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBa8scU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBa8ssU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_Qhq4UMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBa8s8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBa8tMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_Qhvw0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBa8tcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBbjwMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_Qh0pUMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBbjwcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBbjwsU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_Qh3soMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBbjw8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBcK0MU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_Qh6v8MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBcK0cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBcK0sU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_Qh-aUMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBcK08U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBcx4MU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QiCEsMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBcx4cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBcx4sU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QiFIAMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBcx48U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBdY8MU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QiILUMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBdY8cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBdY8sU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QiMcwMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBdY88U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBeAAMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QiPgEcU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBeAAcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBenEMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QZKckMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBenEcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBfOIMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QZZGEMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBfOIcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBfOIsU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QZcwcMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBfOI8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBf1MMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QZiQAMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBf1McU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBf1MsU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXqnwMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBf1M8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBgcQMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXzKoMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBgcQcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBhDUMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QX5RQMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBhDUcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBhDUsU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYAmAMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBhDU8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBhqYMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYIh0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBhqYcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QkimKsU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkimK8U3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkimLMU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkimLcU3Eee3662SoTSOhw"/>
+    </children>
+    <element xmi:type="uml:Class" href="SimErgyModel.uml#_QhLJEMU3Eee3662SoTSOhw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qkh_G8U3Eee3662SoTSOhw" x="1497" y="30"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_QkimLsU3Eee3662SoTSOhw" type="Class_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_QkimMMU3Eee3662SoTSOhw" type="Class_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_QkjNMMU3Eee3662SoTSOhw" type="Class_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_QkjNMcU3Eee3662SoTSOhw" y="5"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QkjNMsU3Eee3662SoTSOhw" type="Class_AttributeCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UBiRcMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QiTKcMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBiRccU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBi4gMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QiUYkMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBi4gcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QkjNM8U3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkjNNMU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkjNNcU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkjNNsU3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QkjNN8U3Eee3662SoTSOhw" type="Class_OperationCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UBjfkMU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QiWNwMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBjfkcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QkjNOMU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkjNOcU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkjNOsU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkjNO8U3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QkjNPMU3Eee3662SoTSOhw" visible="false" type="Class_NestedClassifierCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UBjfksU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QicUYMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBjfk8U3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QkjNPcU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkjNPsU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkjNP8U3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkjNQMU3Eee3662SoTSOhw"/>
+    </children>
+    <element xmi:type="uml:Class" href="SimErgyModel.uml#_QYV9MMU3Eee3662SoTSOhw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkimL8U3Eee3662SoTSOhw" x="1965" y="30"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_QkjNQcU3Eee3662SoTSOhw" type="Class_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_Qkj0QMU3Eee3662SoTSOhw" type="Class_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_Qkj0QcU3Eee3662SoTSOhw" type="Class_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Qkj0QsU3Eee3662SoTSOhw" y="5"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Qkj0Q8U3Eee3662SoTSOhw" type="Class_AttributeCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UAkoIMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXXs0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAkoIcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAkoIsU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXb-QMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAkoI8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAlPMMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXfBkMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAlPMcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Qkj0RMU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Qkj0RcU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Qkj0RsU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qkj0R8U3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Qkj0SMU3Eee3662SoTSOhw" type="Class_OperationCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UAmdUMU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QihM4MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAmdUcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Qkj0ScU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Qkj0SsU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Qkj0S8U3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qkj0TMU3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Qkj0TcU3Eee3662SoTSOhw" visible="false" type="Class_NestedClassifierCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UApgoMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QikQMMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UApgocU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAqHsMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXqnwMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAqHscU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAquwMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXzKoMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAquwcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UArV0MU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QX5RQMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UArV0cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAr84MU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYAmAMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAr84cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UAtLAMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYIh0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UAtLAcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Qkj0TsU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Qkj0T8U3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Qkj0UMU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qkj0UcU3Eee3662SoTSOhw"/>
+    </children>
+    <element xmi:type="uml:Class" href="SimErgyModel.uml#_QS0kAMU3Eee3662SoTSOhw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkjNQsU3Eee3662SoTSOhw" x="2577" y="518"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_QkkbUMU3Eee3662SoTSOhw" type="Class_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_QkkbUsU3Eee3662SoTSOhw" type="Class_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_QkkbU8U3Eee3662SoTSOhw" type="Class_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_QkkbVMU3Eee3662SoTSOhw" y="5"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QkkbVcU3Eee3662SoTSOhw" type="Class_AttributeCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UBvs0sU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXXs0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBvs08U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBwT4MU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXb-QMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBwT4cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBwT4sU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXfBkMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBwT48U3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QkkbVsU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkkbV8U3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkkbWMU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkkbWcU3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QklCYMU3Eee3662SoTSOhw" type="Class_OperationCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UBw68MU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QinTgMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBw68cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBw68sU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QihM4MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBw688U3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QklCYcU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QklCYsU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QklCY8U3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QklCZMU3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QklCZcU3Eee3662SoTSOhw" visible="false" type="Class_NestedClassifierCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UBxiBMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_Qiq94MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBxiBcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UByJEMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QikQMMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UByJEcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UByJEsU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXqnwMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UByJE8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBywIMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXzKoMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBywIcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBywIsU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QX5RQMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBywI8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBzXMMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYAmAMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBzXMcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBzXMsU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYIh0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBzXM8U3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QklCZsU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QklCZ8U3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QklCaMU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QklCacU3Eee3662SoTSOhw"/>
+    </children>
+    <element xmi:type="uml:Class" href="SimErgyModel.uml#_QimFYMU3Eee3662SoTSOhw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkkbUcU3Eee3662SoTSOhw" x="2916" y="30"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_QklCasU3Eee3662SoTSOhw" type="Class_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_QklpcMU3Eee3662SoTSOhw" type="Class_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_QklpccU3Eee3662SoTSOhw" type="Class_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_QkmQgMU3Eee3662SoTSOhw" y="5"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QkmQgcU3Eee3662SoTSOhw" type="Class_AttributeCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UA5_UMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXXs0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UA6mYMU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UA7NcMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXb-QMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UA7NccU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UA70gMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXfBkMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UA70gcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QkmQgsU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkmQg8U3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkmQhMU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkmQhcU3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QkmQhsU3Eee3662SoTSOhw" type="Class_OperationCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UA8bkMU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_Qiv2YMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UA8bkcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UA8bksU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_Qi1V8MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UA8bk8U3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QkmQh8U3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkmQiMU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkmQicU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkmQisU3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QkmQi8U3Eee3662SoTSOhw" visible="false" type="Class_NestedClassifierCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UA-30MU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_Qi0H0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UA-30cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UA-30sU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_Qi6OcMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UA-308U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UA_e4MU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXqnwMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UA_e4cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBAF8MU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXzKoMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBAF8cU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBAF8sU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QX5RQMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBAF88U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBAtAMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYAmAMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBAtAcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBBUEMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYIh0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBBUEcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_QkmQjMU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QkmQjcU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QkmQjsU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkmQj8U3Eee3662SoTSOhw"/>
+    </children>
+    <element xmi:type="uml:Class" href="SimErgyModel.uml#_QiuBMMU3Eee3662SoTSOhw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QklCa8U3Eee3662SoTSOhw" x="1151" y="518"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_Qkm3kMU3Eee3662SoTSOhw" type="Class_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_Qkm3ksU3Eee3662SoTSOhw" type="Class_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_Qkm3k8U3Eee3662SoTSOhw" type="Class_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Qkm3lMU3Eee3662SoTSOhw" y="5"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Qkm3lcU3Eee3662SoTSOhw" type="Class_AttributeCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UBz-QMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXXs0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBz-QcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UBz-QsU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXb-QMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UBz-Q8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UB0lUMU3Eee3662SoTSOhw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="SimErgyModel.uml#_QXfBkMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UB0lUcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Qkm3lsU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Qkm3l8U3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Qkm3mMU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qkm3mcU3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Qkm3msU3Eee3662SoTSOhw" type="Class_OperationCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UB0lUsU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_Qi9RwMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UB0lU8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UB1MYMU3Eee3662SoTSOhw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="SimErgyModel.uml#_QihM4MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UB1MYcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Qkm3m8U3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Qkm3nMU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Qkm3ncU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qkm3nsU3Eee3662SoTSOhw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Qkm3n8U3Eee3662SoTSOhw" visible="false" type="Class_NestedClassifierCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_UB3BksU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QjAVEMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UB3Bk8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UB3ooMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QikQMMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UB3oocU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UB3oosU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXqnwMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UB3oo8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UB3opMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QXzKoMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UB3opcU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UB4PsMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QX5RQMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UB4PscU3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UB4PssU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYAmAMU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UB4Ps8U3Eee3662SoTSOhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_UB42wMU3Eee3662SoTSOhw" type="Class_ClassNestedClassifierLabel">
+        <element xmi:type="uml:OpaqueBehavior" href="SimErgyModel.uml#_QYIh0MU3Eee3662SoTSOhw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UB42wcU3Eee3662SoTSOhw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_Qkm3oMU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Qkm3ocU3Eee3662SoTSOhw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Qkm3osU3Eee3662SoTSOhw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qkm3o8U3Eee3662SoTSOhw"/>
+    </children>
+    <element xmi:type="uml:Class" href="SimErgyModel.uml#_Qi8DoMU3Eee3662SoTSOhw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qkm3kcU3Eee3662SoTSOhw" x="3282" y="30"/>
+  </children>
+  <styles xmi:type="notation:StringValueStyle" xmi:id="_3_xP0cU2Eee3662SoTSOhw" name="diagram_compatibility_version" stringValue="1.2.0"/>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_3_xP0sU2Eee3662SoTSOhw"/>
+  <styles xmi:type="style:PapyrusViewStyle" xmi:id="_3_xP08U2Eee3662SoTSOhw">
+    <owner xmi:type="uml:Model" href="SimErgyModel.uml#_37IncMU2Eee3662SoTSOhw"/>
+  </styles>
+  <element xmi:type="uml:Model" href="SimErgyModel.uml#_37IncMU2Eee3662SoTSOhw"/>
+  <edges xmi:type="notation:Connector" xmi:id="_2q1nwMU3Eee3662SoTSOhw" type="Generalization_Edge" source="_Qkh_GsU3Eee3662SoTSOhw" target="_Qkfi0MU3Eee3662SoTSOhw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_2q214MU3Eee3662SoTSOhw" type="Generalization_StereotypeLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_3CYlEMU3Eee3662SoTSOhw" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_2q214cU3Eee3662SoTSOhw" y="39"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_2q1nwcU3Eee3662SoTSOhw"/>
+    <element xmi:type="uml:Generalization" href="SimErgyModel.uml#_QhLwIMU3Eee3662SoTSOhw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2q1nwsU3Eee3662SoTSOhw" points="[1701, 338, -643984, -643984]$[1701, 518, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3Cf50MU3Eee3662SoTSOhw" id="(0.0,0.9285714285714286)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3Cf50cU3Eee3662SoTSOhw" id="(0.9950980392156863,0.05851063829787234)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_2rERQMU3Eee3662SoTSOhw" type="Generalization_Edge" source="_QkhYCsU3Eee3662SoTSOhw" target="_Qkfi0MU3Eee3662SoTSOhw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_2rERQ8U3Eee3662SoTSOhw" type="Generalization_StereotypeLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_3CYlEcU3Eee3662SoTSOhw" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_2rERRMU3Eee3662SoTSOhw" x="-1" y="38"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_2rERQcU3Eee3662SoTSOhw"/>
+    <element xmi:type="uml:Generalization" href="SimErgyModel.uml#_QfaOgMU3Eee3662SoTSOhw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2rERQsU3Eee3662SoTSOhw" points="[1054, 458, -643984, -643984]$[1599, 518, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3Cf50sU3Eee3662SoTSOhw" id="(0.0,0.6214953271028038)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3Cf508U3Eee3662SoTSOhw" id="(0.9950980392156863,0.22340425531914893)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_2rE4UMU3Eee3662SoTSOhw" type="Generalization_Edge" source="_Qkm3kMU3Eee3662SoTSOhw" target="_QkjNQcU3Eee3662SoTSOhw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_2rE4U8U3Eee3662SoTSOhw" type="Generalization_StereotypeLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_3CB_wMU3Eee3662SoTSOhw" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_2rE4VMU3Eee3662SoTSOhw" y="40"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_2rE4UcU3Eee3662SoTSOhw"/>
+    <element xmi:type="uml:Generalization" href="SimErgyModel.uml#_Qi8qsMU3Eee3662SoTSOhw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2rE4UsU3Eee3662SoTSOhw" points="[3441, 198, -643984, -643984]$[3266, 457, -643984, -643984]$[2799, 518, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3CLJsMU3Eee3662SoTSOhw" id="(0.0,0.8988095238095238)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3CLJscU3Eee3662SoTSOhw" id="(0.9925093632958801,0.013513513513513514)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_2rFfYMU3Eee3662SoTSOhw" type="InterfaceRealization_Edge" source="_Qkh_GsU3Eee3662SoTSOhw" target="_QkgxAcU3Eee3662SoTSOhw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_2rFfY8U3Eee3662SoTSOhw" type="InterfaceRealization_StereotypeLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_3Bo-MMU3Eee3662SoTSOhw" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_2rFfZMU3Eee3662SoTSOhw" x="-2" y="37"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_2rFfZcU3Eee3662SoTSOhw" type="InterfaceRealization_NameLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_3BqMUMU3Eee3662SoTSOhw" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_2rFfZsU3Eee3662SoTSOhw" y="60"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_2rFfYcU3Eee3662SoTSOhw"/>
+    <element xmi:type="uml:InterfaceRealization" href="SimErgyModel.uml#_QhMXMMU3Eee3662SoTSOhw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2rFfYsU3Eee3662SoTSOhw" points="[1803, 338, -643984, -643984]$[1845, 457, -643984, -643984]$[2063, 518, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3Bw6AMU3Eee3662SoTSOhw" id="(0.0,0.8506493506493507)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3BxhEMU3Eee3662SoTSOhw" id="(0.9847715736040609,0.056451612903225805)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_2rGGcMU3Eee3662SoTSOhw" type="InterfaceRealization_Edge" source="_QkhYCsU3Eee3662SoTSOhw" target="_QkgJ48U3Eee3662SoTSOhw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_2rGtgMU3Eee3662SoTSOhw" type="InterfaceRealization_StereotypeLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_3ByIIMU3Eee3662SoTSOhw" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_2rGtgcU3Eee3662SoTSOhw" x="-1" y="38"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_2rGtgsU3Eee3662SoTSOhw" type="InterfaceRealization_NameLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_3ByIIcU3Eee3662SoTSOhw" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_2rGtg8U3Eee3662SoTSOhw" y="60"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_2rGGccU3Eee3662SoTSOhw"/>
+    <element xmi:type="uml:InterfaceRealization" href="SimErgyModel.uml#_Qfg8MMU3Eee3662SoTSOhw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2rGGcsU3Eee3662SoTSOhw" points="[671, 458, -643984, -643984]$[156, 518, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3B1ygMU3Eee3662SoTSOhw" id="(0.0,0.6214953271028038)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3B2ZkMU3Eee3662SoTSOhw" id="(0.9881422924901185,0.16560509554140126)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_2rHUkMU3Eee3662SoTSOhw" type="Generalization_Edge" source="_Qkfi0MU3Eee3662SoTSOhw" target="_QkdtoMU3Eee3662SoTSOhw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_2rHUk8U3Eee3662SoTSOhw" type="Generalization_StereotypeLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_3B3AoMU3Eee3662SoTSOhw" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_2rHUlMU3Eee3662SoTSOhw" x="-2" y="37"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_2rHUkcU3Eee3662SoTSOhw"/>
+    <element xmi:type="uml:Generalization" href="SimErgyModel.uml#_QY_dcMU3Eee3662SoTSOhw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2rHUksU3Eee3662SoTSOhw" points="[1605, 706, -643984, -643984]$[1605, 866, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3CBYsMU3Eee3662SoTSOhw" id="(0.0,0.9521276595744681)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3CBYscU3Eee3662SoTSOhw" id="(0.9923076923076923,0.03070175438596491)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_2rH7oMU3Eee3662SoTSOhw" type="Generalization_Edge" source="_Qke7wMU3Eee3662SoTSOhw" target="_QkdtoMU3Eee3662SoTSOhw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_2rH7o8U3Eee3662SoTSOhw" type="Generalization_StereotypeLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_3B3AocU3Eee3662SoTSOhw" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_2rIisMU3Eee3662SoTSOhw" y="40"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_2rH7ocU3Eee3662SoTSOhw"/>
+    <element xmi:type="uml:Generalization" href="SimErgyModel.uml#_QYPPgMU3Eee3662SoTSOhw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2rH7osU3Eee3662SoTSOhw" points="[717, 806, -643984, -643984]$[1518, 866, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3CBYtMU3Eee3662SoTSOhw" id="(0.0,0.5902777777777778)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3CBYtcU3Eee3662SoTSOhw" id="(0.9923076923076923,0.20175438596491227)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_2rJJwMU3Eee3662SoTSOhw" type="Generalization_Edge" source="_QkjNQcU3Eee3662SoTSOhw" target="_QkdtoMU3Eee3662SoTSOhw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_2rJJw8U3Eee3662SoTSOhw" type="Generalization_StereotypeLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_3B3AosU3Eee3662SoTSOhw" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_2rJJxMU3Eee3662SoTSOhw" x="-1" y="38"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_2rJJwcU3Eee3662SoTSOhw"/>
+    <element xmi:type="uml:Generalization" href="SimErgyModel.uml#_Qif-wMU3Eee3662SoTSOhw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2rJJwsU3Eee3662SoTSOhw" points="[2710, 666, -643984, -643984]$[2206, 805, -643984, -643984]$[1670, 866, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3CBYssU3Eee3662SoTSOhw" id="(0.0,0.9864864864864865)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3CBYs8U3Eee3662SoTSOhw" id="(0.9923076923076923,0.0)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_2rJw0MU3Eee3662SoTSOhw" type="Generalization_Edge" source="_QjjusMU3Eee3662SoTSOhw" target="_QkjNQcU3Eee3662SoTSOhw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_2rJw08U3Eee3662SoTSOhw" type="Generalization_StereotypeLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_3CB_wcU3Eee3662SoTSOhw" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_2rJw1MU3Eee3662SoTSOhw" y="40"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_2rJw0cU3Eee3662SoTSOhw"/>
+    <element xmi:type="uml:Generalization" href="SimErgyModel.uml#_QS2ZMMU3Eee3662SoTSOhw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2rJw0sU3Eee3662SoTSOhw" points="[2710, 198, -643984, -643984]$[2710, 518, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3CLwwcU3Eee3662SoTSOhw" id="(0.9931506849315068,0.9702380952380952)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3CLwwsU3Eee3662SoTSOhw" id="(0.0,0.013513513513513514)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_2rKX4MU3Eee3662SoTSOhw" type="Generalization_Edge" source="_QkkbUMU3Eee3662SoTSOhw" target="_QkjNQcU3Eee3662SoTSOhw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_2rKX48U3Eee3662SoTSOhw" type="Generalization_StereotypeLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_3CCm0MU3Eee3662SoTSOhw" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_2rKX5MU3Eee3662SoTSOhw" y="40"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_2rKX4cU3Eee3662SoTSOhw"/>
+    <element xmi:type="uml:Generalization" href="SimErgyModel.uml#_QimscMU3Eee3662SoTSOhw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2rKX4sU3Eee3662SoTSOhw" points="[3069, 198, -643984, -643984]$[2900, 457, -643984, -643984]$[2754, 518, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3CLJssU3Eee3662SoTSOhw" id="(0.0,0.75)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3CLwwMU3Eee3662SoTSOhw" id="(0.9925093632958801,0.14864864864864866)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_2rK-8MU3Eee3662SoTSOhw" type="Generalization_Edge" source="_QklCasU3Eee3662SoTSOhw" target="_QkdtoMU3Eee3662SoTSOhw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_2rK-88U3Eee3662SoTSOhw" type="Generalization_StereotypeLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_3B3nsMU3Eee3662SoTSOhw" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_2rK-9MU3Eee3662SoTSOhw" x="-1" y="38"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_2rK-8cU3Eee3662SoTSOhw"/>
+    <element xmi:type="uml:Generalization" href="SimErgyModel.uml#_QiuoQMU3Eee3662SoTSOhw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2rK-8sU3Eee3662SoTSOhw" points="[1294, 686, -643984, -643984]$[1452, 805, -643984, -643984]$[1561, 866, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3CAKkMU3Eee3662SoTSOhw" id="(0.0,0.9880952380952381)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3CAxoMU3Eee3662SoTSOhw" id="(0.9923076923076923,0.008771929824561403)"/>
+  </edges>
+</notation:Diagram>

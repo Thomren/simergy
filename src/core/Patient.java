@@ -12,7 +12,7 @@ public class Patient extends Human implements Observable {
 	
 	protected double arrivalTime;
 	protected HealthInsurance healthInsurance;
-	protected ArrayList<String> history;
+	protected ArrayList<Event> history;
 	protected Room location;
 	protected severityLevel severityLevel;
 	protected String state;
@@ -26,7 +26,7 @@ public class Patient extends Human implements Observable {
 		this.healthInsurance = healthInsurance;
 		this.location = location;
 		this.severityLevel = severityLevel;
-		this.history = new ArrayList<String>();
+		this.history = new ArrayList<Event>();
 		this.state = "waiting";
 		this.charges = 0;
 		this.observers = new ArrayList<Observer>();
@@ -67,14 +67,18 @@ public class Patient extends Human implements Observable {
 		this.healthInsurance = healthInsurance;
 	}
 
-	public ArrayList<String> getHistory() {
+	public ArrayList<Event> getHistory() {
 		return history;
 	}
 
-	public void setHistory(ArrayList<String> history) {
+	public void setHistory(ArrayList<Event> history) {
 		this.history = history;
 	}
 
+	public void addEvent(Event event) {
+		this.history.add(event);
+	}
+	
 	public Room getLocation() {
 		return location;
 	}
@@ -105,6 +109,10 @@ public class Patient extends Human implements Observable {
 
 	public void setCharges(double charges) {
 		this.charges = charges;
+	}
+	
+	public void addCharges(double charges) {
+		this.charges += charges;
 	}
 
 	public ArrayList<Observer> getObservers() {
