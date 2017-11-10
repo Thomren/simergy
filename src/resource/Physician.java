@@ -17,6 +17,19 @@ public class Physician extends Human implements Observer {
 	protected ArrayList<Patient> treatedPatients;
 	protected ArrayList<String> messageBox;
 	
+	/**
+	 * This method display the messages in the physician's messageBox
+	 */
+	public void displayMessageBox() {
+		StringBuffer content = new StringBuffer();
+		content.append(username);
+		content.append("'s message box : \n");
+		for (String message : messageBox) {
+			content.append(message).append('\n');
+		}
+		System.out.println(content.toString());
+	}
+	
 	@Override
 	public void update(Object message) {
 		messageBox.add((String) message);
