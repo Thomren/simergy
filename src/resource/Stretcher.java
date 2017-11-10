@@ -1,4 +1,6 @@
-package core;
+package resource;
+
+import core.Entity;
 
 /**
  * Stretcher is a class to represent the stretchers of the Emergency Department.

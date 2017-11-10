@@ -1,36 +1,28 @@
-package core;
+package workflow;
 
 import java.util.ArrayList;
 
+import core.Entity;
+import core.ProbabilityDistribution;
+import resource.Patient;
+
 /**
- * HealthService is an abstract class which represents every health service in the Emergency Department.
- * A Health Service gives a special treatment depending on its role. It has a cost.
+ * This is an abstract class which represents every workflow element in the Emergency Department.
+ * A workflow element represent a special task.
  * It has a waiting queue of patients and apply the treatment to the first one.
  * It takes a random time given by a probability distribution.
- * Once the treatment is over, the physician in charge of the patient is notified.
  * @author Quentin
  *
  */
 
-public abstract class HealthService extends Entity {
+public abstract class WorkflowElement extends Entity {
 	protected ArrayList<Patient> waitingQueue;
 	protected ProbabilityDistribution durationProbability;
-	protected Double cost;
 	
-	public HealthService(String name, ProbabilityDistribution durationProbability,
-			Double cost) {
+	public WorkflowElement(String name, ProbabilityDistribution durationProbability) {
 		super(name);
 		this.waitingQueue = new ArrayList<Patient>();
 		this.durationProbability = durationProbability;
-		this.cost = cost;
-	}
-
-	public Double getCost() {
-		return cost;
-	}
-
-	public void setCost(Double cost) {
-		this.cost = cost;
 	}
 	
 	/**
@@ -42,12 +34,10 @@ public abstract class HealthService extends Entity {
 	}
 	
 	/**
-	 * This method applies the service to the next patient. Once done, the physician is notified.
+	 * This method applies the service to the next patient of the waiting queue.
 	 * @param patient
 	 */
 	public void executeServiceOnPatient(Patient patient) {
 		
 	}
-	
-	
 }

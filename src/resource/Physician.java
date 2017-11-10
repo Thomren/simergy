@@ -1,6 +1,8 @@
-package core;
+package resource;
 
 import java.util.ArrayList;
+
+import core.Observer;
 
 /**
  * The Physician class represents a physician of the Emergency Department

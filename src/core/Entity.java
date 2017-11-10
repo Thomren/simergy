@@ -11,13 +11,13 @@ public abstract class Entity {
 	protected int ID;
 	protected String name;
 	
-	Entity(String name) {
+	public Entity(String name) {
 		this.ID = lastID + 1;
 		this.name = name;
 		lastID++; 
 	}
 	
-	Entity() {
+	public Entity() {
 		this.ID = lastID + 1;
 		lastID++; 
 	}

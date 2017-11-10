@@ -1,6 +1,12 @@
-package core;
+package resource;
 
 import java.util.ArrayList;
+
+import core.Event;
+import core.HealthInsurance;
+import core.Observable;
+import core.Observer;
+import core.severityLevel;
 
 /**
  * Patient class represents the patients of the emergency department.

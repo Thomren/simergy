@@ -1,4 +1,6 @@
-package core;
+package resource;
+
+import core.Entity;
 
 /**
  * The Human abstract class add a surname property to Entity so as to represents Humans

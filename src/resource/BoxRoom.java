@@ -1,4 +1,4 @@
-package core;
+package resource;
 
 /**
  * BoxRoom is a class which represent the Box Rooms of the Emergency Department.
@@ -9,8 +9,8 @@ package core;
 
 public class BoxRoom extends Room {
 
-	public BoxRoom(String name) {
-		super(name);
+	public BoxRoom(String name, int capacity) {
+		super(name, capacity);
 		// TODO Auto-generated constructor stub
 	}
 
