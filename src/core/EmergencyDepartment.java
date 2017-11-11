@@ -6,31 +6,46 @@ import resource.Human;
 import resource.Nurse;
 import resource.Patient;
 import resource.Physician;
+import resource.Room;
 import resource.Transporter;
 import workflow.WorkflowElement;
 
 public class EmergencyDepartment {
 	protected ArrayList<Patient> patients;
-	protected ArrayList<Entity> resources;
+	protected ArrayList<Room> rooms;
 	protected ArrayList<Human> staff;
 	protected ArrayList<Event> history;
 	protected ArrayList<WorkflowElement> services;
 	
 	EmergencyDepartment() {
 		patients = new ArrayList<Patient>();
-		resources = new ArrayList<Entity>();
+		rooms = new ArrayList<Room>();
 		staff = new ArrayList<Human>();
 		history = new ArrayList<Event>();
 		services = new ArrayList<WorkflowElement>();
 	}
 	
 	/**
-	 * This method search an idle physician among the staff and return it if found
+	 * This method searches an available room of a given type and return it if found, or null if there isn't one
+	 * @param roomType
+	 * @return an available room of the given type if there is one, null otherwise
+	 */
+	public Room getAvailableRoom(Class<Room> roomType) {
+		for (Room room: rooms) {
+			if(roomType.isInstance(room) && room.isAvailable()) {
+				return room;
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * This method searches an idle physician among the staff and return it if found
 	 * @return an idle physician if there is one, null otherwise
 	 */
 	public Physician getIdlePhysician() {
 		for (Human employee: staff) {
-			if(employee instanceof Physician && ((Physician) employee).getState() == "idle") {
+			if(employee instanceof Physician && employee.getState() == "idle") {
 				return (Physician) employee;
 			}
 		}
@@ -38,12 +53,12 @@ public class EmergencyDepartment {
 	}
 	
 	/**
-	 * This method search an idle nurse among the staff and return it if found
+	 * This method searches an idle nurse among the staff and return it if found
 	 * @return an idle nurse if there is one, null otherwise
 	 */
 	public Nurse getIdleNurse() {
 		for (Human employee: staff) {
-			if(employee instanceof Nurse && ((Nurse) employee).getState() == "idle") {
+			if(employee instanceof Nurse && employee.getState() == "idle") {
 				return (Nurse) employee;
 			}
 		}
@@ -51,12 +66,12 @@ public class EmergencyDepartment {
 	}
 	
 	/**
-	 * This method search an idle transporter among the staff and return it if found
+	 * This method searches an idle transporter among the staff and return it if found
 	 * @return an idle transporter if there is one, null otherwise
 	 */
 	public Transporter getIdleTransporter() {
 		for (Human employee: staff) {
-			if(employee instanceof Transporter && ((Transporter) employee).getState() == "idle") {
+			if(employee instanceof Transporter && employee.getState() == "idle") {
 				return (Transporter) employee;
 			}
 		}
@@ -79,20 +94,20 @@ public class EmergencyDepartment {
 		this.patients.remove(patient);
 	}
 	
-	public ArrayList<Entity> getResources() {
-		return resources;
+	public ArrayList<Room> getRooms() {
+		return rooms;
 	}
 
-	public void setResources(ArrayList<Entity> resources) {
-		this.resources = resources;
+	public void setResources(ArrayList<Room> rooms) {
+		this.rooms = rooms;
 	}
 
-	public void addResource(Entity resource) {
-		this.resources.add(resource);
+	public void addRoom(Room room) {
+		this.rooms.add(room);
 	}
 	
-	public void removeResource(Entity resource) {
-		this.resources.remove(resource);
+	public void removeRoom(Room room) {
+		this.rooms.remove(room);
 	}
 	
 	public ArrayList<Human> getStaff() {
