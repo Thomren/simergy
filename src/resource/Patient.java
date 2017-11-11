@@ -7,7 +7,7 @@ import core.Event;
 import core.HealthInsurance;
 import core.Observable;
 import core.Observer;
-import core.severityLevel;
+import core.SeverityLevel;
 
 /**
  * Patient class represents the patients of the emergency department.
@@ -21,12 +21,20 @@ public class Patient extends Human implements Observable {
 	protected HealthInsurance healthInsurance;
 	protected ArrayList<Event> history;
 	protected Room location;
+<<<<<<< HEAD
 	protected core.severityLevel severityLevel;
+=======
+	protected core.SeverityLevel severityLevel;
+>>>>>>> 0c8ec913202324507e1758625b854dfec6a61ae9
 	protected double charges;
 	protected ArrayList<Observer> observers;
 
 	public Patient(String name, String surname, double arrivalTime, HealthInsurance healthInsurance, Room location,
+<<<<<<< HEAD
 			core.severityLevel severityLevel, EmergencyDepartment emergencyDepartment) {
+=======
+			core.SeverityLevel severityLevel, EmergencyDepartment emergencyDepartment) {
+>>>>>>> 0c8ec913202324507e1758625b854dfec6a61ae9
 		super(name, surname, "waiting", emergencyDepartment);
 		this.arrivalTime = arrivalTime;
 		this.healthInsurance = healthInsurance;
@@ -92,11 +100,11 @@ public class Patient extends Human implements Observable {
 		this.location = location;
 	}
 
-	public core.severityLevel getSeverityLevel() {
+	public core.SeverityLevel getSeverityLevel() {
 		return severityLevel;
 	}
 
-	public void setSeverityLevel(core.severityLevel severityLevel) {
+	public void setSeverityLevel(core.SeverityLevel severityLevel) {
 		this.severityLevel = severityLevel;
 	}
 
