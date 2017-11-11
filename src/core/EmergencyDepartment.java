@@ -14,9 +14,7 @@ public class EmergencyDepartment {
 	protected ArrayList<Event> history;
 	protected ArrayList<WorkflowElement> services;
 	
-	EmergencyDepartment(ProbabilityDistribution L1Distribution, ProbabilityDistribution L2Distribution,
-			ProbabilityDistribution L3Distribution, ProbabilityDistribution L4Distribution,
-			ProbabilityDistribution L5Distribution) {
+	EmergencyDepartment() {
 		patients = new ArrayList<Patient>();
 		resources = new ArrayList<Entity>();
 		staff = new ArrayList<Human>();
