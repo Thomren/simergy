@@ -5,8 +5,8 @@ package core;
  * @author Thomas
  *
  */
-public class severityLevel_L4 extends severityLevel {
-	public severityLevel_L4() {
+public class SeverityLevel_L4 extends SeverityLevel {
+	public SeverityLevel_L4() {
 		super("L4");
 	}
 }

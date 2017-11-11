@@ -5,10 +5,10 @@ package core;
  * @author Thomas
  *
  */
-public abstract class severityLevel {
+public abstract class SeverityLevel {
 	protected String name;
 	
-	public severityLevel(String name) {
+	public SeverityLevel(String name) {
 		this.name = name;
 	}
 }
