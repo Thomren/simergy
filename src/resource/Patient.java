@@ -22,19 +22,17 @@ public class Patient extends Human implements Observable {
 	protected ArrayList<Event> history;
 	protected Room location;
 	protected core.severityLevel severityLevel;
-	protected String state;
 	protected double charges;
 	protected ArrayList<Observer> observers;
 
 	public Patient(String name, String surname, double arrivalTime, HealthInsurance healthInsurance, Room location,
 			core.severityLevel severityLevel, EmergencyDepartment emergencyDepartment) {
-		super(name, surname, emergencyDepartment);
+		super(name, surname, "waiting", emergencyDepartment);
 		this.arrivalTime = arrivalTime;
 		this.healthInsurance = healthInsurance;
 		this.location = location;
 		this.severityLevel = severityLevel;
 		this.history = new ArrayList<Event>();
-		this.state = "waiting";
 		this.charges = 0;
 		this.observers = new ArrayList<Observer>();
 	}
