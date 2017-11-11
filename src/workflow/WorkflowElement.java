@@ -2,6 +2,7 @@ package workflow;
 
 import java.util.ArrayList;
 
+import core.EmergencyDepartment;
 import core.Entity;
 import core.ProbabilityDistribution;
 import resource.Patient;
@@ -19,8 +20,8 @@ public abstract class WorkflowElement extends Entity {
 	protected ArrayList<Patient> waitingQueue;
 	protected ProbabilityDistribution durationProbability;
 	
-	public WorkflowElement(String name, ProbabilityDistribution durationProbability) {
-		super(name);
+	public WorkflowElement(String name, ProbabilityDistribution durationProbability, EmergencyDepartment emergencyDepartment) {
+		super(name, emergencyDepartment);
 		this.waitingQueue = new ArrayList<Patient>();
 		this.durationProbability = durationProbability;
 	}
@@ -31,6 +32,17 @@ public abstract class WorkflowElement extends Entity {
 	 */
 	public void addPatientToWaitingList(Patient patient) {
 		this.waitingQueue.add(patient);
+	}
+	
+	
+	/**
+	 * This method return the next patient to be treated by the service.
+	 * It is selected in the waiting queue depending on the algorithm used.
+	 * Currently we use a FIFO algorithm.
+	 * @return Patient
+	 */
+	public Patient getNextPatient() {
+		return this.waitingQueue.remove(0);
 	}
 	
 	/**

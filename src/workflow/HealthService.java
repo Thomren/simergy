@@ -1,5 +1,6 @@
 package workflow;
 
+import core.EmergencyDepartment;
 import core.ProbabilityDistribution;
 
 /**
@@ -13,8 +14,8 @@ import core.ProbabilityDistribution;
 public abstract class HealthService extends WorkflowElement {
 	protected Double cost;
 
-	public HealthService(String name, ProbabilityDistribution durationProbability, Double cost) {
-		super(name, durationProbability);
+	public HealthService(String name, ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
+		super(name, durationProbability, emergencyDepartment);
 		this.cost = cost;
 	}
 

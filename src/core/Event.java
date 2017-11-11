@@ -8,4 +8,10 @@ package core;
 public class Event {
 	protected String name;
 	protected double timestamp;
+	
+	public Event(String name, double timestamp) {
+		super();
+		this.name = name;
+		this.timestamp = timestamp;
+	}
 }

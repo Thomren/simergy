@@ -1,5 +1,6 @@
 package workflow;
 
+import core.EmergencyDepartment;
 import core.ProbabilityDistribution;
 
 /**
@@ -12,8 +13,8 @@ import core.ProbabilityDistribution;
 
 public class TransportationToTest extends WorkflowElement {
 
-	public TransportationToTest(String name, ProbabilityDistribution durationProbability) {
-		super(name, durationProbability);
+	public TransportationToTest(String name, ProbabilityDistribution durationProbability, EmergencyDepartment emergencyDepartment) {
+		super(name, durationProbability, emergencyDepartment);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -1,5 +1,6 @@
 package workflow;
 
+import core.EmergencyDepartment;
 import core.ProbabilityDistribution;
 
 /**
@@ -12,8 +13,8 @@ import core.ProbabilityDistribution;
 
 public class BloodTest extends HealthService {
 
-	public BloodTest(String name, ProbabilityDistribution durationProbability, Double cost) {
-		super(name, durationProbability, cost);
+	public BloodTest(String name, ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
+		super(name, durationProbability, cost, emergencyDepartment);
 		// TODO Auto-generated constructor stub
 	}
 
