@@ -3,8 +3,10 @@ package core;
 import java.util.ArrayList;
 
 import resource.Human;
+import resource.Nurse;
 import resource.Patient;
 import resource.Physician;
+import resource.Transporter;
 import workflow.WorkflowElement;
 
 public class EmergencyDepartment {
@@ -20,6 +22,33 @@ public class EmergencyDepartment {
 		staff = new ArrayList<Human>();
 		history = new ArrayList<Event>();
 		services = new ArrayList<WorkflowElement>();
+	}
+	
+	public Physician getIdlePhysician() {
+		for (Human employee: staff) {
+			if(employee instanceof Physician && ((Physician) employee).getState() == "idle") {
+				return (Physician) employee;
+			}
+		}
+		return null;
+	}
+	
+	public Nurse getIdleNurse() {
+		for (Human employee: staff) {
+			if(employee instanceof Nurse && ((Nurse) employee).getState() == "idle") {
+				return (Nurse) employee;
+			}
+		}
+		return null;
+	}
+	
+	public Transporter getIdleTransporter() {
+		for (Human employee: staff) {
+			if(employee instanceof Transporter && ((Transporter) employee).getState() == "idle") {
+				return (Transporter) employee;
+			}
+		}
+		return null;
 	}
 
 	public ArrayList<Patient> getPatients() {
