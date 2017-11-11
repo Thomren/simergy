@@ -2,6 +2,7 @@ package resource;
 
 import java.util.ArrayList;
 
+import core.EmergencyDepartment;
 import core.Observer;
 
 /**
@@ -17,6 +18,17 @@ public class Physician extends Human implements Observer {
 	protected ArrayList<Patient> treatedPatients;
 	protected ArrayList<String> messageBox;
 	
+	public Physician(String name, String surname, EmergencyDepartment emergencyDepartment, String username,
+			String state, ArrayList<Patient> overseenPatients, ArrayList<Patient> treatedPatients,
+			ArrayList<String> messageBox) {
+		super(name, surname, emergencyDepartment);
+		this.username = username;
+		this.state = state;
+		this.overseenPatients = overseenPatients;
+		this.treatedPatients = treatedPatients;
+		this.messageBox = messageBox;
+	}
+
 	/**
 	 * This method display the messages in the physician's messageBox
 	 */

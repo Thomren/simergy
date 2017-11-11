@@ -1,5 +1,6 @@
 package resource;
 
+import core.EmergencyDepartment;
 import core.Entity;
 
 /**
@@ -11,13 +12,13 @@ import core.Entity;
 
 public class Stretcher extends Entity {
 
-	public Stretcher() {
-		super("stretcher");
+	public Stretcher(EmergencyDepartment emergencyDepartment) {
+		super("stretcher", emergencyDepartment);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Stretcher(String name) {
-		super(name);
+	public Stretcher(String name, EmergencyDepartment emergencyDepartment) {
+		super(name, emergencyDepartment);
 		// TODO Auto-generated constructor stub
 	}
 	

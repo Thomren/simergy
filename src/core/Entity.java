@@ -10,16 +10,13 @@ public abstract class Entity {
 	protected static int lastID = 0;
 	protected int ID;
 	protected String name;
+	protected EmergencyDepartment emergencyDepartment;
 	
-	public Entity(String name) {
+	public Entity(String name, EmergencyDepartment emergencyDepartment) {
 		this.ID = lastID + 1;
 		this.name = name;
-		lastID++; 
-	}
-	
-	public Entity() {
-		this.ID = lastID + 1;
-		lastID++; 
+		this.emergencyDepartment = emergencyDepartment;
+		lastID++;
 	}
 
 	public int getID() {
@@ -33,5 +30,13 @@ public abstract class Entity {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
+	public EmergencyDepartment getEmergencyDepartment() {
+		return emergencyDepartment;
+	}
+
+	public void setEmergencyDepartment(EmergencyDepartment emergencyDepartment) {
+		this.emergencyDepartment = emergencyDepartment;
+	}
+		
 }

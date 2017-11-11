@@ -1,5 +1,6 @@
 package resource;
 
+import core.EmergencyDepartment;
 import core.Entity;
 
 /**
@@ -10,12 +11,8 @@ import core.Entity;
 public abstract class Human extends Entity {
 	protected String surname;
 
-	public Human() {
-		super();
-	}
-
-	public Human(String name, String surname) {
-		super(name);
+	public Human(String name, String surname, EmergencyDepartment emergencyDepartment) {
+		super(name, emergencyDepartment);
 		this.surname = surname;
 	}
 

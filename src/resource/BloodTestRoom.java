@@ -1,5 +1,7 @@
 package resource;
 
+import core.EmergencyDepartment;
+
 /**
  * This is a class extending Rooms. It represents the Blood test rooms of the Emergency Department.
  * It is needed to pass a blood test.
@@ -9,8 +11,8 @@ package resource;
 
 public class BloodTestRoom extends Room {
 
-	public BloodTestRoom(String name, int capacity) {
-		super(name, capacity);
+	public BloodTestRoom(String name, int capacity, EmergencyDepartment emergencyDepartment) {
+		super(name, capacity, emergencyDepartment);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -1,5 +1,7 @@
 package resource;
 
+import core.EmergencyDepartment;
+
 /**
  * WaitingRoom is a class which represent the Waiting Rooms of the Emergency Department.
  * It extends Rooms.
@@ -9,8 +11,8 @@ package resource;
 
 public class WaitingRoom extends Room {
 
-	public WaitingRoom(String name, int capacity) {
-		super(name, capacity);
+	public WaitingRoom(String name, int capacity, EmergencyDepartment emergencyDepartment) {
+		super(name, capacity, emergencyDepartment);
 		// TODO Auto-generated constructor stub
 	}
 

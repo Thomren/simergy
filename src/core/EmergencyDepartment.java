@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import resource.Human;
 import resource.Patient;
+import resource.Physician;
 import workflow.WorkflowElement;
 
 public class EmergencyDepartment {
@@ -13,7 +14,9 @@ public class EmergencyDepartment {
 	protected ArrayList<Event> history;
 	protected ArrayList<WorkflowElement> services;
 	
-	EmergencyDepartment() {
+	EmergencyDepartment(ProbabilityDistribution L1Distribution, ProbabilityDistribution L2Distribution,
+			ProbabilityDistribution L3Distribution, ProbabilityDistribution L4Distribution,
+			ProbabilityDistribution L5Distribution) {
 		patients = new ArrayList<Patient>();
 		resources = new ArrayList<Entity>();
 		staff = new ArrayList<Human>();

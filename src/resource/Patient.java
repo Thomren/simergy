@@ -2,6 +2,7 @@ package resource;
 
 import java.util.ArrayList;
 
+import core.EmergencyDepartment;
 import core.Event;
 import core.HealthInsurance;
 import core.Observable;
@@ -20,14 +21,14 @@ public class Patient extends Human implements Observable {
 	protected HealthInsurance healthInsurance;
 	protected ArrayList<Event> history;
 	protected Room location;
-	protected severityLevel severityLevel;
+	protected core.severityLevel severityLevel;
 	protected String state;
 	protected double charges;
 	protected ArrayList<Observer> observers;
 
 	public Patient(String name, String surname, double arrivalTime, HealthInsurance healthInsurance, Room location,
-			core.severityLevel severityLevel) {
-		super(name, surname);
+			core.severityLevel severityLevel, EmergencyDepartment emergencyDepartment) {
+		super(name, surname, emergencyDepartment);
 		this.arrivalTime = arrivalTime;
 		this.healthInsurance = healthInsurance;
 		this.location = location;
@@ -93,11 +94,11 @@ public class Patient extends Human implements Observable {
 		this.location = location;
 	}
 
-	public severityLevel getSeverityLevel() {
+	public core.severityLevel getSeverityLevel() {
 		return severityLevel;
 	}
 
-	public void setSeverityLevel(severityLevel severityLevel) {
+	public void setSeverityLevel(core.severityLevel severityLevel) {
 		this.severityLevel = severityLevel;
 	}
 
