@@ -35,10 +35,14 @@ public class EmergencyDepartment {
 	 * @param roomType
 	 * @return an available room of the given type if there is one, null otherwise
 	 */
-	public Room getAvailableRoom(Class<Room> roomType) {
+	public Room getAvailableRoom(String roomType) {
 		for (Room room: rooms) {
-			if(roomType.isInstance(room) && room.isAvailable()) {
-				return room;
+			try {
+				if(Class.forName(roomType).isInstance(room) && room.isAvailable()) {
+					return room;
+				}
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
 			}
 		}
 		return null;
