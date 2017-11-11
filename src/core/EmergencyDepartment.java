@@ -10,6 +10,11 @@ import resource.Room;
 import resource.Transporter;
 import workflow.WorkflowElement;
 
+/**
+ * This class represents the whole emergency department. It stores all its entities and coordinates everything.
+ * @author Thomas
+ *
+ */
 public class EmergencyDepartment {
 	protected ArrayList<Patient> patients;
 	protected ArrayList<Room> rooms;
