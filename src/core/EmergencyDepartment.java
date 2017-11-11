@@ -6,10 +6,7 @@ import resource.Human;
 import resource.Nurse;
 import resource.Patient;
 import resource.Physician;
-<<<<<<< HEAD
-=======
 import resource.Room;
->>>>>>> 0c8ec913202324507e1758625b854dfec6a61ae9
 import resource.Transporter;
 import workflow.WorkflowElement;
 
@@ -35,11 +32,6 @@ public class EmergencyDepartment {
 		severityLevels = new ArrayList<SeverityLevel>();
 	}
 	
-<<<<<<< HEAD
-	public Physician getIdlePhysician() {
-		for (Human employee: staff) {
-			if(employee instanceof Physician && ((Physician) employee).getState() == "idle") {
-=======
 	/**
 	 * This method searches an available room of a given type and return it if found, or null if there isn't one
 	 * @param roomType
@@ -65,18 +57,12 @@ public class EmergencyDepartment {
 	public Physician getIdlePhysician() {
 		for (Human employee: staff) {
 			if(employee instanceof Physician && employee.getState() == "idle") {
->>>>>>> 0c8ec913202324507e1758625b854dfec6a61ae9
 				return (Physician) employee;
 			}
 		}
 		return null;
 	}
 	
-<<<<<<< HEAD
-	public Nurse getIdleNurse() {
-		for (Human employee: staff) {
-			if(employee instanceof Nurse && ((Nurse) employee).getState() == "idle") {
-=======
 	/**
 	 * This method searches an idle nurse among the staff and return it if found
 	 * @return an idle nurse if there is one, null otherwise
@@ -84,18 +70,12 @@ public class EmergencyDepartment {
 	public Nurse getIdleNurse() {
 		for (Human employee: staff) {
 			if(employee instanceof Nurse && employee.getState() == "idle") {
->>>>>>> 0c8ec913202324507e1758625b854dfec6a61ae9
 				return (Nurse) employee;
 			}
 		}
 		return null;
 	}
 	
-<<<<<<< HEAD
-	public Transporter getIdleTransporter() {
-		for (Human employee: staff) {
-			if(employee instanceof Transporter && ((Transporter) employee).getState() == "idle") {
-=======
 	/**
 	 * This method searches an idle transporter among the staff and return it if found
 	 * @return an idle transporter if there is one, null otherwise
@@ -103,7 +83,6 @@ public class EmergencyDepartment {
 	public Transporter getIdleTransporter() {
 		for (Human employee: staff) {
 			if(employee instanceof Transporter && employee.getState() == "idle") {
->>>>>>> 0c8ec913202324507e1758625b854dfec6a61ae9
 				return (Transporter) employee;
 			}
 		}

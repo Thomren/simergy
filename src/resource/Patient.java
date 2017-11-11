@@ -21,20 +21,12 @@ public class Patient extends Human implements Observable {
 	protected HealthInsurance healthInsurance;
 	protected ArrayList<Event> history;
 	protected Room location;
-<<<<<<< HEAD
-	protected core.severityLevel severityLevel;
-=======
 	protected core.SeverityLevel severityLevel;
->>>>>>> 0c8ec913202324507e1758625b854dfec6a61ae9
 	protected double charges;
 	protected ArrayList<Observer> observers;
 
 	public Patient(String name, String surname, double arrivalTime, HealthInsurance healthInsurance, Room location,
-<<<<<<< HEAD
-			core.severityLevel severityLevel, EmergencyDepartment emergencyDepartment) {
-=======
 			core.SeverityLevel severityLevel, EmergencyDepartment emergencyDepartment) {
->>>>>>> 0c8ec913202324507e1758625b854dfec6a61ae9
 		super(name, surname, "waiting", emergencyDepartment);
 		this.arrivalTime = arrivalTime;
 		this.healthInsurance = healthInsurance;
