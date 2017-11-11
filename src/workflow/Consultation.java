@@ -1,7 +1,10 @@
 package workflow;
 
 import core.EmergencyDepartment;
+import core.Event;
 import core.ProbabilityDistribution;
+import resource.Patient;
+import resource.Room;
 
 /**
  * This is a class extending HealthService. It represent the consultation service.
@@ -25,5 +28,36 @@ public class Consultation extends HealthService {
 		super(name, durationProbability, cost, emergencyDepartment);
 		// TODO Auto-generated constructor stub
 	}
+	
+	@Override
+	public void executeServiceOnPatient(Patient patient) {
+		// TODO Auto-generated method stub
+		if(emergencyDepartment.getIdlePhysician() != null) {
+			HealthService examination = this.determineExamination();
+			if(examination != null) {
+				if(emergencyDepartment.getIdleTransporter() != null) {
+				patient.setLocation(examination);
+				emergencyDepartment.getServices().examination.addPatient(patient);
+				Event consultation = new Event("consultation", 17.0);
+				patient.addEvent(consultation);
+				}
+				else {
+					emergencyDepartment.getServices().triage.addPatient(patient);
+				}
+			}
+			else {
+				emergencyDepartment.removePatient(patient);
+			}
+		}
+		else {
+			emergencyDepartment.getServices().consultation.addPatient(patient);
+		}
+	}
+
+	private HealthService determineExamination() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

@@ -13,8 +13,8 @@ import core.ProbabilityDistribution;
 
 public class MRI extends HealthService {
 
-	public MRI(String name, ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
-		super(name, durationProbability, cost, emergencyDepartment);
+	public MRI(ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
+		super("MRI", durationProbability, cost, emergencyDepartment);
 		// TODO Auto-generated constructor stub
 	}
 

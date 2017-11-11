@@ -67,8 +67,6 @@ public class Triage extends WorkflowElement {
 		else {
 			emergencyDepartment.getServices().triage.addPatient(patient);
 		}
-		
-		
 	}
 
 }

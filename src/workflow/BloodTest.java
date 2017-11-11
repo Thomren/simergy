@@ -13,8 +13,8 @@ import core.ProbabilityDistribution;
 
 public class BloodTest extends HealthService {
 
-	public BloodTest(String name, ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
-		super(name, durationProbability, cost, emergencyDepartment);
+	public BloodTest(ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
+		super("BloodTest", durationProbability, cost, emergencyDepartment);
 		// TODO Auto-generated constructor stub
 	}
 
