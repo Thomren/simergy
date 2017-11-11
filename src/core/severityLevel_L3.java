@@ -6,7 +6,7 @@ package core;
  *
  */
 public class SeverityLevel_L3 extends SeverityLevel {
-	public SeverityLevel_L3() {
-		super("L3");
+	public SeverityLevel_L3(ProbabilityDistribution probabilityDistribution) {
+		super("L3", 3, probabilityDistribution);
 	}
 }

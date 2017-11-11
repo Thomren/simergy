@@ -24,6 +24,7 @@ public class EmergencyDepartment {
 	protected ArrayList<Human> staff;
 	protected ArrayList<Event> history;
 	protected ArrayList<WorkflowElement> services;
+	protected ArrayList<SeverityLevel> severityLevels;
 	
 	EmergencyDepartment() {
 		patients = new ArrayList<Patient>();
@@ -31,6 +32,7 @@ public class EmergencyDepartment {
 		staff = new ArrayList<Human>();
 		history = new ArrayList<Event>();
 		services = new ArrayList<WorkflowElement>();
+		severityLevels = new ArrayList<SeverityLevel>();
 	}
 	
 <<<<<<< HEAD
@@ -128,7 +130,7 @@ public class EmergencyDepartment {
 		return rooms;
 	}
 
-	public void setResources(ArrayList<Room> rooms) {
+	public void setRooms(ArrayList<Room> rooms) {
 		this.rooms = rooms;
 	}
 
@@ -186,5 +188,21 @@ public class EmergencyDepartment {
 	
 	public void removeService(WorkflowElement service) {
 		this.services.remove(service);
+	}
+
+	public ArrayList<SeverityLevel> getSeverityLevels() {
+		return severityLevels;
+	}
+
+	public void setSeverityLevels(ArrayList<SeverityLevel> severityLevels) {
+		this.severityLevels = severityLevels;
+	}
+	
+	public void addSeverityLevel(SeverityLevel severityLevel) {
+		this.severityLevels.add(severityLevel);
+	}
+	
+	public void removeSeverityLevel(SeverityLevel severityLevel) {
+		this.severityLevels.remove(severityLevel);
 	}
 }
