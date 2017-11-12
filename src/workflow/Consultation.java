@@ -1,5 +1,7 @@
 package workflow;
 
+import java.util.Random;
+
 import core.EmergencyDepartment;
 import core.Event;
 import core.ProbabilityDistribution;
@@ -25,6 +27,11 @@ import resource.Room;
  */
 
 public class Consultation extends WorkflowElement {
+	private final Double noExamRate = 0.4;
+	private final Double bloodTestRate = 0.35;
+	private final Double xRayRate = 0.2;
+	private final Double mRIRate = 0.05;
+	
 
 	public Consultation(String name, ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
 		super(name, durationProbability, cost, emergencyDepartment);
@@ -44,30 +51,58 @@ public class Consultation extends WorkflowElement {
 	@Override
 	public void executeServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub
-		Physician physician = emergencyDepartment.getIdlePhysician();
-		if(physician != null) {
-			if(!physician.getOverseenPatients().contains(patient)) {
-				physician.addOverseenPatient(patient);
-			}
-			HealthService examination = this.determineExamination();
-			if(examination != null) {
-				emergencyDepartment.getService("examination").addPatientToWaitingList(patient);
-				Event consultation = new Event("consultation", 17.0);
-				patient.addEvent(consultation);
+		if(patient.getPhysician() != null) {
+			Physician physician = patient.getPhysician();
+			if (physician.getState() == "idle") {
+				this.examinePatient(physician, patient);
 			}
 			else {
-				physician.addTreatedPatient(patient);
-				emergencyDepartment.removePatient(patient);
+				emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
 			}
 		}
 		else {
-			emergencyDepartment.getService("consultation").addPatientToWaitingList(patient);
+			Physician physician = emergencyDepartment.getIdlePhysician();
+			if(physician != null) {
+				physician.addOverseenPatient(patient);
+				patient.addObserver(physician);
+				this.examinePatient(physician, patient);
+			}
+			else {
+				emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
+			}
 		}
 	}
 
-	private HealthService determineExamination() {
+	private String determineExamination() {
 		// TODO Auto-generated method stub
-		return null;
+		Random random = new Random();
+		Double exam = random.nextDouble();
+		if(exam < noExamRate) {
+			return "Release";
+		}
+		else if (exam < (noExamRate + bloodTestRate)) {
+			return "BloodTest";
+		}
+		else if (exam < (noExamRate + bloodTestRate + xRayRate)) {
+			return "XRay";
+		}
+		else {
+			return "IRM";
+		}
+	}
+	
+	public void examinePatient(Physician physician, Patient patient) {
+		String examination = this.determineExamination();
+		Event consultation = new Event("Consultation: ".concat(examination), patient.getHistoryTime() + 17.0);
+		patient.addEvent(consultation);
+		if(examination != "Release") {
+			emergencyDepartment.getService(examination).addPatientToWaitingList(patient);
+		}
+		else {
+			physician.removeOverseenPatient(patient);
+			physician.addTreatedPatient(patient);
+			emergencyDepartment.removePatient(patient);
+		}
 	}
 
 

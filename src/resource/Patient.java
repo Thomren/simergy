@@ -61,7 +61,7 @@ public class Patient extends Human implements Observable {
 	public void notifyObservers() {
 		if(history.size() > 0) {
 			for (Observer observer : observers) {
-				observer.update(history.get(history.size() - 1));
+				observer.update(history.get(history.size() - 1).getName());
 			}
 		}
 	}

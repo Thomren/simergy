@@ -60,7 +60,12 @@ public abstract class WorkflowElement extends Entity {
 	 * @see executeServiceOnPatient
 	 */
 	public void handleNextPatient() {
-		this.executeServiceOnPatient(this.getNextPatient());
+		try {
+			this.executeServiceOnPatient(this.getNextPatient());
+		}
+		catch(IndexOutOfBoundsException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Double getCost() {

@@ -34,7 +34,7 @@ public abstract class HealthService extends WorkflowElement {
 		if(emergencyDepartment.getIdleTransporter() != null) {
 			Room healthServiceRoom = emergencyDepartment.getAvailableRoom(this.getName().concat("Room"));
 			if(healthServiceRoom != null) {
-				emergencyDepartment.getService("transportation").executeServiceOnPatient(patient);
+				emergencyDepartment.getService("Transportation").executeServiceOnPatient(patient);
 				patient.setLocation(healthServiceRoom);
 				Double beginning = patient.getHistoryTime();
 				Double duration = this.durationProbability.generateSample();
@@ -43,7 +43,7 @@ public abstract class HealthService extends WorkflowElement {
 				patient.addEvent(serviceBeginning);
 				patient.addEvent(serviceEnding);
 				patient.notifyObservers();
-				emergencyDepartment.getService("consultation").addPatientToWaitingList(patient);
+				emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
 			}
 		}
 		else {

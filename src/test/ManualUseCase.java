@@ -26,7 +26,7 @@ public class ManualUseCase {
 	public static void main(String[] args) {
 		System.out.println("Beginning of manual use case");
 		// Create the ED
-		EmergencyDepartment ED = new EmergencyDepartment("CentruleRupélec");
+		EmergencyDepartment ED = new EmergencyDepartment("CentruleRupelec");
 		// Add 5 waiting rooms with a capacity of 10
 		WaitingRoom wr1 = new WaitingRoom("Waiting Room 1", 10, ED);
 		ED.addRoom(wr1);
@@ -52,9 +52,9 @@ public class ManualUseCase {
 		// Add 4 physicians
 		Physician ph1 = new Physician("Henri", "Golo", "Physician1", ED);
 		ED.addEmployee(ph1);
-		Physician ph2 = new Physician("Paula", "Roïd", "Physician2", ED);
+		Physician ph2 = new Physician("Paula", "Roid", "Physician2", ED);
 		ED.addEmployee(ph2);
-		Physician ph3 = new Physician("Claire", "Hyère", "Physician3", ED);
+		Physician ph3 = new Physician("Claire", "Hyere", "Physician3", ED);
 		ED.addEmployee(ph3);
 		Physician ph4 = new Physician("Harry", "Cover", "Physician4", ED);
 		ED.addEmployee(ph4);
@@ -68,9 +68,9 @@ public class ManualUseCase {
 		Nurse n4 = new Nurse("Jean", "Bon", ED);
 		ED.addEmployee(n4);
 		// Add 4 transporters
-		Transporter tr1 = new Transporter("Alain", "Térieur", ED);
+		Transporter tr1 = new Transporter("Alain", "Terieur", ED);
 		ED.addEmployee(tr1);
-		Transporter tr2 = new Transporter("Alex", "Térieur", ED);
+		Transporter tr2 = new Transporter("Alex", "Terieur", ED);
 		ED.addEmployee(tr2);
 		Transporter tr3 = new Transporter("Marie", "Age", ED);
 		ED.addEmployee(tr3);
@@ -80,13 +80,25 @@ public class ManualUseCase {
 		Patient pat1 = new Patient("Jerry", "Kan", (HealthInsurance) new GoldInsurance(), (SeverityLevel) ED.getSeverityLevel(3), ED);
 		ED.patientRegistration(pat1);
 		// Triage
-		ED.getService("Triage").executeServiceOnPatient(pat1);
+		ED.getService("Triage").handleNextPatient();
 		// Consultation
-		ED.getService("Consultation").executeServiceOnPatient(pat1);
-		// Transportation to test
-		ED.getService("Transportation").executeServiceOnPatient(pat1);
+		ED.getService("Consultation").handleNextPatient();
 		// Examination
-		ED.getService("Consultation").executeServiceOnPatient(pat1);
+		ED.getService("BloodTest").handleNextPatient();
+		ED.getService("MRI").handleNextPatient();
+		ED.getService("XRay").handleNextPatient();
+		// Consultation
+		ED.getService("Consultation").handleNextPatient();
+		// Examination
+		ED.getService("BloodTest").handleNextPatient();
+		ED.getService("MRI").handleNextPatient();
+		ED.getService("XRay").handleNextPatient();
+		// Consultation
+		ED.getService("Consultation").handleNextPatient();
+		// Examination
+		ED.getService("BloodTest").handleNextPatient();
+		ED.getService("MRI").handleNextPatient();
+		ED.getService("XRay").handleNextPatient();
 		pat1.printReport();
 		ED.printReport();
 		System.out.println("Patient successfully treated and left hospital !");
