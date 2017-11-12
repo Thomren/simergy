@@ -43,6 +43,7 @@ public class Physician extends Human implements Observer {
 	@Override
 	public void update(Object message) {
 		messageBox.add((String) message);
+		System.out.println("Physician " + name + " " + surname + " received a new message :\n" + message);
 	}
 
 	public String getUsername() {

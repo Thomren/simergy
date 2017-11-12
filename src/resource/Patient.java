@@ -117,7 +117,7 @@ public class Patient extends Human implements Observable {
 	}
 	
 	public void addCharges(double charges) {
-		this.charges += charges;
+		this.charges += healthInsurance.computeDiscountedPrice(charges);
 	}
 
 	public ArrayList<Observer> getObservers() {
