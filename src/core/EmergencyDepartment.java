@@ -9,7 +9,14 @@ import resource.Patient;
 import resource.Physician;
 import resource.Room;
 import resource.Transporter;
+import workflow.BloodTest;
+import workflow.Consultation;
+import workflow.Installation;
+import workflow.MRI;
+import workflow.TransportationToTest;
+import workflow.Triage;
 import workflow.WorkflowElement;
+import workflow.XRay;
 
 /**
  * This class represents the whole emergency department. It stores all its entities and coordinates everything.
@@ -23,8 +30,9 @@ public class EmergencyDepartment {
 	protected ArrayList<Event> history;
 	protected WorkflowElement[] services;
 	protected ArrayList<SeverityLevel> severityLevels;
+	protected double time;
 	
-	EmergencyDepartment() {
+	public EmergencyDepartment() {
 		patients = new ArrayList<Patient>();
 		rooms = new ArrayList<Room>();
 		staff = new ArrayList<Human>();
@@ -33,6 +41,11 @@ public class EmergencyDepartment {
 				new Consultation(this), new Installation(this), new MRI(this),
 				new Transportation(this), new Triage(this), new XRay(this)};
 		severityLevels = new ArrayList<SeverityLevel>();
+		time = 0;
+	}
+	
+	public void patientRegistration(Patient patient) {
+		addPatient(patient);
 	}
 	
 	/**
@@ -197,4 +210,13 @@ public class EmergencyDepartment {
 	public void removeSeverityLevel(SeverityLevel severityLevel) {
 		this.severityLevels.remove(severityLevel);
 	}
+
+	public double getTime() {
+		return time;
+	}
+
+	public void setTime(double time) {
+		this.time = time;
+	}
+	
 }

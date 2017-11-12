@@ -17,14 +17,12 @@ public class Physician extends Human implements Observer {
 	protected ArrayList<Patient> treatedPatients;
 	protected ArrayList<String> messageBox;
 	
-	public Physician(String name, String surname, EmergencyDepartment emergencyDepartment, String username,
-			ArrayList<Patient> overseenPatients, ArrayList<Patient> treatedPatients,
-			ArrayList<String> messageBox) {
+	public Physician(String name, String surname, String username, EmergencyDepartment emergencyDepartment) {
 		super(name, surname, "idle", emergencyDepartment);
 		this.username = username;
-		this.overseenPatients = overseenPatients;
-		this.treatedPatients = treatedPatients;
-		this.messageBox = messageBox;
+		this.overseenPatients = new ArrayList<Patient>();
+		this.treatedPatients = new ArrayList<Patient>();
+		this.messageBox = new ArrayList<String>();
 	}
 
 	/**
@@ -40,9 +38,15 @@ public class Physician extends Human implements Observer {
 		System.out.println(content.toString());
 	}
 	
+	public void endPatientOverseeing(Patient patient) {
+		removeOverseenPatient(patient);
+		addTreatedPatient(patient);
+	}
+	
 	@Override
 	public void update(Object message) {
 		messageBox.add((String) message);
+		System.out.println("Physician " + name + " " + surname + " received a new message :\n" + message);
 	}
 
 	public String getUsername() {
@@ -74,7 +78,7 @@ public class Physician extends Human implements Observer {
 	 * to the patient's events diffusion.
 	 * @param patient is the patient to add the list of the physician's currently followed patients
 	 */
-	public void addOverseenPatien(Patient patient) {
+	public void addOverseenPatient(Patient patient) {
 		patient.addObserver(this);
 		overseenPatients.add(patient);
 	}

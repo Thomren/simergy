@@ -23,7 +23,14 @@ public class UniformDistribution implements ProbabilityDistribution {
 
 	@Override
 	public double generateSample() {
-		return Math.random() * ( max - min );
+		return min + Math.random() * ( max - min );
+	}
+	
+	public static void main(String[] args) {
+		UniformDistribution dist = new UniformDistribution(2, 5);
+		for (int i = 0; i < 15; i++) {
+			System.out.println(dist.generateSample());
+		}
 	}
 	
 }
