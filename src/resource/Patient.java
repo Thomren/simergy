@@ -84,6 +84,15 @@ public class Patient extends Human implements Observable {
 		this.history.add(event);
 	}
 	
+	/**
+	 * This method returns the time of the last entry in the history.
+	 * @return double
+	 */
+	public Double getHistoryTime() {
+		return this.history.get(this.history.size()-1).getTimestamp();
+		
+	}
+	
 	public Room getLocation() {
 		return location;
 	}

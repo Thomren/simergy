@@ -31,7 +31,7 @@ public class EmergencyDepartment {
 		history = new ArrayList<Event>();
 		services = new WorkflowElement[] {new BloodTest(this),
 				new Consultation(this), new Installation(this), new MRI(this),
-				new TransportationToTest(this), new Triage(this), new XRay(this)};
+				new Transportation(this), new Triage(this), new XRay(this)};
 		severityLevels = new ArrayList<SeverityLevel>();
 	}
 	

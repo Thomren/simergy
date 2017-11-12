@@ -14,4 +14,20 @@ public class Event {
 		this.name = name;
 		this.timestamp = timestamp;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(double timestamp) {
+		this.timestamp = timestamp;
+	}
 }
