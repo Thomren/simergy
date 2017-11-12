@@ -1,6 +1,7 @@
 package core;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import resource.Human;
 import resource.Nurse;
@@ -20,7 +21,7 @@ public class EmergencyDepartment {
 	protected ArrayList<Room> rooms;
 	protected ArrayList<Human> staff;
 	protected ArrayList<Event> history;
-	protected ArrayList<WorkflowElement> services;
+	protected WorkflowElement[] services;
 	protected ArrayList<SeverityLevel> severityLevels;
 	
 	EmergencyDepartment() {
@@ -28,7 +29,9 @@ public class EmergencyDepartment {
 		rooms = new ArrayList<Room>();
 		staff = new ArrayList<Human>();
 		history = new ArrayList<Event>();
-		services = new ArrayList<WorkflowElement>();
+		services = new WorkflowElement[] {new BloodTest(this),
+				new Consultation(this), new Installation(this), new MRI(this),
+				new TransportationToTest(this), new Triage(this), new XRay(this)};
 		severityLevels = new ArrayList<SeverityLevel>();
 	}
 	
@@ -89,6 +92,24 @@ public class EmergencyDepartment {
 		return null;
 	}
 
+	/**
+	 * This method return a service of the hospital by name
+	 * @param serviceName the wanted service
+	 * @return the searched service
+	 */
+	public WorkflowElement getService(String serviceName) {
+		for (WorkflowElement service: services) {
+			try {
+				if(Class.forName(serviceName).isInstance(service)) {
+					return service;
+				}
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+	
 	public ArrayList<Patient> getPatients() {
 		return patients;
 	}
@@ -153,20 +174,12 @@ public class EmergencyDepartment {
 		this.history.remove(event);
 	}
 	
-	public ArrayList<WorkflowElement> getServices() {
+	public WorkflowElement[] getServices() {
 		return services;
 	}
 
-	public void setServices(ArrayList<WorkflowElement> services) {
+	public void setServices(WorkflowElement[] services) {
 		this.services = services;
-	}
-	
-	public void addService(WorkflowElement service) {
-		this.services.add(service);
-	}
-	
-	public void removeService(WorkflowElement service) {
-		this.services.remove(service);
 	}
 
 	public ArrayList<SeverityLevel> getSeverityLevels() {
