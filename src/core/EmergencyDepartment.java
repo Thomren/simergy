@@ -45,7 +45,14 @@ public class EmergencyDepartment {
 	}
 	
 	public void patientRegistration(Patient patient) {
-		addPatient(patient);
+		Room waitingRoom = getAvailableRoom("WaitingRoom");
+		if (waitingRoom != null) {
+			patient.setLocation(waitingRoom);
+			patient.setArrivalTime(time);
+			patient.addEvent(new Event("Arrival", time));
+			addPatient(patient); // Add the patient in the ED
+			getService("Triage").addPatientToWaitingList(patient);
+		}
 	}
 	
 	/**
