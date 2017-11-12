@@ -17,14 +17,12 @@ public class Physician extends Human implements Observer {
 	protected ArrayList<Patient> treatedPatients;
 	protected ArrayList<String> messageBox;
 	
-	public Physician(String name, String surname, EmergencyDepartment emergencyDepartment, String username,
-			ArrayList<Patient> overseenPatients, ArrayList<Patient> treatedPatients,
-			ArrayList<String> messageBox) {
+	public Physician(String name, String surname, String username, EmergencyDepartment emergencyDepartment) {
 		super(name, surname, "idle", emergencyDepartment);
 		this.username = username;
-		this.overseenPatients = overseenPatients;
-		this.treatedPatients = treatedPatients;
-		this.messageBox = messageBox;
+		this.overseenPatients = new ArrayList<Patient>();
+		this.treatedPatients = new ArrayList<Patient>();
+		this.messageBox = new ArrayList<String>();
 	}
 
 	/**
