@@ -50,4 +50,13 @@ public abstract class WorkflowElement extends Entity {
 	 * @param patient
 	 */
 	public abstract void executeServiceOnPatient(Patient patient);
+	
+	/**
+	 * This method handle the next patient of the service.
+	 * @see getNextPatient
+	 * @see executeServiceOnPatient
+	 */
+	public void handleNextPatient() {
+		this.executeServiceOnPatient(this.getNextPatient());
+	}
 }

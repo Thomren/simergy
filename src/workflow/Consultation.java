@@ -9,8 +9,9 @@ import resource.Room;
 /**
  * This is a class extending HealthService. It represent the consultation service.
  * Patients came here to see a Physician. The physician determine if they have to pass a medical test.
- * If so, the physician send them to the appropriate service thanks to TransportToTest.
- * The proportions are the following:
+ * If so, the physician register them to the appropriate service.
+ * The Patient can wait for a transporter in the physician's room. 
+ * The proportions of medical tests are the following:
  * <ul>
  * <li>No test: 35%</li>
  * <li>Blood test: 40%</li>
@@ -35,14 +36,9 @@ public class Consultation extends HealthService {
 		if(emergencyDepartment.getIdlePhysician() != null) {
 			HealthService examination = this.determineExamination();
 			if(examination != null) {
-				if(emergencyDepartment.getIdleTransporter() != null) {
-				patient.setLocation(examination);
 				emergencyDepartment.getServices().examination.addPatient(patient);
 				Event consultation = new Event("consultation", 17.0);
 				patient.addEvent(consultation);
-				}
-				else {
-					emergencyDepartment.getServices().triage.addPatient(patient);
 				}
 			}
 			else {

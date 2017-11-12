@@ -38,12 +38,12 @@ public class Triage extends WorkflowElement {
 			if(patient.getSeverityLevel().getLevel() <= 2) {
 				Room shockRoom = emergencyDepartment.getAvailableRoom("ShockRoom");
 				if(shockRoom != null) {
-				patient.setLocation(shockRoom);
-				emergencyDepartment.getServices().consultation.addPatient(patient);
-				Event registration = new Event("registration", 0.0);
-				Event installation = new Event("installation", 2.0);
-				patient.addEvent(registration);
-				patient.addEvent(installation);
+					patient.setLocation(shockRoom);
+					emergencyDepartment.getServices().consultation.addPatient(patient);
+					Event registration = new Event("registration", 0.0);
+					Event installation = new Event("installation", 2.0);
+					patient.addEvent(registration);
+					patient.addEvent(installation);
 				}
 				else {
 					emergencyDepartment.getServices().triage.addPatient(patient);
@@ -52,12 +52,12 @@ public class Triage extends WorkflowElement {
 			else {
 				Room boxRoom = emergencyDepartment.getAvailableRoom("BoxRoom");
 				if(boxRoom != null) {
-				patient.setLocation(boxRoom);
-				emergencyDepartment.getServices().consultation.addPatient(patient);
-				Event registration = new Event("registration", 0.0);
-				Event installation = new Event("installation", 2.0);
-				patient.addEvent(registration);
-				patient.addEvent(installation);
+					patient.setLocation(boxRoom);
+					emergencyDepartment.getServices().consultation.addPatient(patient);
+					Event registration = new Event("registration", 0.0);
+					Event installation = new Event("installation", 2.0);
+					patient.addEvent(registration);
+					patient.addEvent(installation);
 				}
 				else {
 					emergencyDepartment.getServices().triage.addPatient(patient);
