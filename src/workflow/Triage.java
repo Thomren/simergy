@@ -18,8 +18,8 @@ import resource.ShockRoom;
 
 public class Triage extends WorkflowElement {
 
-	public Triage(String name, ProbabilityDistribution durationProbability, EmergencyDepartment emergencyDepartment) {
-		super(name, durationProbability, emergencyDepartment);
+	public Triage(String name, ProbabilityDistribution durationProbability, EmergencyDepartment emergencyDepartment, Double cost) {
+		super(name, durationProbability, cost, emergencyDepartment);
 	}
 	
 	/**
@@ -38,34 +38,32 @@ public class Triage extends WorkflowElement {
 			if(patient.getSeverityLevel().getLevel() <= 2) {
 				Room shockRoom = emergencyDepartment.getAvailableRoom("ShockRoom");
 				if(shockRoom != null) {
-					patient.setLocation(shockRoom);
-					emergencyDepartment.getServices().consultation.addPatient(patient);
-					Event registration = new Event("registration", 0.0);
-					Event installation = new Event("installation", 2.0);
+					Event registration = new Event("registration", patient.getHistoryTime());
 					patient.addEvent(registration);
-					patient.addEvent(installation);
+					emergencyDepartment.getService("installation").executeServiceOnPatient(patient);
+					patient.setLocation(shockRoom);
+					emergencyDepartment.getService("consultation").addPatientToWaitingList(patient);
 				}
 				else {
-					emergencyDepartment.getServices().triage.addPatient(patient);
+					emergencyDepartment.getService("triage").addPatientToWaitingList(patient);
 				}
 			}
 			else {
 				Room boxRoom = emergencyDepartment.getAvailableRoom("BoxRoom");
 				if(boxRoom != null) {
-					patient.setLocation(boxRoom);
-					emergencyDepartment.getServices().consultation.addPatient(patient);
-					Event registration = new Event("registration", 0.0);
-					Event installation = new Event("installation", 2.0);
+					Event registration = new Event("registration", patient.getHistoryTime());
 					patient.addEvent(registration);
-					patient.addEvent(installation);
+					emergencyDepartment.getService("installation").executeServiceOnPatient(patient);
+					patient.setLocation(boxRoom);
+					emergencyDepartment.getService("consultation").addPatientToWaitingList(patient);
 				}
 				else {
-					emergencyDepartment.getServices().triage.addPatient(patient);
+					emergencyDepartment.getService("triage").addPatientToWaitingList(patient);
 				}
 			}
 		}
 		else {
-			emergencyDepartment.getServices().triage.addPatient(patient);
+			emergencyDepartment.getService("triage").addPatientToWaitingList(patient);
 		}
 	}
 

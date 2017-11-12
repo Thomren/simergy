@@ -11,7 +11,8 @@ import resource.Patient;
  * This is an abstract class which represents every workflow element in the Emergency Department.
  * A workflow element represent a special task.
  * It has a waiting queue of patients and apply the treatment to the first one.
- * It takes a random time given by a probability distribution.
+ * It has a cost.
+ * It may take a random time given by a probability distribution.
  * @author Quentin
  *
  */
@@ -19,11 +20,13 @@ import resource.Patient;
 public abstract class WorkflowElement extends Entity {
 	protected ArrayList<Patient> waitingQueue;
 	protected ProbabilityDistribution durationProbability;
+	protected Double cost;
 	
-	public WorkflowElement(String name, ProbabilityDistribution durationProbability, EmergencyDepartment emergencyDepartment) {
+	public WorkflowElement(String name, ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
 		super(name, emergencyDepartment);
 		this.waitingQueue = new ArrayList<Patient>();
 		this.durationProbability = durationProbability;
+		this.cost = cost;
 	}
 	
 	/**
@@ -58,5 +61,13 @@ public abstract class WorkflowElement extends Entity {
 	 */
 	public void handleNextPatient() {
 		this.executeServiceOnPatient(this.getNextPatient());
+	}
+
+	public Double getCost() {
+		return cost;
+	}
+
+	public void setCost(Double cost) {
+		this.cost = cost;
 	}
 }
