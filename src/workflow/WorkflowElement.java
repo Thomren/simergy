@@ -70,4 +70,14 @@ public abstract class WorkflowElement extends Entity {
 	public void setCost(Double cost) {
 		this.cost = cost;
 	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
+	
+	public String toStringDetailed() {
+		return toString() + " (Cost: " + cost + ")\n    Waiting List : " + waitingQueue;
+	}
+	
 }

@@ -61,5 +61,9 @@ public abstract class Room extends Entity {
 	public String toString() {
 		return name;
 	}
+	
+	public String toStringDetailed() {
+		return name + " (" + patients.size() + "/" + capacity + ") : " + patients;
+	}
 
 }

@@ -5,11 +5,17 @@ import core.GoldInsurance;
 import core.HealthInsurance;
 import core.SeverityLevel;
 import core.SeverityLevel_L1;
+import resource.BloodTestRoom;
+import resource.BoxRoom;
+import resource.MRIRoom;
 import resource.Nurse;
 import resource.Patient;
 import resource.Physician;
+import resource.ShockRoom;
 import resource.Transporter;
 import resource.WaitingRoom;
+import resource.XRayRoom;
+import workflow.BloodTest;
 
 /**
  * This class is a manual user case in order to test the first version of the app
@@ -32,6 +38,17 @@ public class ManualUseCase {
 		ED.addRoom(wr4);
 		WaitingRoom wr5 = new WaitingRoom("Waiting Room 5", 10, ED);
 		ED.addRoom(wr5);
+		// Add other rooms
+		BoxRoom r1 = new BoxRoom("Box Room 1", 1, ED);
+		ED.addRoom(r1);
+		ShockRoom r2 = new ShockRoom("Shock Room 1", 1, ED);
+		ED.addRoom(r2);
+		XRayRoom r3 = new XRayRoom("XRay Room 1", 1, ED);
+		ED.addRoom(r3);
+		MRIRoom r4 = new MRIRoom("MRI Room 1", 1, ED);
+		ED.addRoom(r4);
+		BloodTestRoom r5 = new BloodTestRoom("Blood Test Room 1", 1, ED);
+		ED.addRoom(r5);
 		// Add 4 physicians
 		Physician ph1 = new Physician("Henri", "Golo", "Physician1", ED);
 		ED.addEmployee(ph1);
@@ -71,6 +88,7 @@ public class ManualUseCase {
 		// Examination
 		ED.getService("Consultation").executeServiceOnPatient(pat1);
 		pat1.printReport();
+		ED.printReport();
 		System.out.println("Patient successfully treated and left hospital !");
 		
 	}

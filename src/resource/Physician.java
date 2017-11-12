@@ -136,5 +136,9 @@ public class Physician extends Human implements Observer {
 		return "Physician " + name + " " + surname;
 	}
 	
+	public String toStringDetailed() {
+		return toString() + "\n    Overseen : " + overseenPatients + "\n    Treated : " + treatedPatients;
+	}
+	
 	
 }

@@ -241,5 +241,49 @@ public class EmergencyDepartment {
 	public void setTime(double time) {
 		this.time = time;
 	}
+
+	@Override
+	public String toString() {
+		return "EmergencyDepartment " + name;
+	}
+	
+	/**
+	 * This method print all the informations about the Emergency Department and
+	 * all its content
+	 */
+	public void printReport() {
+		StringBuffer content = new StringBuffer();
+		content.append("\n----- Emergency Department Report -----\n");
+		content.append(this.toString() + "\n");
+		content.append("Current time : " + time + "\n");
+		content.append("• Patients : \n");
+		for (Patient patient : patients) {
+			content.append(patient).append('\n');
+		}
+		content.append("• Rooms : \n");
+		for (Room room : rooms) {
+			content.append(room.toStringDetailed()).append('\n');
+		}
+		content.append("• Staff : \n");
+		for (Human employee : staff) {
+			if (employee instanceof Physician) {
+				content.append(((Physician) employee).toStringDetailed() + "\n");
+			}
+			else {
+				content.append(employee).append('\n');
+			}
+		}
+		content.append("• Services : \n");
+		for (WorkflowElement service : services) {
+			content.append(service.toStringDetailed()).append('\n');
+		}
+		content.append("• History : \n");
+		for (Event event : history) {
+			content.append(event).append('\n');
+		}
+		System.out.println(content.toString());
+	}
+	
+	
 	
 }
