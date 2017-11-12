@@ -23,5 +23,10 @@ public abstract class HealthInsurance {
 	public double computeDiscountedPrice(double charge) {
 		return charge * (1 - discount);
 	}
+
+	@Override
+	public String toString() {
+		return "HealthInsurance " + name;
+	}
 	
 }

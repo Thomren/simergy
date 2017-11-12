@@ -38,6 +38,12 @@ public class Physician extends Human implements Observer {
 		System.out.println(content.toString());
 	}
 	
+	/**
+	 * This method move a patient from the overseenPatients to the treatedPatients.
+	 * When the emission of the outcome for a patient happened, the physician no longer
+	 * need to follow him.
+	 * @param patient
+	 */
 	public void endPatientOverseeing(Patient patient) {
 		removeOverseenPatient(patient);
 		addTreatedPatient(patient);
@@ -124,5 +130,11 @@ public class Physician extends Human implements Observer {
 	public void setMessageBox(ArrayList<String> messageBox) {
 		this.messageBox = messageBox;
 	}
+
+	@Override
+	public String toString() {
+		return "Physician " + name + " " + surname;
+	}
+	
 	
 }

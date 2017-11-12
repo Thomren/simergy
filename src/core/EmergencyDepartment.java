@@ -9,11 +9,12 @@ import resource.Patient;
 import resource.Physician;
 import resource.Room;
 import resource.Transporter;
+import resource.WaitingRoom;
 import workflow.BloodTest;
 import workflow.Consultation;
 import workflow.Installation;
 import workflow.MRI;
-import workflow.TransportationToTest;
+import workflow.Transportation;
 import workflow.Triage;
 import workflow.WorkflowElement;
 import workflow.XRay;
@@ -29,25 +30,44 @@ public class EmergencyDepartment {
 	protected ArrayList<Human> staff;
 	protected ArrayList<Event> history;
 	protected WorkflowElement[] services;
-	protected ArrayList<SeverityLevel> severityLevels;
+	protected SeverityLevel[] severityLevels;
 	protected double time;
+	protected String name;
 	
-	public EmergencyDepartment() {
+	public EmergencyDepartment(String name) {
+		this.name = name;
 		patients = new ArrayList<Patient>();
 		rooms = new ArrayList<Room>();
 		staff = new ArrayList<Human>();
 		history = new ArrayList<Event>();
-		services = new WorkflowElement[] {new BloodTest(this),
-				new Consultation(this), new Installation(this), new MRI(this),
-				new Transportation(this), new Triage(this), new XRay(this)};
-		severityLevels = new ArrayList<SeverityLevel>();
+		services = new WorkflowElement[] {
+				new BloodTest((ProbabilityDistribution) new DeterministicDistribution(5), 15., this),
+				new Consultation("Consultation", (ProbabilityDistribution) new DeterministicDistribution(2), 5., this),
+				new Installation("Installation", (ProbabilityDistribution) new DeterministicDistribution(5), this, 0.),
+				new MRI((ProbabilityDistribution) new DeterministicDistribution(10), 20., this),
+				new Transportation("Transportation", (ProbabilityDistribution) new DeterministicDistribution(5), this, 0.),
+				new Triage("Triage", (ProbabilityDistribution) new DeterministicDistribution(1), this, 0.),
+				new XRay((ProbabilityDistribution) new DeterministicDistribution(15), 50., this)};
+		severityLevels = new SeverityLevel[] {
+				new SeverityLevel_L1(new ExponentialDistribution(0.01)),
+				new SeverityLevel_L2(new ExponentialDistribution(0.05)),
+				new SeverityLevel_L3(new ExponentialDistribution(0.1)),
+				new SeverityLevel_L4(new ExponentialDistribution(0.2)),
+				new SeverityLevel_L5(new ExponentialDistribution(0.5))
+		};
 		time = 0;
+		System.out.println("Hospital " + name + " successfully created !");
 	}
 	
+	/**
+	 * Register a patient in the ED system and put him in a waiting room
+	 * @param patient to register
+	 */
 	public void patientRegistration(Patient patient) {
 		Room waitingRoom = getAvailableRoom("WaitingRoom");
 		if (waitingRoom != null) {
 			patient.setLocation(waitingRoom);
+			waitingRoom.addPatient(patient);
 			patient.setArrivalTime(time);
 			patient.addEvent(new Event("Arrival", time));
 			addPatient(patient); // Add the patient in the ED
@@ -63,7 +83,7 @@ public class EmergencyDepartment {
 	public Room getAvailableRoom(String roomType) {
 		for (Room room: rooms) {
 			try {
-				if(Class.forName(roomType).isInstance(room) && room.isAvailable()) {
+				if(Class.forName("resource." + roomType).isInstance(room) && room.isAvailable()) {
 					return room;
 				}
 			} catch (ClassNotFoundException e) {
@@ -120,7 +140,7 @@ public class EmergencyDepartment {
 	public WorkflowElement getService(String serviceName) {
 		for (WorkflowElement service: services) {
 			try {
-				if(Class.forName(serviceName).isInstance(service)) {
+				if(Class.forName("workflow." + serviceName).isInstance(service)) {
 					return service;
 				}
 			} catch (ClassNotFoundException e) {
@@ -202,20 +222,16 @@ public class EmergencyDepartment {
 		this.services = services;
 	}
 
-	public ArrayList<SeverityLevel> getSeverityLevels() {
+	public SeverityLevel[] getSeverityLevels() {
 		return severityLevels;
 	}
 
-	public void setSeverityLevels(ArrayList<SeverityLevel> severityLevels) {
+	public void setSeverityLevels(SeverityLevel[] severityLevels) {
 		this.severityLevels = severityLevels;
 	}
 	
-	public void addSeverityLevel(SeverityLevel severityLevel) {
-		this.severityLevels.add(severityLevel);
-	}
-	
-	public void removeSeverityLevel(SeverityLevel severityLevel) {
-		this.severityLevels.remove(severityLevel);
+	public SeverityLevel getSeverityLevel(int level) {
+		return severityLevels[level - 1];
 	}
 
 	public double getTime() {

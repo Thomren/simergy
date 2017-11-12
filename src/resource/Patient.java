@@ -36,6 +36,16 @@ public class Patient extends Human implements Observable {
 		this.charges = 0;
 		this.observers = new ArrayList<Observer>();
 	}
+	
+	public Patient(String name, String surname, HealthInsurance healthInsurance,
+			core.SeverityLevel severityLevel, EmergencyDepartment emergencyDepartment) {
+		super(name, surname, "waiting", emergencyDepartment);
+		this.healthInsurance = healthInsurance;
+		this.severityLevel = severityLevel;
+		this.history = new ArrayList<Event>();
+		this.charges = 0;
+		this.observers = new ArrayList<Observer>();
+	}
 
 	@Override
 	public void addObserver(Observer observer) {
@@ -82,6 +92,7 @@ public class Patient extends Human implements Observable {
 
 	public void addEvent(Event event) {
 		this.history.add(event);
+		System.out.println(this.toString() + "'s event : " + event.getName());
 	}
 	
 	/**
@@ -147,5 +158,33 @@ public class Patient extends Human implements Observable {
 	public void setObservers(ArrayList<Observer> observers) {
 		this.observers = observers;
 	}
+	
+	public String getFullName() {
+		return name + " " + surname;
+	}
 
+	@Override
+	public String toString() {
+		return "Patient " + name + " " + surname;
+	}
+	
+	/**
+	 * This method print all the informations about a patient"
+	 */
+	public void printReport() {
+		StringBuffer content = new StringBuffer();
+		content.append("\n----- Patient Report -----\n");
+		content.append(this.toString() + "\n");
+		content.append(healthInsurance.toString() + "\n");
+		content.append(severityLevel + "\n");
+		content.append("Charges : " + charges + "\n");
+		content.append("Location : " + location + "\n");
+		content.append("Physician : " + getPhysician() + "\n");
+		content.append("History : \n");
+		for (Event event : history) {
+			content.append(event).append('\n');
+		}
+		System.out.println(content.toString());
+	}
+	
 }

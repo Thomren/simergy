@@ -47,7 +47,7 @@ public class Consultation extends WorkflowElement {
 		Physician physician = emergencyDepartment.getIdlePhysician();
 		if(physician != null) {
 			if(!physician.getOverseenPatients().contains(patient)) {
-				physician.addOverseenPatien(patient);
+				physician.addOverseenPatient(patient);
 			}
 			HealthService examination = this.determineExamination();
 			if(examination != null) {

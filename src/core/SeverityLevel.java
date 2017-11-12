@@ -39,5 +39,10 @@ public abstract class SeverityLevel {
 	public void setProbabilityDistribution(ProbabilityDistribution probabilityDistribution) {
 		this.probabilityDistribution = probabilityDistribution;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "SeverityLevel " + name;
+	}
+		
 }

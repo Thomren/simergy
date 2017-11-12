@@ -38,32 +38,32 @@ public class Triage extends WorkflowElement {
 			if(patient.getSeverityLevel().getLevel() <= 2) {
 				Room shockRoom = emergencyDepartment.getAvailableRoom("ShockRoom");
 				if(shockRoom != null) {
-					Event registration = new Event("registration", patient.getHistoryTime());
+					Event registration = new Event("Registration", patient.getHistoryTime());
 					patient.addEvent(registration);
-					emergencyDepartment.getService("installation").executeServiceOnPatient(patient);
+					emergencyDepartment.getService("Installation").executeServiceOnPatient(patient);
 					patient.setLocation(shockRoom);
-					emergencyDepartment.getService("consultation").addPatientToWaitingList(patient);
+					emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
 				}
 				else {
-					emergencyDepartment.getService("triage").addPatientToWaitingList(patient);
+					emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
 				}
 			}
 			else {
 				Room boxRoom = emergencyDepartment.getAvailableRoom("BoxRoom");
 				if(boxRoom != null) {
-					Event registration = new Event("registration", patient.getHistoryTime());
+					Event registration = new Event("Registration", patient.getHistoryTime());
 					patient.addEvent(registration);
-					emergencyDepartment.getService("installation").executeServiceOnPatient(patient);
+					emergencyDepartment.getService("Installation").executeServiceOnPatient(patient);
 					patient.setLocation(boxRoom);
-					emergencyDepartment.getService("consultation").addPatientToWaitingList(patient);
+					emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
 				}
 				else {
-					emergencyDepartment.getService("triage").addPatientToWaitingList(patient);
+					emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
 				}
 			}
 		}
 		else {
-			emergencyDepartment.getService("triage").addPatientToWaitingList(patient);
+			emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
 		}
 	}
 

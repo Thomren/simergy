@@ -30,4 +30,10 @@ public class Event {
 	public void setTimestamp(double timestamp) {
 		this.timestamp = timestamp;
 	}
+
+	@Override
+	public String toString() {
+		return timestamp + " : " + name;
+	}
+	
 }

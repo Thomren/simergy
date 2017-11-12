@@ -2,6 +2,8 @@ package test;
 
 import core.EmergencyDepartment;
 import core.GoldInsurance;
+import core.HealthInsurance;
+import core.SeverityLevel;
 import core.SeverityLevel_L1;
 import resource.Nurse;
 import resource.Patient;
@@ -16,8 +18,9 @@ import resource.WaitingRoom;
  */
 public class ManualUseCase {
 	public static void main(String[] args) {
+		System.out.println("Beginning of manual use case");
 		// Create the ED
-		EmergencyDepartment ED = new EmergencyDepartment();
+		EmergencyDepartment ED = new EmergencyDepartment("CentruleRupélec");
 		// Add 5 waiting rooms with a capacity of 10
 		WaitingRoom wr1 = new WaitingRoom("Waiting Room 1", 10, ED);
 		ED.addRoom(wr1);
@@ -57,18 +60,18 @@ public class ManualUseCase {
 		Transporter tr4 = new Transporter("Lucie", "Fer", ED);
 		ED.addEmployee(tr4);
 		// Arrival of a patient
-		Patient pat1 = new Patient("Jerry", "Kan", 0, new GoldInsurance(), L1, ED);
-		ED.patientRegistration(Patient pat1);
+		Patient pat1 = new Patient("Jerry", "Kan", (HealthInsurance) new GoldInsurance(), (SeverityLevel) ED.getSeverityLevel(3), ED);
+		ED.patientRegistration(pat1);
 		// Triage
 		ED.getService("Triage").executeServiceOnPatient(pat1);
 		// Consultation
 		ED.getService("Consultation").executeServiceOnPatient(pat1);
 		// Transportation to test
-		ED.getService("TransportationToTest").executeServiceOnPatient(pat1);
+		ED.getService("Transportation").executeServiceOnPatient(pat1);
 		// Examination
-		ED.getService("Examination").executeServiceOnPatient(pat1);
-		// Outcome
-		ED.getService("Outcome").executeServiceOnPatient(pat1);
+		ED.getService("Consultation").executeServiceOnPatient(pat1);
+		pat1.printReport();
+		System.out.println("Patient successfully treated and left hospital !");
 		
 	}
 }
