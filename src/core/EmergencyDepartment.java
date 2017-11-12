@@ -44,6 +44,10 @@ public class EmergencyDepartment {
 		time = 0;
 	}
 	
+	public void patientRegistration(Patient patient) {
+		addPatient(patient);
+	}
+	
 	/**
 	 * This method searches an available room of a given type and return it if found, or null if there isn't one
 	 * @param roomType

@@ -38,6 +38,11 @@ public class Physician extends Human implements Observer {
 		System.out.println(content.toString());
 	}
 	
+	public void endPatientOverseeing(Patient patient) {
+		removeOverseenPatient(patient);
+		addTreatedPatient(patient);
+	}
+	
 	@Override
 	public void update(Object message) {
 		messageBox.add((String) message);
@@ -73,7 +78,7 @@ public class Physician extends Human implements Observer {
 	 * to the patient's events diffusion.
 	 * @param patient is the patient to add the list of the physician's currently followed patients
 	 */
-	public void addOverseenPatien(Patient patient) {
+	public void addOverseenPatient(Patient patient) {
 		patient.addObserver(this);
 		overseenPatients.add(patient);
 	}

@@ -123,6 +123,17 @@ public class Patient extends Human implements Observable {
 	public ArrayList<Observer> getObservers() {
 		return observers;
 	}
+	
+	/**
+	 * This method return the physician overseeing the patient if there is one
+	 * @return the physician overseeing the patient, null otherwise
+	 */
+	public Physician getPhysician() {
+		if (observers.size() > 0) {
+			return (Physician) observers.get(0);
+		}
+		return null;
+	}
 
 	public void setObservers(ArrayList<Observer> observers) {
 		this.observers = observers;
