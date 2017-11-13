@@ -64,7 +64,7 @@ public abstract class WorkflowElement extends Entity {
 			this.executeServiceOnPatient(this.getNextPatient());
 		}
 		catch(IndexOutOfBoundsException e) {
-			e.printStackTrace();
+			// Do nothing
 		}
 	}
 

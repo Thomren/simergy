@@ -25,8 +25,8 @@ public class Installation extends WorkflowElement {
 	public void executeServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub
 		Double installationBeginningTime = emergencyDepartment.getTime();
-		Event installationBeginning = new Event("InstallationBeginning", installationBeginningTime);
-		Event installationEnding = new Event("InstallationEnding", installationBeginningTime + this.installationTime);
+		Event installationBeginning = new Event("Installation beginning", installationBeginningTime);
+		Event installationEnding = new Event("Installation ending", installationBeginningTime + this.installationTime);
 		patient.addEvent(installationBeginning);
 		patient.addEvent(installationEnding);
 		

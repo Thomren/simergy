@@ -25,8 +25,8 @@ public class Transportation extends WorkflowElement {
 	public void executeServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub
 		Double transportBeginningTime = emergencyDepartment.getTime();
-		Event transportBeginning = new Event("TransportBeginning", transportBeginningTime);
-		Event transportEnding = new Event("TransportEnding", transportBeginningTime + this.transportTime);
+		Event transportBeginning = new Event("Transport beginning", transportBeginningTime);
+		Event transportEnding = new Event("Transport ending", transportBeginningTime + this.transportTime);
 		patient.addEvent(transportBeginning);
 		patient.addEvent(transportEnding);
 	}

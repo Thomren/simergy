@@ -39,7 +39,7 @@ public abstract class HealthService extends WorkflowElement {
 				Double beginning = patient.getHistoryTime();
 				Double duration = this.durationProbability.generateSample();
 				Event serviceBeginning = new Event(this.getName().concat(" beginning"), beginning);
-				Event serviceEnding = new Event(this.getName().concat(" beginning"), beginning + duration);
+				Event serviceEnding = new Event(this.getName().concat(" ending"), beginning + duration);
 				patient.addEvent(serviceBeginning);
 				patient.addEvent(serviceEnding);
 				patient.notifyObservers();

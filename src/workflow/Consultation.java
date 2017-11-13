@@ -64,7 +64,6 @@ public class Consultation extends WorkflowElement {
 			Physician physician = emergencyDepartment.getIdlePhysician();
 			if(physician != null) {
 				physician.addOverseenPatient(patient);
-				patient.addObserver(physician);
 				this.examinePatient(physician, patient);
 			}
 			else {
@@ -87,7 +86,7 @@ public class Consultation extends WorkflowElement {
 			return "XRay";
 		}
 		else {
-			return "IRM";
+			return "MRI";
 		}
 	}
 	
