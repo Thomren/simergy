@@ -256,15 +256,15 @@ public class EmergencyDepartment {
 		content.append("\n----- Emergency Department Report -----\n");
 		content.append(this.toString() + "\n");
 		content.append("Current time : " + time + "\n");
-		content.append("• Patients : \n");
+		content.append("ï¿½ Patients : \n");
 		for (Patient patient : patients) {
 			content.append(patient).append('\n');
 		}
-		content.append("• Rooms : \n");
+		content.append("ï¿½ Rooms : \n");
 		for (Room room : rooms) {
 			content.append(room.toStringDetailed()).append('\n');
 		}
-		content.append("• Staff : \n");
+		content.append("ï¿½ Staff : \n");
 		for (Human employee : staff) {
 			if (employee instanceof Physician) {
 				content.append(((Physician) employee).toStringDetailed() + "\n");
@@ -273,11 +273,11 @@ public class EmergencyDepartment {
 				content.append(employee).append('\n');
 			}
 		}
-		content.append("• Services : \n");
+		content.append("ï¿½ Services : \n");
 		for (WorkflowElement service : services) {
 			content.append(service.toStringDetailed()).append('\n');
 		}
-		content.append("• History : \n");
+		content.append("ï¿½ History : \n");
 		for (Event event : history) {
 			content.append(event).append('\n');
 		}
