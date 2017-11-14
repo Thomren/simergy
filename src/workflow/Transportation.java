@@ -3,7 +3,9 @@ package workflow;
 import core.EmergencyDepartment;
 import core.Event;
 import core.ProbabilityDistribution;
+import resource.Nurse;
 import resource.Patient;
+import resource.Transporter;
 
 /**
  * This is a class extending WorkflowElement. It represents the transportation to test step.
@@ -21,15 +23,22 @@ public class Transportation extends WorkflowElement {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void executeServiceOnPatient(Patient patient) {
+	public void transportPatient(Transporter transporter, Patient patient) {
 		// TODO Auto-generated method stub
 		Double transportBeginningTime = emergencyDepartment.getTime();
 		Event transportBeginning = new Event("Transport beginning", transportBeginningTime);
 		Event transportEnding = new Event("Transport ending", transportBeginningTime + this.transportTime);
 		patient.addEvent(transportBeginning);
 		patient.addEvent(transportEnding);
+		transporter.addEvent(transportBeginning);
+		transporter.addEvent(transportEnding);
 		patient.addCharges(cost);
+	}
+
+	@Override
+	public void executeServiceOnPatient(Patient patient) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

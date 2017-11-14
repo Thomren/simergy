@@ -5,6 +5,7 @@ import core.Event;
 import core.ProbabilityDistribution;
 import resource.Patient;
 import resource.Room;
+import resource.Transporter;
 
 /**
  * This is an abstract class, extending WorkflowElement, which represents every Health Service in the Emergency Department.
@@ -31,10 +32,11 @@ public abstract class HealthService extends WorkflowElement {
 	@Override
 	public void executeServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub
-		if(emergencyDepartment.getIdleTransporter() != null) {
+		Transporter transporter = emergencyDepartment.getIdleTransporter();
+		if(transporter != null) {
 			Room healthServiceRoom = emergencyDepartment.getAvailableRoom(this.getName().concat("Room"));
 			if(healthServiceRoom != null) {
-				emergencyDepartment.getService("Transportation").executeServiceOnPatient(patient);
+				((Transportation) emergencyDepartment.getService("Transportation")).transportPatient(transporter, patient);
 				patient.setLocation(healthServiceRoom);
 				Double beginning = patient.getHistoryTime();
 				Double duration = this.durationProbability.generateSample();

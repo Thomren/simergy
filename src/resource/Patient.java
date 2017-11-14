@@ -19,7 +19,6 @@ public class Patient extends Human implements Observable {
 	
 	protected double arrivalTime;
 	protected HealthInsurance healthInsurance;
-	protected ArrayList<Event> history;
 	protected Room location;
 	protected core.SeverityLevel severityLevel;
 	protected double charges;
@@ -80,28 +79,6 @@ public class Patient extends Human implements Observable {
 
 	public void setHealthInsurance(HealthInsurance healthInsurance) {
 		this.healthInsurance = healthInsurance;
-	}
-
-	public ArrayList<Event> getHistory() {
-		return history;
-	}
-
-	public void setHistory(ArrayList<Event> history) {
-		this.history = history;
-	}
-
-	public void addEvent(Event event) {
-		this.history.add(event);
-		System.out.println(this.toString() + "'s event : " + event.getName());
-	}
-	
-	/**
-	 * This method returns the time of the last entry in the history.
-	 * @return double
-	 */
-	public Double getHistoryTime() {
-		return this.history.get(this.history.size()-1).getTimestamp();
-		
 	}
 	
 	public Room getLocation() {

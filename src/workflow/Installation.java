@@ -3,6 +3,7 @@ package workflow;
 import core.EmergencyDepartment;
 import core.Event;
 import core.ProbabilityDistribution;
+import resource.Nurse;
 import resource.Patient;
 
 /**
@@ -21,15 +22,22 @@ public class Installation extends WorkflowElement {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void executeServiceOnPatient(Patient patient) {
+	public void installPatient(Nurse nurse, Patient patient) {
 		// TODO Auto-generated method stub
 		Double installationBeginningTime = emergencyDepartment.getTime();
 		Event installationBeginning = new Event("Installation beginning", installationBeginningTime);
 		Event installationEnding = new Event("Installation ending", installationBeginningTime + this.installationTime);
 		patient.addEvent(installationBeginning);
 		patient.addEvent(installationEnding);
+		nurse.addEvent(installationBeginning);
+		nurse.addEvent(installationEnding);
 		patient.addCharges(cost);
+		
+	}
+
+	@Override
+	public void executeServiceOnPatient(Patient patient) {
+		// TODO Auto-generated method stub
 		
 	}
 

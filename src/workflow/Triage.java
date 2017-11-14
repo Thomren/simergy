@@ -4,6 +4,7 @@ import core.EmergencyDepartment;
 import core.Event;
 import core.ProbabilityDistribution;
 import resource.BoxRoom;
+import resource.Nurse;
 import resource.Patient;
 import resource.Room;
 import resource.ShockRoom;
@@ -34,14 +35,15 @@ public class Triage extends WorkflowElement {
 	@Override
 	public void executeServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub
-		if(emergencyDepartment.getIdleNurse() != null) {
+		Nurse nurse = emergencyDepartment.getIdleNurse();
+		if(nurse != null) {
 			if(patient.getSeverityLevel().getLevel() <= 2) {
 				Room shockRoom = emergencyDepartment.getAvailableRoom("ShockRoom");
 				if(shockRoom != null) {
 					Event registration = new Event("Registration", patient.getHistoryTime());
 					patient.addEvent(registration);
 					patient.addCharges(cost);
-					emergencyDepartment.getService("Installation").executeServiceOnPatient(patient);
+					((Installation) emergencyDepartment.getService("Installation")).installPatient(nurse, patient);
 					patient.setLocation(shockRoom);
 					emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
 				}
@@ -55,7 +57,7 @@ public class Triage extends WorkflowElement {
 					Event registration = new Event("Registration", patient.getHistoryTime());
 					patient.addEvent(registration);
 					patient.addCharges(cost);
-					emergencyDepartment.getService("Installation").executeServiceOnPatient(patient);
+					((Installation) emergencyDepartment.getService("Installation")).installPatient(nurse, patient);
 					patient.setLocation(boxRoom);
 					emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
 				}
