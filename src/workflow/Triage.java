@@ -40,6 +40,7 @@ public class Triage extends WorkflowElement {
 				if(shockRoom != null) {
 					Event registration = new Event("Registration", patient.getHistoryTime());
 					patient.addEvent(registration);
+					patient.addCharges(cost);
 					emergencyDepartment.getService("Installation").executeServiceOnPatient(patient);
 					patient.setLocation(shockRoom);
 					emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
@@ -53,6 +54,7 @@ public class Triage extends WorkflowElement {
 				if(boxRoom != null) {
 					Event registration = new Event("Registration", patient.getHistoryTime());
 					patient.addEvent(registration);
+					patient.addCharges(cost);
 					emergencyDepartment.getService("Installation").executeServiceOnPatient(patient);
 					patient.setLocation(boxRoom);
 					emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);

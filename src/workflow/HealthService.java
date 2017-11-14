@@ -42,6 +42,7 @@ public abstract class HealthService extends WorkflowElement {
 				Event serviceEnding = new Event(this.getName().concat(" ending"), beginning + duration);
 				patient.addEvent(serviceBeginning);
 				patient.addEvent(serviceEnding);
+				patient.addCharges(cost);
 				patient.notifyObservers();
 				emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
 			}

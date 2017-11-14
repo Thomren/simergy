@@ -29,6 +29,7 @@ public class Installation extends WorkflowElement {
 		Event installationEnding = new Event("Installation ending", installationBeginningTime + this.installationTime);
 		patient.addEvent(installationBeginning);
 		patient.addEvent(installationEnding);
+		patient.addCharges(cost);
 		
 	}
 

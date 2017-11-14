@@ -29,6 +29,7 @@ public class Transportation extends WorkflowElement {
 		Event transportEnding = new Event("Transport ending", transportBeginningTime + this.transportTime);
 		patient.addEvent(transportBeginning);
 		patient.addEvent(transportEnding);
+		patient.addCharges(cost);
 	}
 
 }

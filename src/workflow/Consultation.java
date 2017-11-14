@@ -94,6 +94,7 @@ public class Consultation extends WorkflowElement {
 		String examination = this.determineExamination();
 		Event consultation = new Event("Consultation: ".concat(examination), patient.getHistoryTime() + 17.0);
 		patient.addEvent(consultation);
+		patient.addCharges(cost);
 		if(examination != "Release") {
 			emergencyDepartment.getService(examination).addPatientToWaitingList(patient);
 		}
