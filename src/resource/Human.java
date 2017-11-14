@@ -20,12 +20,14 @@ public abstract class Human extends Entity {
 		super(name, emergencyDepartment);
 		this.surname = surname;
 		this.state = "idle";
+		this.history = new ArrayList<Event>();
 	}
 
 	public Human(String name, String surname, String state, EmergencyDepartment emergencyDepartment) {
 		super(name, emergencyDepartment);
 		this.surname = surname;
 		this.state = state;
+		this.history = new ArrayList<Event>();
 	}
 	
 	public String getSurname() {
