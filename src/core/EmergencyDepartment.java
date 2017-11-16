@@ -36,6 +36,7 @@ public class EmergencyDepartment {
 	protected SeverityLevel[] severityLevels;
 	protected double time;
 	protected String name;
+	protected PatientFactory patientFactory;
 	
 	public EmergencyDepartment(String name) {
 		this.name = name;
@@ -59,6 +60,7 @@ public class EmergencyDepartment {
 				new SeverityLevel_L5(new ExponentialDistribution(0.5))
 		};
 		time = 0;
+		patientFactory = new PatientFactory();
 		System.out.println("Hospital " + name + " successfully created !");
 	}
 	
@@ -75,9 +77,14 @@ public class EmergencyDepartment {
 		queue.executeNextTask();
 	}
 	
+	/**
+	 * Calculate the time of the next arrival of a patient, generate the patient and return
+	 * the corresponding task
+	 * @return the task corresponding to the arrival of the next patient
+	 */
 	private Task getNextPatientArrival() {
 		double minTimestamp = -1;
-		SeverityLevel minSeverityLevel;
+		SeverityLevel minSeverityLevel = null;
 		for (int i = 0; i < severityLevels.length; i++) {
 			double timestamp = severityLevels[i].getProbabilityDistribution().generateSample();
 			if(i == 0 || timestamp < minTimestamp) {
@@ -85,13 +92,13 @@ public class EmergencyDepartment {
 				minSeverityLevel = severityLevels[i];
 			}
 		}
-		Patient patient = new Patient(new SeverityLevel(), this);
+		Patient patient = patientFactory.create(minSeverityLevel, this);
 		PatientArrival patientArrival = new PatientArrival(patient, this);
-		return null;
+		return new Task(minTimestamp, patientArrival);
 	}
 
 	/**
-	 * Add a patient in the ED and put him in a waiting room (waiting for registration)
+	 * Add a patient in the Emergency Departement and put him in a waiting room (waiting for registration)
 	 * @param patient to register
 	 */
 	public void patientArrival(Patient patient) {

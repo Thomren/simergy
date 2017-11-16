@@ -19,7 +19,7 @@ public class PatientFactory extends HumanFactory {
 	 * @param emergencyDepartment
 	 * @return a patient
 	 */
-	public Patient createPatient(SeverityLevel severityLevel, EmergencyDepartment emergencyDepartment) {
+	public Patient create(SeverityLevel severityLevel, EmergencyDepartment emergencyDepartment) {
 		return new Patient(getRandomName(), getRandomSurname(), getRandomInsurance(), severityLevel, emergencyDepartment);
 	}
 
