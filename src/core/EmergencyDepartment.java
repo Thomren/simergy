@@ -3,6 +3,9 @@ package core;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import processing.PatientArrival;
+import processing.Task;
+import processing.TasksQueue;
 import resource.Human;
 import resource.Nurse;
 import resource.Patient;
@@ -60,10 +63,38 @@ public class EmergencyDepartment {
 	}
 	
 	/**
+	 * This method searches the next task to execute among the services of the Emergency Department
+	 * and the next patient arrival, then executes it.
+	 */
+	public void executeNextTask() {
+		TasksQueue queue = new TasksQueue();
+		for (WorkflowElement service : services) {
+			queue.addTask(service.getNextTask());
+		}
+		queue.addTask(this.getNextPatientArrival());
+		queue.executeNextTask();
+	}
+	
+	private Task getNextPatientArrival() {
+		double minTimestamp = -1;
+		SeverityLevel minSeverityLevel;
+		for (int i = 0; i < severityLevels.length; i++) {
+			double timestamp = severityLevels[i].getProbabilityDistribution().generateSample();
+			if(i == 0 || timestamp < minTimestamp) {
+				minTimestamp = timestamp;
+				minSeverityLevel = severityLevels[i];
+			}
+		}
+		Patient patient = new Patient(new SeverityLevel(), this);
+		PatientArrival patientArrival = new PatientArrival(patient, this);
+		return null;
+	}
+
+	/**
 	 * Add a patient in the ED and put him in a waiting room (waiting for registration)
 	 * @param patient to register
 	 */
-	public void patientRegistration(Patient patient) {
+	public void patientArrival(Patient patient) {
 		Room waitingRoom = getAvailableRoom("WaitingRoom");
 		if (waitingRoom != null) {
 			patient.setLocation(waitingRoom);

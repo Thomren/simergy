@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import core.EmergencyDepartment;
 import core.Entity;
 import core.ProbabilityDistribution;
+import processing.Task;
 import resource.Patient;
 
 /**
@@ -59,6 +60,11 @@ public abstract class WorkflowElement extends Entity {
 	 * @param patient
 	 */
 	public abstract void endServiceOnPatient(Patient patient);
+	
+	/**
+	 * This method return the next task to be executed by the service
+	 */
+	public abstract Task getNextTask();
 	
 	/**
 	 * This method handle the next patient of the service.

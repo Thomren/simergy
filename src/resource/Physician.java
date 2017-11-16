@@ -17,9 +17,9 @@ public class Physician extends Human implements Observer {
 	protected ArrayList<Patient> treatedPatients;
 	protected ArrayList<String> messageBox;
 	
-	public Physician(String name, String surname, String username, EmergencyDepartment emergencyDepartment) {
+	public Physician(String name, String surname, EmergencyDepartment emergencyDepartment) {
 		super(name, surname, "idle", emergencyDepartment);
-		this.username = username;
+		this.username = "Physician" + ID;
 		this.overseenPatients = new ArrayList<Patient>();
 		this.treatedPatients = new ArrayList<Patient>();
 		this.messageBox = new ArrayList<String>();
