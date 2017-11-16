@@ -69,7 +69,7 @@ public abstract class WorkflowElement extends Entity {
 	 */
 	public abstract Task getNextTask();
 	
-	public Double getNextAvailableEmployeeTime() {
+	public Double getNextAvailableEmployeeTime(String className) {
 		Iterator<Task> iteratorTasksQueue = this.emergencyDepartment.getTasksQueue().getQueue().iterator();
 		Double nextAvailableEmployeeTime = Double.POSITIVE_INFINITY;
 		while (iteratorTasksQueue.hasNext()) {
@@ -77,7 +77,7 @@ public abstract class WorkflowElement extends Entity {
 			Command commandTask = task.getCommand();
 			if (commandTask instanceof EndService) {
 				EndService endServiceTask = (EndService) commandTask;
-				if (endServiceTask.getService() == this) {
+				if (endServiceTask.getEmployee().getClass().getName() == className) {
 					nextAvailableEmployeeTime = Math.min(nextAvailableEmployeeTime, task.getTimestamp());
 				}
 			}

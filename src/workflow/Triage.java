@@ -88,11 +88,11 @@ public class Triage extends WorkflowElement {
 //			if(patient.getSeverityLevel().getLevel() <= 2) {
 //				Room shockRoom = emergencyDepartment.getAvailableRoom("ShockRoom");
 //				if(shockRoom != null) {
-					Event registration = new Event("Registration", emergencyDepartment.getTime());
-					patient.addEvent(registration);
-					patient.addCharges(cost);
+					Event beginRegistration = new Event("Registration beginning", emergencyDepartment.getTime());
+					patient.addEvent(beginRegistration);
+					nurse.setState("occupied");
 					Double endTimestamp = emergencyDepartment.getTime()+this.durationProbability.generateSample();
-					Task endTriage = new Task(endTimestamp, new EndService(this, patient));
+					Task endTriage = new Task(endTimestamp, new EndService(this, patient, nurse));
 					emergencyDepartment.getTasksQueue().addTask(endTriage);
 //					((Installation) emergencyDepartment.getService("Installation")).installPatient(nurse, patient);
 //					patient.setLocation(shockRoom);
@@ -118,7 +118,7 @@ public class Triage extends WorkflowElement {
 //			}
 //		}
 		else {
-			Double nextAvailableNurseTime = this.getNextAvailableEmployeeTime();
+			Double nextAvailableNurseTime = this.getNextAvailableEmployeeTime("Nurse");
 			Task startNewTriage = new Task(nextAvailableNurseTime, new StartService(this, patient));
 			emergencyDepartment.getTasksQueue().addTask(startNewTriage);
 			emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
@@ -129,7 +129,11 @@ public class Triage extends WorkflowElement {
 	@Override
 	public void endServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub
-		
+		Event endRegistration = new Event("Registration ending", emergencyDepartment.getTime());
+		patient.addEvent(endRegistration);
+		patient.addCharges(cost);
+		Task beginTransportation = new Task(emergencyDepartment.getTime(), new StartService(this.emergencyDepartment.getService("Transportation"), patient));
+		emergencyDepartment.getTasksQueue().addTask(beginTransportation);
 	}
 
 }
