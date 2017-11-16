@@ -85,38 +85,13 @@ public class Triage extends WorkflowElement {
 		// TODO Auto-generated method stub
 		Nurse nurse = emergencyDepartment.getIdleNurse();
 		if(nurse != null) {
-//			if(patient.getSeverityLevel().getLevel() <= 2) {
-//				Room shockRoom = emergencyDepartment.getAvailableRoom("ShockRoom");
-//				if(shockRoom != null) {
-					Event beginRegistration = new Event("Registration beginning", emergencyDepartment.getTime());
-					patient.addEvent(beginRegistration);
-					nurse.setState("occupied");
-					Double endTimestamp = emergencyDepartment.getTime()+this.durationProbability.generateSample();
-					Task endTriage = new Task(endTimestamp, new EndService(this, patient, nurse));
-					emergencyDepartment.getTasksQueue().addTask(endTriage);
-//					((Installation) emergencyDepartment.getService("Installation")).installPatient(nurse, patient);
-//					patient.setLocation(shockRoom);
-//					emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
-//				}
-//				else {
-//					emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
-//				}
-			}
-//			else {
-//				Room boxRoom = emergencyDepartment.getAvailableRoom("BoxRoom");
-//				if(boxRoom != null) {
-//					Event registration = new Event("Registration", patient.getHistoryTime());
-//					patient.addEvent(registration);
-//					patient.addCharges(cost);
-//					((Installation) emergencyDepartment.getService("Installation")).installPatient(nurse, patient);
-//					patient.setLocation(boxRoom);
-//					emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
-//				}
-//				else {
-//					emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
-//				}
-//			}
-//		}
+			Event beginRegistration = new Event("Registration beginning", emergencyDepartment.getTime());
+			patient.addEvent(beginRegistration);
+			nurse.setState("occupied");
+			Double endTimestamp = emergencyDepartment.getTime()+this.durationProbability.generateSample();
+			Task endTriage = new Task(endTimestamp, new EndService(this, patient, nurse));
+			emergencyDepartment.getTasksQueue().addTask(endTriage);
+		}
 		else {
 			Double nextAvailableNurseTime = this.getNextAvailableEmployeeTime("Nurse");
 			Task startNewTriage = new Task(nextAvailableNurseTime, new StartService(this, patient));

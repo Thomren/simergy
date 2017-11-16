@@ -3,8 +3,12 @@ package workflow;
 import core.EmergencyDepartment;
 import core.Event;
 import core.ProbabilityDistribution;
+import processing.EndService;
+import processing.StartService;
+import processing.Task;
 import resource.Nurse;
 import resource.Patient;
+import resource.Room;
 import resource.Transporter;
 
 /**
@@ -36,9 +40,65 @@ public class Transportation extends WorkflowElement {
 	}
 
 	@Override
-	public void executeServiceOnPatient(Patient patient) {
+	public void startServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub
+		Nurse nurse = emergencyDepartment.getIdleNurse();
+		if(nurse != null) {
+			if(patient.getSeverityLevel().getLevel() <= 2) {
+				Room shockRoom = emergencyDepartment.getAvailableRoom("ShockRoom");
+				if(shockRoom != null) {
+					Event beginTransportation = new Event("Transportation beginning", emergencyDepartment.getTime());
+					patient.addEvent(beginTransportation);
+					nurse.setState("occupied");
+					patient.setLocation(shockRoom);
+					Double endTimestamp = emergencyDepartment.getTime()+this.durationProbability.generateSample();
+					Task endTransportation = new Task(endTimestamp, new EndService(this, patient, nurse));
+					emergencyDepartment.getTasksQueue().addTask(endTransportation);
+				}
+				else {
+					Double nextAvailablePhysicianTime = this.getNextAvailableEmployeeTime("Physician");
+					Task startNewTransportation = new Task(nextAvailablePhysicianTime, new StartService(this, patient));
+					emergencyDepartment.getTasksQueue().addTask(startNewTransportation);
+					emergencyDepartment.getService("Transportation").addPatientToWaitingList(patient);
+				}
+			}
+			else {
+				Room boxRoom = emergencyDepartment.getAvailableRoom("BoxRoom");
+				if(boxRoom != null) {
+					Event beginTransportation = new Event("Transportation beginning", emergencyDepartment.getTime());
+					patient.addEvent(beginTransportation);
+					nurse.setState("occupied");
+					patient.setLocation(boxRoom);
+					Double endTimestamp = emergencyDepartment.getTime()+this.durationProbability.generateSample();
+					Task endTransportation = new Task(endTimestamp, new EndService(this, patient, nurse));
+					emergencyDepartment.getTasksQueue().addTask(endTransportation);
+				}
+				else {
+					Double nextAvailablePhysicianTime = this.getNextAvailableEmployeeTime("Physician");
+					Task startNewTransportation = new Task(nextAvailablePhysicianTime, new StartService(this, patient));
+					emergencyDepartment.getTasksQueue().addTask(startNewTransportation);
+					emergencyDepartment.getService("Transportation").addPatientToWaitingList(patient);
+				}
+			}
+		}
+		else {
+			Double nextAvailableNurseTime = this.getNextAvailableEmployeeTime("Nurse");
+			Task startNewTransportation = new Task(nextAvailableNurseTime, new StartService(this, patient));
+			emergencyDepartment.getTasksQueue().addTask(startNewTransportation);
+			emergencyDepartment.getService("Transportation").addPatientToWaitingList(patient);
+		}
 		
 	}
+
+	@Override
+	public void endServiceOnPatient(Patient patient) {
+		// TODO Auto-generated method stub
+		Event endTransportation = new Event("Transport ending", emergencyDepartment.getTime());
+		patient.addEvent(endTransportation);
+		patient.addCharges(cost);
+		Task beginConsultation = new Task(emergencyDepartment.getTime(), new StartService(this.emergencyDepartment.getService("Consultation"), patient));
+		emergencyDepartment.getTasksQueue().addTask(beginConsultation);
+	}
+
 
 }
