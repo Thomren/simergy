@@ -49,10 +49,16 @@ public abstract class WorkflowElement extends Entity {
 	}
 	
 	/**
-	 * This method applies the service to the next patient of the waiting queue.
+	 * This method begin the application of the service to a patient.
 	 * @param patient
 	 */
-	public abstract void executeServiceOnPatient(Patient patient);
+	public abstract void startServiceOnPatient(Patient patient);
+	
+	/**
+	 * This method end the service for a patient.
+	 * @param patient
+	 */
+	public abstract void endServiceOnPatient(Patient patient);
 	
 	/**
 	 * This method handle the next patient of the service.

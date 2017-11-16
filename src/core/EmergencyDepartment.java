@@ -60,7 +60,7 @@ public class EmergencyDepartment {
 	}
 	
 	/**
-	 * Register a patient in the ED system and put him in a waiting room
+	 * Add a patient in the ED and put him in a waiting room (waiting for registration)
 	 * @param patient to register
 	 */
 	public void patientRegistration(Patient patient) {
