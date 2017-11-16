@@ -1,8 +1,15 @@
 package workflow;
 
+import java.util.Iterator;
+
 import core.EmergencyDepartment;
 import core.Event;
 import core.ProbabilityDistribution;
+import processing.Command;
+import processing.EndService;
+import processing.StartService;
+import processing.Task;
+import processing.TasksQueue;
 import resource.BoxRoom;
 import resource.Nurse;
 import resource.Patient;
@@ -32,43 +39,97 @@ public class Triage extends WorkflowElement {
 	 * @param patient
 	 */
 	
+	
+	
+//	@Override
+//	public void executeServiceOnPatient(Patient patient) {
+//		// TODO Auto-generated method stub
+//		Nurse nurse = emergencyDepartment.getIdleNurse();
+//		if(nurse != null) {
+//			if(patient.getSeverityLevel().getLevel() <= 2) {
+//				Room shockRoom = emergencyDepartment.getAvailableRoom("ShockRoom");
+//				if(shockRoom != null) {
+//					Event registration = new Event("Registration", patient.getHistoryTime());
+//					patient.addEvent(registration);
+//					patient.addCharges(cost);
+//					((Installation) emergencyDepartment.getService("Installation")).installPatient(nurse, patient);
+//					patient.setLocation(shockRoom);
+//					emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
+//				}
+//				else {
+//					emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
+//				}
+//			}
+//			else {
+//				Room boxRoom = emergencyDepartment.getAvailableRoom("BoxRoom");
+//				if(boxRoom != null) {
+//					Event registration = new Event("Registration", patient.getHistoryTime());
+//					patient.addEvent(registration);
+//					patient.addCharges(cost);
+//					((Installation) emergencyDepartment.getService("Installation")).installPatient(nurse, patient);
+//					patient.setLocation(boxRoom);
+//					emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
+//				}
+//				else {
+//					emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
+//				}
+//			}
+//		}
+//		else {
+//			emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
+//		}
+//	}
+
 	@Override
-	public void executeServiceOnPatient(Patient patient) {
+	public void startServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub
 		Nurse nurse = emergencyDepartment.getIdleNurse();
 		if(nurse != null) {
-			if(patient.getSeverityLevel().getLevel() <= 2) {
-				Room shockRoom = emergencyDepartment.getAvailableRoom("ShockRoom");
-				if(shockRoom != null) {
-					Event registration = new Event("Registration", patient.getHistoryTime());
+//			if(patient.getSeverityLevel().getLevel() <= 2) {
+//				Room shockRoom = emergencyDepartment.getAvailableRoom("ShockRoom");
+//				if(shockRoom != null) {
+					Event registration = new Event("Registration", emergencyDepartment.getTime());
 					patient.addEvent(registration);
 					patient.addCharges(cost);
-					((Installation) emergencyDepartment.getService("Installation")).installPatient(nurse, patient);
-					patient.setLocation(shockRoom);
-					emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
-				}
-				else {
-					emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
-				}
+					Double endTimestamp = emergencyDepartment.getTime()+this.durationProbability.generateSample();
+					Task endTriage = new Task(endTimestamp, new EndService(this, patient));
+					emergencyDepartment.getTasksQueue().addTask(endTriage);
+//					((Installation) emergencyDepartment.getService("Installation")).installPatient(nurse, patient);
+//					patient.setLocation(shockRoom);
+//					emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
+//				}
+//				else {
+//					emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
+//				}
 			}
-			else {
-				Room boxRoom = emergencyDepartment.getAvailableRoom("BoxRoom");
-				if(boxRoom != null) {
-					Event registration = new Event("Registration", patient.getHistoryTime());
-					patient.addEvent(registration);
-					patient.addCharges(cost);
-					((Installation) emergencyDepartment.getService("Installation")).installPatient(nurse, patient);
-					patient.setLocation(boxRoom);
-					emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
-				}
-				else {
-					emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
-				}
-			}
-		}
+//			else {
+//				Room boxRoom = emergencyDepartment.getAvailableRoom("BoxRoom");
+//				if(boxRoom != null) {
+//					Event registration = new Event("Registration", patient.getHistoryTime());
+//					patient.addEvent(registration);
+//					patient.addCharges(cost);
+//					((Installation) emergencyDepartment.getService("Installation")).installPatient(nurse, patient);
+//					patient.setLocation(boxRoom);
+//					emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
+//				}
+//				else {
+//					emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
+//				}
+//			}
+//		}
 		else {
+			Double nextAvailableNurseTime = this.getNextAvailableEmployeeTime();
+			Task startNewTriage = new Task(nextAvailableNurseTime, new StartService(this, patient));
+			emergencyDepartment.getTasksQueue().addTask(startNewTriage);
 			emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
 		}
+		
+	}
+
+	@Override
+	public void endServiceOnPatient(Patient patient) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

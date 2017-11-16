@@ -1,10 +1,13 @@
 package workflow;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import core.EmergencyDepartment;
 import core.Entity;
 import core.ProbabilityDistribution;
+import processing.Command;
+import processing.EndService;
 import processing.Task;
 import resource.Patient;
 
@@ -65,6 +68,22 @@ public abstract class WorkflowElement extends Entity {
 	 * This method return the next task to be executed by the service
 	 */
 	public abstract Task getNextTask();
+	
+	public Double getNextAvailableEmployeeTime() {
+		Iterator<Task> iteratorTasksQueue = this.emergencyDepartment.getTasksQueue().getQueue().iterator();
+		Double nextAvailableEmployeeTime = Double.POSITIVE_INFINITY;
+		while (iteratorTasksQueue.hasNext()) {
+			Task task = (Task) iteratorTasksQueue.next();
+			Command commandTask = task.getCommand();
+			if (commandTask instanceof EndService) {
+				EndService endServiceTask = (EndService) commandTask;
+				if (endServiceTask.getService() == this) {
+					nextAvailableEmployeeTime = Math.min(nextAvailableEmployeeTime, task.getTimestamp());
+				}
+			}
+		}
+		return nextAvailableEmployeeTime;
+	}
 	
 	/**
 	 * This method handle the next patient of the service.

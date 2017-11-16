@@ -37,6 +37,7 @@ public class EmergencyDepartment {
 	protected double time;
 	protected String name;
 	protected PatientFactory patientFactory;
+	protected TasksQueue tasksQueue;
 	
 	public EmergencyDepartment(String name) {
 		this.name = name;
@@ -61,6 +62,7 @@ public class EmergencyDepartment {
 		};
 		time = 0;
 		patientFactory = new PatientFactory();
+		tasksQueue = new TasksQueue();
 		System.out.println("Hospital " + name + " successfully created !");
 	}
 	
@@ -278,6 +280,14 @@ public class EmergencyDepartment {
 
 	public void setTime(double time) {
 		this.time = time;
+	}
+
+	public TasksQueue getTasksQueue() {
+		return tasksQueue;
+	}
+
+	public void setTasksQueue(TasksQueue tasksQueue) {
+		this.tasksQueue = tasksQueue;
 	}
 
 	@Override

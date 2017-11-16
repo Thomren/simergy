@@ -34,5 +34,11 @@ public class TasksQueue {
 	public void removeTask(Task task) {
 		queue.remove(task);
 	}
+
+	public PriorityQueue<Task> getQueue() {
+		return queue;
+	}
+	
+	
 	
 }
