@@ -8,9 +8,12 @@ import core.Entity;
 import core.ProbabilityDistribution;
 import processing.Command;
 import processing.EndService;
+import processing.StartService;
 import processing.Task;
 import processing.TasksQueue;
+import resource.Human;
 import resource.Patient;
+import resource.Room;
 
 /**
  * This is an abstract class which represents every workflow element in the Emergency Department.
@@ -67,7 +70,6 @@ public abstract class WorkflowElement extends Entity {
 	public Patient getNextSeverePatient() {
 		for (Patient patient : waitingQueue) {
 			if (patient.getSeverityLevel().getLevel() < 3) {
-				waitingQueue.remove(patient);
 				return patient;
 			}
 		}
@@ -77,7 +79,6 @@ public abstract class WorkflowElement extends Entity {
 	public Patient getNextLightPatient() {
 		for (Patient patient : waitingQueue) {
 			if (patient.getSeverityLevel().getLevel() >= 3) {
-				waitingQueue.remove(patient);
 				return patient;
 			}
 		}
@@ -98,38 +99,85 @@ public abstract class WorkflowElement extends Entity {
 	
 	/**
 	 * This method return the next task to be executed by the service
+	 * The priority in the tasks is the following:
+	 * <ul>
+	 * <li>Treat the next severe patient (L1 or L2)</li>
+	 * <li>Treat the next light patient (L3 to L5)</li>
+	 * <li>End the treatment of the next patient in the tasks queue</li>
+	 * </ul>
+	 * @return The next task to be done by the installation service
 	 */
-	public abstract Task getNextTask();
-	
-	public Double getNextAvailableEmployeeTime(String className) {
-		Iterator<Task> iteratorTasksQueue = this.emergencyDepartment.getTasksQueue().getQueue().iterator();
-		Double nextAvailableEmployeeTime = Double.POSITIVE_INFINITY;
-		while (iteratorTasksQueue.hasNext()) {
-			Task task = (Task) iteratorTasksQueue.next();
-			Command commandTask = task.getCommand();
-			if (commandTask instanceof EndService) {
-				EndService endServiceTask = (EndService) commandTask;
-				if (endServiceTask.getEmployee().getClass().getName() == className) {
-					nextAvailableEmployeeTime = Math.min(nextAvailableEmployeeTime, task.getTimestamp());
-				}
-			}
+	public Task getNextTask() {
+		Patient severePatient = this.getNextSeverePatient();
+		Patient lightPatient = this.getNextLightPatient();
+		if (this.canTreatPatient(severePatient)) {
+			this.waitingQueue.remove(severePatient);
+			return new Task(this.emergencyDepartment.getTime(), new StartService(this, severePatient));			
 		}
-		return nextAvailableEmployeeTime;
+		else if (this.canTreatPatient(lightPatient)) {
+			this.waitingQueue.remove(lightPatient);
+			return new Task(this.emergencyDepartment.getTime(), new StartService(this, lightPatient));				
+		}
+		else {
+			return this.tasksQueue.getNextTask();
+		}
 	}
 	
 	/**
-	 * This method handle the next patient of the service.
-	 * @see getNextPatient
-	 * @see executeServiceOnPatient
+	 * This abstract method determine if the given patient can be treated by the service.
+	 * The requirements depend on the service.
+	 * @param patient
+	 * @return boolean: true if the patient can be treated, false otherwise
 	 */
-	public void handleNextPatient() {
-		try {
-			this.executeServiceOnPatient(this.getNextPatient());
-		}
-		catch(IndexOutOfBoundsException e) {
-			// Do nothing
-		}
+	public abstract boolean canTreatPatient(Patient patient);
+	
+	public void generateEndTask(WorkflowElement workflowElement, Patient patient) {
+		Double endTimestamp = emergencyDepartment.getTime() + workflowElement.durationProbability.generateSample();
+		Task endTask = new Task(endTimestamp, new EndService(workflowElement, patient));
+		emergencyDepartment.getTasksQueue().addTask(endTask);
 	}
+	
+	public void generateEndTask(WorkflowElement workflowElement, Patient patient, Human employee) {
+		Double endTimestamp = emergencyDepartment.getTime() + workflowElement.durationProbability.generateSample();
+		Task endTask = new Task(endTimestamp, new EndService(workflowElement, patient, employee));
+		emergencyDepartment.getTasksQueue().addTask(endTask);
+	}
+	
+	public void generateEndTask(WorkflowElement workflowElement, Patient patient, Human employee, Room room) {
+		Double endTimestamp = emergencyDepartment.getTime() + workflowElement.durationProbability.generateSample();
+		Task endTask = new Task(endTimestamp, new EndService(workflowElement, patient, employee, room));
+		emergencyDepartment.getTasksQueue().addTask(endTask);
+	}
+	
+//	public Double getNextAvailableEmployeeTime(String className) {
+//		Iterator<Task> iteratorTasksQueue = this.emergencyDepartment.getTasksQueue().getQueue().iterator();
+//		Double nextAvailableEmployeeTime = Double.POSITIVE_INFINITY;
+//		while (iteratorTasksQueue.hasNext()) {
+//			Task task = (Task) iteratorTasksQueue.next();
+//			Command commandTask = task.getCommand();
+//			if (commandTask instanceof EndService) {
+//				EndService endServiceTask = (EndService) commandTask;
+//				if (endServiceTask.getEmployee().getClass().getName() == className) {
+//					nextAvailableEmployeeTime = Math.min(nextAvailableEmployeeTime, task.getTimestamp());
+//				}
+//			}
+//		}
+//		return nextAvailableEmployeeTime;
+//	}
+//	
+//	/**
+//	 * This method handle the next patient of the service.
+//	 * @see getNextPatient
+//	 * @see executeServiceOnPatient
+//	 */
+//	public void handleNextPatient() {
+//		try {
+//			this.executeServiceOnPatient(this.getNextPatient());
+//		}
+//		catch(IndexOutOfBoundsException e) {
+//			// Do nothing
+//		}
+//	}
 
 	public Double getCost() {
 		return cost;

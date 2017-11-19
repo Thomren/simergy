@@ -42,31 +42,25 @@ public class Installation extends WorkflowElement {
 	}
 	
 	/**
-	 * This method overrides getNextTask of WorkflowElement.
-	 * The priority in the tasks is the following:
-	 * <ul>
-	 * <li>Begin installation of severe patient (L1 or L2)</li>
-	 * <li>Begin installation of light patient (L3 to L5)</li>
-	 * <li>End installation of the next patient in the tasks queue</li>
-	 * </ul>
-	 * @return The next task to be done by the installation service
+	 * This method overrides canTreatPatient of WorkflowElement.
+	 * It checks if there is an available nurse and an available room for patient's installation.
+	 * @param patient
+	 * @return boolean: true if the patient can be treated by the service, false otherwise
+	 * @see WorkflowElement.canTreatPatient
 	 */
 	@Override
-	public Task getNextTask() {
-		// TODO Auto-generated method stub
+	public boolean canTreatPatient(Patient patient) {
 		Nurse nurse = emergencyDepartment.getIdleNurse();
-		if (nurse != null & emergencyDepartment.getAvailableRoom("ShockRoom") != null) {
-			Patient patient = this.getNextSeverePatient();
-			return new Task(this.emergencyDepartment.getTime(), new StartService(this, patient));				
-		}
-		else if (nurse != null & emergencyDepartment.getAvailableRoom("BoxRoom") != null) {
-			Patient patient = this.getNextLightPatient();
-			return new Task(this.emergencyDepartment.getTime(), new StartService(this, patient));				
+		String roomType;
+		if (patient.getSeverityLevel().getLevel() < 3) {
+			roomType = "ShockRoom";
 		}
 		else {
-			return this.tasksQueue.getNextTask();
+			roomType = "BoxRoom";
 		}
+		return (patient != null & nurse != null & emergencyDepartment.getAvailableRoom(roomType) != null);
 	}
+	
 
 	/**
 	 * This method overrides startServiceOnPatient of WorkflowElement.
@@ -93,9 +87,7 @@ public class Installation extends WorkflowElement {
 		patient.addEvent(beginTransportation);
 		patient.setLocation(null);
 		patient.setState("being-installed");
-		Double endTimestamp = emergencyDepartment.getTime() + this.durationProbability.generateSample();
-		Task endTransportation = new Task(endTimestamp, new EndService(this, patient, nurse, room));
-		emergencyDepartment.getTasksQueue().addTask(endTransportation);
+		this.generateEndTask(this, patient, nurse, room);
 	}
 	
 	/**

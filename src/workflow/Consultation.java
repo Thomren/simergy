@@ -5,6 +5,10 @@ import java.util.Random;
 import core.EmergencyDepartment;
 import core.Event;
 import core.ProbabilityDistribution;
+import processing.EndService;
+import processing.StartService;
+import processing.Task;
+import resource.Nurse;
 import resource.Patient;
 import resource.Physician;
 import resource.Room;
@@ -38,38 +42,73 @@ public class Consultation extends WorkflowElement {
 		// TODO Auto-generated constructor stub
 	}
 	
+//	@Override
+//	public Task getNextTask() {
+//		// TODO Auto-generated method stub
+//		Patient severePatient = this.getNextSeverePatient();
+//		Patient lightPatient = this.getNextLightPatient();
+//		if (this.canTreatPatient(severePatient)) {
+//			return new Task(this.emergencyDepartment.getTime(), new StartService(this, severePatient));				
+//		}
+//		else if (this.canTreatPatient(lightPatient)) {
+//			return new Task(this.emergencyDepartment.getTime(), new StartService(this, lightPatient));				
+//		}
+//		else {
+//			return this.tasksQueue.getNextTask();
+//		}
+//	}
 	
 	/**
-	 * This method overrides executeServiceOnPatient of WorkflowElement.
-	 * It simulates the consultation of a patient by a physician.
-	 * If the patient is already overseen by a physician, he waits for him to be available. 
-	 * Else, if there is a physician available, he starts overseeing the patient.
-	 * 
-	 * Either the physician send the patient to examination, or he releases him from the Emergency Department.
-	 * In the latter case, the patient become a treated patient of the physician.
+	 * This method overrides canTreatPatient of WorkflowElement.
+	 * It checks if there is an available nurse for registering the patient.
+	 * @param patient
+	 * @return boolean: true if the patient can be treated by the service, false otherwise
+	 * @see WorkflowElement.canTreatPatient
 	 */
 	@Override
-	public void executeServiceOnPatient(Patient patient) {
+	public boolean canTreatPatient(Patient patient) {
+		return (patient != null & patient.getPhysician() == null & emergencyDepartment.getIdlePhysician() != null) || (patient != null & patient.getPhysician() != null);
+	}
+
+	/**
+	 * This method overrides startServiceOnPatient of WorkflowElement.
+	 * It simulates the consultation of a patient by a physician.
+	 * Either the patient is already overseen by a physician, or an available physician start overseeing the patient.
+	 * At the end, it generates the endTask using generateEndTask from WorkflowElement.
+	 * @see WorkflowElement.generateEndTask.
+	 */
+	@Override
+	public void startServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub
+		Physician physician;
 		if(patient.getPhysician() != null) {
-			Physician physician = patient.getPhysician();
-			if (physician.getState() == "idle") {
-				this.examinePatient(physician, patient);
-			}
-			else {
-				emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
-			}
+			physician = patient.getPhysician();
 		}
 		else {
-			Physician physician = emergencyDepartment.getIdlePhysician();
-			if(physician != null) {
-				physician.addOverseenPatient(patient);
-				this.examinePatient(physician, patient);
-			}
-			else {
-				emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
-			}
+			physician = emergencyDepartment.getIdlePhysician();
+			physician.addOverseenPatient(patient);
 		}
+		physician.setState("visiting");
+		Event beginConsultation = new Event("Consultation beginning", emergencyDepartment.getTime());
+		patient.addEvent(beginConsultation);
+		this.generateEndTask(this, patient, physician);
+	}
+
+	/**
+	 * This method overrides endServiceOnPatient of WorkflowElement.
+	 * It ends the installation of a patient before sending him to the waiting queue of consultation.
+	 * First it updates the patient, the nurse, and the room information.
+	 * Then it adds the patient to the consultation waiting queue.
+	 * @param patient
+	 */
+	@Override
+	public void endServiceOnPatient(Patient patient) {
+		// TODO Auto-generated method stub
+		this.examinePatient(patient);
+		Event endConsultation = new Event("Consultation ending", emergencyDepartment.getTime());
+		patient.addEvent(endConsultation);
+		patient.addCharges(cost);
+		this.examinePatient(patient);
 	}
 
 	private String determineExamination() {
@@ -90,24 +129,18 @@ public class Consultation extends WorkflowElement {
 		}
 	}
 	
-	public void examinePatient(Physician physician, Patient patient) {
+	public void examinePatient(Patient patient) {
 		String examination = this.determineExamination();
-		Event consultationBeginning = new Event("Consultation beginning", patient.getHistoryTime());
-		Event consultationEnd = new Event("Consultation ending : ".concat(examination), patient.getHistoryTime() + this.durationProbability.generateSample());
-		patient.addEvent(consultationBeginning);
-		patient.addEvent(consultationEnd);
-		physician.addEvent(consultationBeginning);
-		physician.addEvent(consultationEnd);
-		patient.addCharges(cost);
 		if(examination != "Release") {
-			emergencyDepartment.getService(examination).addPatientToWaitingList(patient);
+			patient.addEvent(new Event(examination + " prescribed", this.emergencyDepartment.getTime()));
+			emergencyDepartment.getService("Transportation").addPatientToWaitingList(patient);
 		}
 		else {
-			physician.removeOverseenPatient(patient);
-			physician.addTreatedPatient(patient);
+			patient.addEvent(new Event("Released", this.emergencyDepartment.getTime()));
+			patient.getPhysician().addTreatedPatient(patient);
+			patient.getPhysician().removeOverseenPatient(patient);
 			emergencyDepartment.removePatient(patient);
 		}
 	}
-
 
 }

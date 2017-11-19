@@ -16,6 +16,7 @@ public class EndService implements Command {
 		this.service = service;
 		this.patient = patient;
 		this.employee = null;
+		this.room = null;
 	}
 
 	public EndService(WorkflowElement service, Patient patient, Human employee) {
@@ -23,6 +24,7 @@ public class EndService implements Command {
 		this.service = service;
 		this.patient = patient;
 		this.employee = employee;
+		this.room = null;
 	}
 	
 	public EndService(WorkflowElement service, Patient patient, Human employee, Room room) {

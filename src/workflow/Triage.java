@@ -31,70 +31,17 @@ public class Triage extends WorkflowElement {
 	}
 	
 	/**
-	 * This is a method overriding executeServiceOnPatient of WorkflowElement.
-	 * It checks if there is a nurse and an available room (shock or box room) to take care of the patient.
-	 * If so, it sends him to the appropriate room for consultation. The history of the patient is then updated.
-	 * Else, it is sent back to the waiting queue.
-	 * 
+	 * This method overrides canTreatPatient of WorkflowElement.
+	 * It checks if there is an available nurse for registering the patient.
 	 * @param patient
-	 */
-	
-	
-	
-//	@Override
-//	public void executeServiceOnPatient(Patient patient) {
-//		// TODO Auto-generated method stub
-//		Nurse nurse = emergencyDepartment.getIdleNurse();
-//		if(nurse != null) {
-//			if(patient.getSeverityLevel().getLevel() <= 2) {
-//				Room shockRoom = emergencyDepartment.getAvailableRoom("ShockRoom");
-//				if(shockRoom != null) {
-//					Event registration = new Event("Registration", patient.getHistoryTime());
-//					patient.addEvent(registration);
-//					patient.addCharges(cost);
-//					((Installation) emergencyDepartment.getService("Installation")).installPatient(nurse, patient);
-//					patient.setLocation(shockRoom);
-//					emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
-//				}
-//				else {
-//					emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
-//				}
-//			}
-//			else {
-//				Room boxRoom = emergencyDepartment.getAvailableRoom("BoxRoom");
-//				if(boxRoom != null) {
-//					Event registration = new Event("Registration", patient.getHistoryTime());
-//					patient.addEvent(registration);
-//					patient.addCharges(cost);
-//					((Installation) emergencyDepartment.getService("Installation")).installPatient(nurse, patient);
-//					patient.setLocation(boxRoom);
-//					emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
-//				}
-//				else {
-//					emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
-//				}
-//			}
-//		}
-//		else {
-//			emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
-//		}
-//	}
-	
-	/**
-	 * This method overrides getNextTask of WorkflowElement.
-	 * @return The next task to be done by the installation service
+	 * @return boolean: true if the patient can be treated by the service, false otherwise
+	 * @see WorkflowElement.canTreatPatient
 	 */
 	@Override
-	public Task getNextTask() {
+	public boolean canTreatPatient(Patient patient) {
 		// TODO Auto-generated method stub
 		Nurse nurse = emergencyDepartment.getIdleNurse();
-		if(nurse != null) {
-			Patient patient = this.getNextPatient();
-			return new Task(this.emergencyDepartment.getTime(), new StartService(this, patient));
-		}
-		else {
-			return this.tasksQueue.getNextTask();
-		}
+		return patient != null & nurse != null;
 	}
 
 	/**
@@ -107,14 +54,12 @@ public class Triage extends WorkflowElement {
 	@Override
 	public void startServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub
+		Nurse nurse = emergencyDepartment.getIdleNurse();
+		nurse.setState("occupied");
 		Event beginRegistration = new Event("Registration beginning", emergencyDepartment.getTime());
 		patient.addEvent(beginRegistration);
 		patient.setState("being-registrated");
-		Nurse nurse = emergencyDepartment.getIdleNurse();
-		nurse.setState("occupied");
-		Double endTimestamp = emergencyDepartment.getTime() + this.durationProbability.generateSample();
-		Task endTriage = new Task(endTimestamp, new EndService(this, patient, nurse));
-		this.tasksQueue.addTask(endTriage);
+		this.generateEndTask(this, patient, nurse);
 	}
 
 	/**
