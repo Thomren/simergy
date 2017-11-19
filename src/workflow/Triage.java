@@ -130,7 +130,9 @@ public class Triage extends WorkflowElement {
 		Event endRegistration = new Event("Registration ending", emergencyDepartment.getTime());
 		patient.addEvent(endRegistration);
 		patient.addCharges(cost);
-		emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
+		removePatientFromWaitingList(patient);
+		patient.setState("waiting");
+		emergencyDepartment.getService("Transportation").addPatientToWaitingList(patient);
 	}
 
 }
