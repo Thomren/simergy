@@ -34,7 +34,6 @@ public class Consultation extends WorkflowElement {
 	private final Double noExamRate = 0.4;
 	private final Double bloodTestRate = 0.35;
 	private final Double xRayRate = 0.2;
-	private final Double mRIRate = 0.05;
 	
 
 	public Consultation(String name, ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {

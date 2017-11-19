@@ -6,11 +6,14 @@ import core.ProbabilityDistribution;
 import processing.EndService;
 import processing.StartService;
 import processing.Task;
+import resource.BloodTestRoom;
+import resource.MRIRoom;
 import resource.Nurse;
 import resource.Patient;
 import resource.Room;
 import resource.ShockRoom;
 import resource.Transporter;
+import resource.XRayRoom;
 
 /**
  * This is a class extending WorkflowElement. It represents the transportation to test step.
@@ -62,6 +65,7 @@ public class Transportation extends WorkflowElement {
 		String healthService = patient.getHistory().get(patient.getHistory().size()).getName().split(" ")[0];
 		String roomType = healthService + "Room";
 		Room room = emergencyDepartment.getAvailableRoom(roomType);
+		room.addPatient(patient);
 		Event beginTransportation = new Event("Transportation beginning", emergencyDepartment.getTime());
 		patient.addEvent(beginTransportation);
 		patient.setLocation(null);
@@ -76,6 +80,16 @@ public class Transportation extends WorkflowElement {
 		patient.addEvent(endTransportation);
 		patient.addCharges(cost);
 		patient.setState("waiting");
-		emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
+		String healthService;
+		if (patient.getLocation() instanceof BloodTestRoom) {
+			healthService = "BloodTest";
+		}
+		else if (patient.getLocation() instanceof XRayRoom) {
+			healthService = "XRay";
+		}
+		else {
+			healthService = "MRI";
+		}
+		emergencyDepartment.getService(healthService).addPatientToWaitingList(patient);
 	}
 }
