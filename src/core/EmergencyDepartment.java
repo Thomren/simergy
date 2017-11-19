@@ -68,7 +68,7 @@ public class EmergencyDepartment {
 	
 	/**
 	 * This method searches the next task to execute among the services of the Emergency Department
-	 * and the next patient arrival, then executes it.
+	 * and the next patient arrival, then executes it and update the global time.
 	 */
 	public void executeNextTask() {
 		TasksQueue queue = new TasksQueue();
@@ -76,7 +76,8 @@ public class EmergencyDepartment {
 			queue.addTask(service.getNextTask());
 		}
 		queue.addTask(this.getNextPatientArrival());
-		queue.executeNextTask();
+		double nextTime = queue.executeNextTask();
+		this.time = nextTime;
 	}
 	
 	/**

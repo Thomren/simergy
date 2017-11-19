@@ -17,10 +17,12 @@ public class TasksQueue {
 	}
 	
 	/**
-	 * Retrieve and execute the first task in the queue (smaller timestamp)
+	 * Retrieve and execute the first task in the queue (smaller timestamp). Return the timestamp of the executed task.
 	 */
-	public void executeNextTask() {
-		queue.poll().getCommand().execute();
+	public double executeNextTask() {
+		Task task = queue.poll();
+		task.getCommand().execute();
+		return task.getTimestamp();
 	}
 	
 	public Task getNextTask() {
