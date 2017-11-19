@@ -159,5 +159,10 @@ public class TriageTest {
 		// Test
 		assertTrue(task.equals(addedTask));
 	}
+	
+	@Test
+	public void testGetNextTaskWhenNoNurseAvailable() {
+		fail("Not yet implemented");
+	}
 
 }

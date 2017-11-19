@@ -3,8 +3,12 @@ package test;
 import core.EmergencyDepartment;
 import core.GoldInsurance;
 import core.HealthInsurance;
+import core.NurseFactory;
+import core.PhysicianFactory;
 import core.SeverityLevel;
 import core.SeverityLevel_L1;
+import core.TransporterFactory;
+import processing.PatientArrival;
 import resource.BloodTestRoom;
 import resource.BoxRoom;
 import resource.MRIRoom;
@@ -50,56 +54,26 @@ public class ManualUseCase {
 		BloodTestRoom r5 = new BloodTestRoom("Blood Test Room 1", 1, ED);
 		ED.addRoom(r5);
 		// Add 4 physicians
-		Physician ph1 = new Physician("Henri", "Golo", "Physician1", ED);
-		ED.addEmployee(ph1);
-		Physician ph2 = new Physician("Paula", "Roid", "Physician2", ED);
-		ED.addEmployee(ph2);
-		Physician ph3 = new Physician("Claire", "Hyere", "Physician3", ED);
-		ED.addEmployee(ph3);
-		Physician ph4 = new Physician("Harry", "Cover", "Physician4", ED);
-		ED.addEmployee(ph4);
+		PhysicianFactory physicianFactory = new PhysicianFactory();
+		ED.addStaff(4, physicianFactory);
 		// Add 4 nurses
-		Nurse n1 = new Nurse("Lara", "Clette", ED);
-		ED.addEmployee(n1);
-		Nurse n2 = new Nurse("Barack", "Afritt", ED);
-		ED.addEmployee(n2);
-		Nurse n3 = new Nurse("Beth", "Rave", ED);
-		ED.addEmployee(n3);
-		Nurse n4 = new Nurse("Jean", "Bon", ED);
-		ED.addEmployee(n4);
+		NurseFactory nurseFactory = new NurseFactory();
+		ED.addStaff(4, nurseFactory);
 		// Add 4 transporters
-		Transporter tr1 = new Transporter("Alain", "Terieur", ED);
-		ED.addEmployee(tr1);
-		Transporter tr2 = new Transporter("Alex", "Terieur", ED);
-		ED.addEmployee(tr2);
-		Transporter tr3 = new Transporter("Marie", "Age", ED);
-		ED.addEmployee(tr3);
-		Transporter tr4 = new Transporter("Lucie", "Fer", ED);
-		ED.addEmployee(tr4);
+		TransporterFactory transporterFactory = new TransporterFactory();
+		ED.addStaff(4, transporterFactory);
 		// Arrival of a patient
-		Patient pat1 = new Patient("Jerry", "Kan", (HealthInsurance) new GoldInsurance(), (SeverityLevel) ED.getSeverityLevel(3), ED);
-		ED.patientRegistration(pat1);
+		ED.getNextPatientArrival().getCommand().execute();
+		Patient patient = ED.getPatients().get(0);
 		// Triage
-		ED.getService("Triage").handleNextPatient();
+		ED.executeNextTask();
 		// Consultation
-		ED.getService("Consultation").handleNextPatient();
+		ED.executeNextTask();
 		// Examination
-		ED.getService("BloodTest").handleNextPatient();
-		ED.getService("MRI").handleNextPatient();
-		ED.getService("XRay").handleNextPatient();
+		ED.executeNextTask();
 		// Consultation
-		ED.getService("Consultation").handleNextPatient();
-		// Examination
-		ED.getService("BloodTest").handleNextPatient();
-		ED.getService("MRI").handleNextPatient();
-		ED.getService("XRay").handleNextPatient();
-		// Consultation
-		ED.getService("Consultation").handleNextPatient();
-		// Examination
-		ED.getService("BloodTest").handleNextPatient();
-		ED.getService("MRI").handleNextPatient();
-		ED.getService("XRay").handleNextPatient();
-		pat1.printReport();
+		ED.executeNextTask();
+		patient.printReport();
 		ED.printReport();
 		System.out.println("Patient successfully treated and left hospital !");
 		

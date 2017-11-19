@@ -59,6 +59,7 @@ public class InstallationTest {
     public void tearDown() {
         ED = null;
         installation = null;
+        consultation = null;
         waitingRoom = null;
         patient = null;
         nurse = null;
@@ -102,7 +103,6 @@ public class InstallationTest {
 		installation.endServiceOnPatient(patient);
 		// Tests on patient
 		assertTrue(patient.getState().equals("waiting"));
-		System.out.println(patient.getCharges());
 		assertTrue(patient.getHistory().get(patient.getHistory().size() - 1).getName().equals("Installation ending"));
 		// Test on nurse
 		assertTrue(nurse.getState().equals("idle"));
@@ -152,13 +152,23 @@ public class InstallationTest {
 	
 	@Test
 	public void testGetNextTaskWhenEndServiceOnPatient() {
-		// Initialisation
+		// Initialization
 		Task addedTask = new Task(5., new EndService(installation, patient));
 		installation.getTasksQueue().addTask(addedTask);
 		// Execution
 		Task task = installation.getNextTask();
 		// Test
 		assertTrue(task.equals(addedTask));
+	}
+	
+	@Test
+	public void testGetNextTaskWhenNoNurseAvailable() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testGetNextTaskWhenNoRoomAvailable() {
+		fail("Not yet implemented");
 	}
 	
 }
