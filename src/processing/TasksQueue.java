@@ -20,7 +20,7 @@ public class TasksQueue {
 	 * Retrieve and execute the first task in the queue (smaller timestamp)
 	 */
 	public void executeNextTask() {
-		queue.poll().command.execute();
+		queue.poll().getCommand().execute();
 	}
 	
 	public Task getNextTask() {

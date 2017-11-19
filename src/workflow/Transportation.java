@@ -50,6 +50,7 @@ public class Transportation extends WorkflowElement {
 					Event beginTransportation = new Event("Transportation beginning", emergencyDepartment.getTime());
 					patient.addEvent(beginTransportation);
 					nurse.setState("occupied");
+					shockRoom.addPatient(patient);
 					patient.setLocation(shockRoom);
 					Double endTimestamp = emergencyDepartment.getTime()+this.durationProbability.generateSample();
 					Task endTransportation = new Task(endTimestamp, new EndService(this, patient, nurse));
@@ -68,6 +69,7 @@ public class Transportation extends WorkflowElement {
 					Event beginTransportation = new Event("Transportation beginning", emergencyDepartment.getTime());
 					patient.addEvent(beginTransportation);
 					nurse.setState("occupied");
+					boxRoom.addPatient(patient);
 					patient.setLocation(boxRoom);
 					Double endTimestamp = emergencyDepartment.getTime()+this.durationProbability.generateSample();
 					Task endTransportation = new Task(endTimestamp, new EndService(this, patient, nurse));
