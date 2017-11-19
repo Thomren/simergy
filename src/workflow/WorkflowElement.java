@@ -56,6 +56,26 @@ public abstract class WorkflowElement extends Entity {
 		return this.waitingQueue.remove(0);
 	}
 	
+	public Patient getNextSeverePatient() {
+		for (Patient patient : waitingQueue) {
+			if (patient.getSeverityLevel().getLevel() < 3) {
+				waitingQueue.remove(patient);
+				return patient;
+			}
+		}
+		return null;
+	}
+	
+	public Patient getNextLightPatient() {
+		for (Patient patient : waitingQueue) {
+			if (patient.getSeverityLevel().getLevel() >= 3) {
+				waitingQueue.remove(patient);
+				return patient;
+			}
+		}
+		return null;
+	}
+	
 	/**
 	 * This method begin the application of the service to a patient.
 	 * @param patient
