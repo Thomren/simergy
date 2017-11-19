@@ -54,6 +54,7 @@ public class Triage extends WorkflowElement {
 	@Override
 	public void startServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub
+		this.waitingQueue.remove(patient);
 		Nurse nurse = emergencyDepartment.getIdleNurse();
 		nurse.setState("occupied");
 		Event beginRegistration = new Event("Registration beginning", emergencyDepartment.getTime());
@@ -75,9 +76,10 @@ public class Triage extends WorkflowElement {
 		Event endRegistration = new Event("Registration ending", emergencyDepartment.getTime());
 		patient.addEvent(endRegistration);
 		patient.addCharges(cost);
-		removePatientFromWaitingList(patient);
+		patient.getLocation().removePatient(patient);
+		patient.setLocation(null);
 		patient.setState("waiting");
-		emergencyDepartment.getService("Transportation").addPatientToWaitingList(patient);
+		emergencyDepartment.getService("Installation").addPatientToWaitingList(patient);
 	}
 
 }

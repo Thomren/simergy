@@ -79,6 +79,7 @@ public class Consultation extends WorkflowElement {
 	@Override
 	public void startServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub
+		this.waitingQueue.remove(patient);
 		Physician physician;
 		if(patient.getPhysician() != null) {
 			physician = patient.getPhysician();
@@ -109,6 +110,8 @@ public class Consultation extends WorkflowElement {
 		patient.addEvent(endConsultation);
 		patient.addCharges(cost);
 		patient.setState("waiting");
+		patient.getLocation().removePatient(patient);
+		patient.setLocation(null);
 		this.examinePatient(patient);
 	}
 

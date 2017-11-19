@@ -60,6 +60,7 @@ public class Transportation extends WorkflowElement {
 	@Override
 	public void startServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub
+		this.waitingQueue.remove(patient);
 		Transporter transporter = emergencyDepartment.getIdleTransporter();
 		transporter.setState("occupied");
 		String healthService = patient.getHistory().get(patient.getHistory().size()).getName().split(" ")[0];
@@ -68,7 +69,6 @@ public class Transportation extends WorkflowElement {
 		room.addPatient(patient);
 		Event beginTransportation = new Event("Transportation beginning", emergencyDepartment.getTime());
 		patient.addEvent(beginTransportation);
-		patient.setLocation(null);
 		patient.setState("being-transported");
 		this.generateEndTask(this, patient, transporter, room);
 	}

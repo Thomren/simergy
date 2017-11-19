@@ -72,6 +72,7 @@ public class Installation extends WorkflowElement {
 	@Override
 	public void startServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub
+		this.waitingQueue.remove(patient);
 		Nurse nurse = emergencyDepartment.getIdleNurse();
 		nurse.setState("occupied");
 		Room room;
@@ -85,7 +86,6 @@ public class Installation extends WorkflowElement {
 		}
 		Event beginTransportation = new Event("Installation beginning", emergencyDepartment.getTime());
 		patient.addEvent(beginTransportation);
-		patient.setLocation(null);
 		patient.setState("being-installed");
 		this.generateEndTask(this, patient, nurse, room);
 	}

@@ -111,11 +111,9 @@ public abstract class WorkflowElement extends Entity {
 		Patient severePatient = this.getNextSeverePatient();
 		Patient lightPatient = this.getNextLightPatient();
 		if (this.canTreatPatient(severePatient)) {
-			this.waitingQueue.remove(severePatient);
 			return new Task(this.emergencyDepartment.getTime(), new StartService(this, severePatient));			
 		}
 		else if (this.canTreatPatient(lightPatient)) {
-			this.waitingQueue.remove(lightPatient);
 			return new Task(this.emergencyDepartment.getTime(), new StartService(this, lightPatient));				
 		}
 		else {
