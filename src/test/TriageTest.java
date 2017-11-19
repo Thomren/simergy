@@ -86,6 +86,7 @@ public class TriageTest {
 		// Tests on patient
 		assertTrue(patient.getState().equals("waiting"));
 		assertTrue(patient.getCharges() == 2.);
+		assertTrue(patient.getHistory().get(patient.getHistory().size() - 1).getName().equals("Registration ending"));
 		// Test on nurse
 		assertTrue(nurse.getState().equals("idle"));
 		// Test on transportation service
