@@ -9,12 +9,14 @@ import core.ProbabilityDistribution;
 import processing.Command;
 import processing.EndService;
 import processing.Task;
+import processing.TasksQueue;
 import resource.Patient;
 
 /**
  * This is an abstract class which represents every workflow element in the Emergency Department.
  * A workflow element represent a special task.
  * It has a waiting queue of patients and apply the treatment to the first one.
+ * It also has a tasks queue for tasks which has to be terminated in the future.
  * It has a cost.
  * It may take a random time given by a probability distribution.
  * @author Quentin
@@ -25,12 +27,14 @@ public abstract class WorkflowElement extends Entity {
 	protected ArrayList<Patient> waitingQueue;
 	protected ProbabilityDistribution durationProbability;
 	protected Double cost;
+	protected TasksQueue tasksQueue;
 	
 	public WorkflowElement(String name, ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
 		super(name, emergencyDepartment);
 		this.waitingQueue = new ArrayList<Patient>();
 		this.durationProbability = durationProbability;
 		this.cost = cost;
+		this.tasksQueue = new TasksQueue();
 	}
 	
 	/**

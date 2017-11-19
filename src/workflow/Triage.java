@@ -79,26 +79,30 @@ public class Triage extends WorkflowElement {
 //			emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
 //		}
 //	}
+	
+	@Override
+	public Task getNextTask() {
+		// TODO Auto-generated method stub
+		Nurse nurse = emergencyDepartment.getIdleNurse();
+		if(nurse != null) {
+			Patient patient = this.getNextPatient();
+			return new Task(this.emergencyDepartment.getTime(), new StartService(this, patient));
+		}
+		else {
+			return this.tasksQueue.getNextTask();
+		}
+	}
 
 	@Override
 	public void startServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub
+		Event beginRegistration = new Event("Registration beginning", emergencyDepartment.getTime());
+		patient.addEvent(beginRegistration);
 		Nurse nurse = emergencyDepartment.getIdleNurse();
-		if(nurse != null) {
-			Event beginRegistration = new Event("Registration beginning", emergencyDepartment.getTime());
-			patient.addEvent(beginRegistration);
-			nurse.setState("occupied");
-			Double endTimestamp = emergencyDepartment.getTime()+this.durationProbability.generateSample();
-			Task endTriage = new Task(endTimestamp, new EndService(this, patient, nurse));
-			emergencyDepartment.getTasksQueue().addTask(endTriage);
-		}
-		else {
-			Double nextAvailableNurseTime = this.getNextAvailableEmployeeTime("Nurse");
-			Task startNewTriage = new Task(nextAvailableNurseTime, new StartService(this, patient));
-			emergencyDepartment.getTasksQueue().addTask(startNewTriage);
-			emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
-		}
-		
+		nurse.setState("occupied");
+		Double endTimestamp = emergencyDepartment.getTime() + this.durationProbability.generateSample();
+		Task endTriage = new Task(endTimestamp, new EndService(this, patient, nurse));
+		this.tasksQueue.addTask(endTriage);
 	}
 
 	@Override
@@ -107,8 +111,7 @@ public class Triage extends WorkflowElement {
 		Event endRegistration = new Event("Registration ending", emergencyDepartment.getTime());
 		patient.addEvent(endRegistration);
 		patient.addCharges(cost);
-		Task beginTransportation = new Task(emergencyDepartment.getTime(), new StartService(this.emergencyDepartment.getService("Transportation"), patient));
-		emergencyDepartment.getTasksQueue().addTask(beginTransportation);
+		emergencyDepartment.getService("Triage").addPatientToWaitingList(patient);
 	}
 
 }
