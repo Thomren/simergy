@@ -80,6 +80,10 @@ public class Triage extends WorkflowElement {
 //		}
 //	}
 	
+	/**
+	 * This method overrides getNextTask of WorkflowElement.
+	 * @return The next task to be done by the installation service
+	 */
 	@Override
 	public Task getNextTask() {
 		// TODO Auto-generated method stub
@@ -93,11 +97,19 @@ public class Triage extends WorkflowElement {
 		}
 	}
 
+	/**
+	 * This method overrides startServiceOnPatient of WorkflowElement.
+	 * It finds a nurse for the patient registration.
+	 * It updates the patient, and the nurse information.
+	 * Then it adds the end of the registration to the service task queue.
+	 * @param patient
+	 */
 	@Override
 	public void startServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub
 		Event beginRegistration = new Event("Registration beginning", emergencyDepartment.getTime());
 		patient.addEvent(beginRegistration);
+		patient.setState("being-registrated");
 		Nurse nurse = emergencyDepartment.getIdleNurse();
 		nurse.setState("occupied");
 		Double endTimestamp = emergencyDepartment.getTime() + this.durationProbability.generateSample();
@@ -105,6 +117,13 @@ public class Triage extends WorkflowElement {
 		this.tasksQueue.addTask(endTriage);
 	}
 
+	/**
+	 * This method overrides endServiceOnPatient of WorkflowElement.
+	 * It ends the registration of a patient before sending him to the waiting queue of installation.
+	 * First it updates the patient and the nurse information.
+	 * Then it adds the patient to the installation waiting queue.
+	 * @param patient
+	 */
 	@Override
 	public void endServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub

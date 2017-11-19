@@ -62,20 +62,20 @@ public class Transportation extends WorkflowElement {
 		// TODO Auto-generated method stub
 		Nurse nurse = emergencyDepartment.getIdleNurse();
 		nurse.setState("occupied");
+		Room room;
 		if(patient.getSeverityLevel().getLevel() <= 2) {
-			Room shockRoom = emergencyDepartment.getAvailableRoom("ShockRoom");
-			shockRoom.addPatient(patient);
-			patient.setLocation(shockRoom);
+			room = emergencyDepartment.getAvailableRoom("ShockRoom");
+			room.addPatient(patient);
 		}
 		else {
-			Room shockRoom = emergencyDepartment.getAvailableRoom("ShockRoom");
-			shockRoom.addPatient(patient);
-			patient.setLocation(shockRoom);
+			room = emergencyDepartment.getAvailableRoom("ShockRoom");
+			room.addPatient(patient);
 		}
 		Event beginTransportation = new Event("Transportation beginning", emergencyDepartment.getTime());
 		patient.addEvent(beginTransportation);
-		Double endTimestamp = emergencyDepartment.getTime()+this.durationProbability.generateSample();
-		Task endTransportation = new Task(endTimestamp, new EndService(this, patient, nurse));
+		patient.setLocation(null);
+		Double endTimestamp = emergencyDepartment.getTime() + this.durationProbability.generateSample();
+		Task endTransportation = new Task(endTimestamp, new EndService(this, patient, nurse, room));
 		emergencyDepartment.getTasksQueue().addTask(endTransportation);
 	}
 

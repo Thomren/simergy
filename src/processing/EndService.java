@@ -2,12 +2,14 @@ package processing;
 
 import resource.Human;
 import resource.Patient;
+import resource.Room;
 import workflow.WorkflowElement;
 
 public class EndService implements Command {
 	protected WorkflowElement service;
 	protected Patient patient;
 	protected Human employee;
+	protected Room room;
 	
 	public EndService(WorkflowElement service, Patient patient) {
 		super();
@@ -22,6 +24,14 @@ public class EndService implements Command {
 		this.patient = patient;
 		this.employee = employee;
 	}
+	
+	public EndService(WorkflowElement service, Patient patient, Human employee, Room room) {
+		super();
+		this.service = service;
+		this.patient = patient;
+		this.employee = employee;
+		this.room = room;
+	}
 
 
 
@@ -30,6 +40,9 @@ public class EndService implements Command {
 		service.endServiceOnPatient(patient);
 		if (this.employee != null) {
 			this.employee.setState("idle");
+		}
+		if (this.room != null) {
+			this.patient.setLocation(room);
 		}
 	}
 
