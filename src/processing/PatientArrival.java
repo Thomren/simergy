@@ -18,4 +18,20 @@ public class PatientArrival implements Command {
 		emergencyDepartment.patientArrival(patient);
 	}
 
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+
+	public EmergencyDepartment getEmergencyDepartment() {
+		return emergencyDepartment;
+	}
+
+	public void setEmergencyDepartment(EmergencyDepartment emergencyDepartment) {
+		this.emergencyDepartment = emergencyDepartment;
+	}
+
 }

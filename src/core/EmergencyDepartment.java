@@ -85,7 +85,7 @@ public class EmergencyDepartment {
 	 * the corresponding task
 	 * @return the task corresponding to the arrival of the next patient
 	 */
-	private Task getNextPatientArrival() {
+	public Task getNextPatientArrival() {
 		double minTimestamp = -1;
 		SeverityLevel minSeverityLevel = null;
 		for (int i = 0; i < severityLevels.length; i++) {
@@ -219,6 +219,12 @@ public class EmergencyDepartment {
 		this.rooms.add(room);
 	}
 	
+	public void addRooms(Room[] rooms) {
+		for (Room room : rooms) {
+			this.rooms.add(room);
+		}
+	}
+	
 	public void removeRoom(Room room) {
 		this.rooms.remove(room);
 	}
@@ -332,7 +338,32 @@ public class EmergencyDepartment {
 		}
 		System.out.println(content.toString());
 	}
-	
-	
-	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public PatientFactory getPatientFactory() {
+		return patientFactory;
+	}
+
+	public void setPatientFactory(PatientFactory patientFactory) {
+		this.patientFactory = patientFactory;
+	}
+
+	/**
+	 * Add staff members to the emergency department given a factory
+	 * @param n number of staff members to add
+	 * @param factory which product staff members type you want to add
+	 */
+	public void addStaff(int n, HumanFactory factory) {
+		for (int i = 0; i < n; i++) {
+			staff.add(factory.create(this));
+		}
+	}
+
 }

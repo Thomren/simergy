@@ -1,5 +1,6 @@
 package core;
 
+import processing.PatientArrival;
 import resource.Patient;
 
 /**
@@ -21,6 +22,10 @@ public class PatientFactory extends HumanFactory {
 	 */
 	public Patient create(SeverityLevel severityLevel, EmergencyDepartment emergencyDepartment) {
 		return new Patient(getRandomName(), getRandomSurname(), getRandomInsurance(), severityLevel, emergencyDepartment);
+	}
+	
+	public Patient create(EmergencyDepartment emergencyDepartment) {
+		return ((PatientArrival) emergencyDepartment.getNextPatientArrival().getCommand()).getPatient();
 	}
 
 }

@@ -2,6 +2,7 @@ package core;
 
 import java.util.Random;
 
+import resource.Human;
 import resource.Patient;
 
 /**
@@ -34,6 +35,8 @@ public abstract class HumanFactory {
 				"Garcia","Martinez","Robinson","Clark","Rodriguez","Lewis","Lee","Walker"};
 		this.rand = new Random();
 	}
+	
+	protected abstract Human create(EmergencyDepartment emergencyDepartment);
 	
 	protected String getRandomName() {
 		return names[rand.nextInt(names.length)];

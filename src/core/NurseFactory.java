@@ -14,7 +14,7 @@ public class NurseFactory extends HumanFactory {
 	}
 	
 	/**
-	 * Create a nurse with random name and surname
+	 * Create a nurse with random name and surname and return it
 	 * @return a nurse
 	 */
 	public Nurse create(EmergencyDepartment emergencyDepartment) {
