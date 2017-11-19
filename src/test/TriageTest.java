@@ -13,6 +13,9 @@ import core.EmergencyDepartment;
 import core.NoInsurance;
 import core.NurseFactory;
 import core.ProbabilityDistribution;
+import processing.EndService;
+import processing.StartService;
+import processing.Task;
 import resource.BloodTestRoom;
 import resource.BoxRoom;
 import resource.MRIRoom;
@@ -123,8 +126,38 @@ public class TriageTest {
 	}
 	
 	@Test
-	public void testGetNextTask() {
-		fail("Not yet implemented");
+	public void testGetNextTaskWhenNothingToDo() {
+		// Initialisation
+		triage.removePatientFromWaitingList(patient);
+		// Execution
+		Task task = triage.getNextTask();
+		// Test
+		assertNull(task);
+	}
+	
+	@Test
+	public void testGetNextTaskWhenStartService() {
+		// Initialisation
+		ED.setTime(15.);
+		// Execution
+		Task task = triage.getNextTask();
+		// Test
+		assertTrue(task.getTimestamp() == 15.);
+		assertTrue(task.getCommand() instanceof StartService);
+		assertTrue(((StartService) task.getCommand()).getPatient().equals(patient));
+		assertTrue(((StartService) task.getCommand()).getService().equals(triage));
+	}
+	
+	@Test
+	public void testGetNextTaskWhenEndService() {
+		// Initialisation
+		triage.removePatientFromWaitingList(patient);
+		Task addedTask = new Task(5., new EndService(triage, patient));
+		triage.getTasksQueue().addTask(addedTask);
+		// Execution
+		Task task = triage.getNextTask();
+		// Test
+		assertTrue(task.equals(addedTask));
 	}
 
 }

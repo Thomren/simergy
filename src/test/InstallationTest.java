@@ -153,11 +153,12 @@ public class InstallationTest {
 	@Test
 	public void testGetNextTaskWhenEndServiceOnPatient() {
 		// Initialisation
-		installation.getTasksQueue().addTask(new Task(5., new EndService(installation, patient)));
+		Task addedTask = new Task(5., new EndService(installation, patient));
+		installation.getTasksQueue().addTask(addedTask);
 		// Execution
 		Task task = installation.getNextTask();
 		// Test
-		assertNull(task);
+		assertTrue(task.equals(addedTask));
 	}
 	
 }
