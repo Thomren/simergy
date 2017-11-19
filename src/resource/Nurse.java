@@ -12,4 +12,17 @@ public class Nurse extends Human {
 	public String toString() {
 		return "Nurse " + name + " " + surname;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj)) {
+			return false;
+		}
+		if (!(obj instanceof Nurse)) {
+			return false;
+		}
+		return true;
+	}
 }

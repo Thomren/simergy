@@ -140,5 +140,18 @@ public class Physician extends Human implements Observer {
 		return toString() + "\n    Overseen : " + overseenPatients + "\n    Treated : " + treatedPatients;
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj)) {
+			return false;
+		}
+		if (!(obj instanceof Physician)) {
+			return false;
+		}
+		return true;
+	}
+	
 	
 }

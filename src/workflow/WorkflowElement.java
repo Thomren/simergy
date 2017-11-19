@@ -45,6 +45,14 @@ public abstract class WorkflowElement extends Entity {
 		this.waitingQueue.add(patient);
 	}
 	
+	/**
+	 * This method remove a patient from the waiting queue of patients.
+	 * @param patient to remove
+	 */
+	public void removePatientFromWaitingList(Patient patient) {
+		this.waitingQueue.remove(patient);
+	}
+	
 	
 	/**
 	 * This method return the next patient to be treated by the service.

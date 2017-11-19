@@ -15,5 +15,18 @@ public class BloodTestRoom extends Room {
 		super(name, capacity, emergencyDepartment);
 		// TODO Auto-generated constructor stub
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj)) {
+			return false;
+		}
+		if (!(obj instanceof BloodTestRoom)) {
+			return false;
+		}
+		return true;
+	}
 
 }

@@ -16,4 +16,16 @@ public class XRayRoom extends Room {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj)) {
+			return false;
+		}
+		if (!(obj instanceof XRayRoom)) {
+			return false;
+		}
+		return true;
+	}
 }

@@ -12,4 +12,17 @@ public class Transporter extends Human {
 	public String toString() {
 		return "Transporter " + name + " " + surname;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj)) {
+			return false;
+		}
+		if (!(obj instanceof Transporter)) {
+			return false;
+		}
+		return true;
+	}
 }

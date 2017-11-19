@@ -164,5 +164,28 @@ public class Patient extends Human implements Observable {
 		}
 		System.out.println(content.toString());
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		long temp;
+		temp = Double.doubleToLongBits(charges);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj)) {
+			return false;
+		}
+		if (!(obj instanceof Patient)) {
+			return false;
+		}
+		return true;
+	}
 	
 }

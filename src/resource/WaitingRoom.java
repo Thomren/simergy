@@ -16,4 +16,17 @@ public class WaitingRoom extends Room {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj)) {
+			return false;
+		}
+		if (!(obj instanceof WaitingRoom)) {
+			return false;
+		}
+		return true;
+	}
+	
 }
