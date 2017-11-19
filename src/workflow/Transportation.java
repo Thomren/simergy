@@ -68,12 +68,13 @@ public class Transportation extends WorkflowElement {
 			room.addPatient(patient);
 		}
 		else {
-			room = emergencyDepartment.getAvailableRoom("ShockRoom");
+			room = emergencyDepartment.getAvailableRoom("BoxRoom");
 			room.addPatient(patient);
 		}
 		Event beginTransportation = new Event("Transportation beginning", emergencyDepartment.getTime());
 		patient.addEvent(beginTransportation);
 		patient.setLocation(null);
+		patient.setState("being-transported");
 		Double endTimestamp = emergencyDepartment.getTime() + this.durationProbability.generateSample();
 		Task endTransportation = new Task(endTimestamp, new EndService(this, patient, nurse, room));
 		emergencyDepartment.getTasksQueue().addTask(endTransportation);
@@ -82,9 +83,10 @@ public class Transportation extends WorkflowElement {
 	@Override
 	public void endServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub
-		Event endTransportation = new Event("Transport ending", emergencyDepartment.getTime());
+		Event endTransportation = new Event("Transportation ending", emergencyDepartment.getTime());
 		patient.addEvent(endTransportation);
 		patient.addCharges(cost);
+		patient.setState("waiting");
 		emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
 	}
 }

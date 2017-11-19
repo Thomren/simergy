@@ -86,10 +86,10 @@ public class Installation extends WorkflowElement {
 			room.addPatient(patient);
 		}
 		else {
-			room = emergencyDepartment.getAvailableRoom("ShockRoom");
+			room = emergencyDepartment.getAvailableRoom("BoxRoom");
 			room.addPatient(patient);
 		}
-		Event beginTransportation = new Event("Transportation beginning", emergencyDepartment.getTime());
+		Event beginTransportation = new Event("Installation beginning", emergencyDepartment.getTime());
 		patient.addEvent(beginTransportation);
 		patient.setLocation(null);
 		patient.setState("being-installed");
@@ -108,9 +108,10 @@ public class Installation extends WorkflowElement {
 	@Override
 	public void endServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub
-		Event endTransportation = new Event("Transport ending", emergencyDepartment.getTime());
+		Event endTransportation = new Event("Installation ending", emergencyDepartment.getTime());
 		patient.addEvent(endTransportation);
 		patient.addCharges(cost);
+		patient.setState("waiting");
 		emergencyDepartment.getService("Consultation").addPatientToWaitingList(patient);
 	}
 
