@@ -41,6 +41,15 @@ public abstract class Room extends Entity {
 		}
 	}
 
+	/**
+	 * Remove a patient from a room and update the patient location
+	 * @param patient to remove from the room
+	 */
+	public void removePatient(Patient patient) {
+		patients.remove(patient);
+		patient.setLocation(null);
+	}
+	
 	public int getCapacity() {
 		return capacity;
 	}

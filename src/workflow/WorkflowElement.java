@@ -130,6 +130,30 @@ public abstract class WorkflowElement extends Entity {
 	public void setCost(Double cost) {
 		this.cost = cost;
 	}
+		
+	public ArrayList<Patient> getWaitingQueue() {
+		return waitingQueue;
+	}
+
+	public void setWaitingQueue(ArrayList<Patient> waitingQueue) {
+		this.waitingQueue = waitingQueue;
+	}
+
+	public ProbabilityDistribution getDurationProbability() {
+		return durationProbability;
+	}
+
+	public void setDurationProbability(ProbabilityDistribution durationProbability) {
+		this.durationProbability = durationProbability;
+	}
+
+	public TasksQueue getTasksQueue() {
+		return tasksQueue;
+	}
+
+	public void setTasksQueue(TasksQueue tasksQueue) {
+		this.tasksQueue = tasksQueue;
+	}
 
 	@Override
 	public String toString() {
