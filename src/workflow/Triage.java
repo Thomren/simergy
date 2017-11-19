@@ -58,7 +58,7 @@ public class Triage extends WorkflowElement {
 		nurse.setState("occupied");
 		Event beginRegistration = new Event("Registration beginning", emergencyDepartment.getTime());
 		patient.addEvent(beginRegistration);
-		patient.setState("being-registrated");
+		patient.setState("being-registered");
 		this.generateEndTask(this, patient, nurse);
 	}
 

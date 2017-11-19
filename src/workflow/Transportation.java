@@ -40,44 +40,33 @@ public class Transportation extends WorkflowElement {
 		patient.addCharges(cost);
 	}
 	
+	/**
+	 * This method overrides canTreatPatient of WorkflowElement.
+	 * It checks if there is an idle transporter and an available room for examining the patient.
+	 * @param patient
+	 * @return boolean: true if the patient can be treated by the service, false otherwise
+	 * @see WorkflowElement.canTreatPatient
+	 */
 	@Override
-	public Task getNextTask() {
-		// TODO Auto-generated method stub
-		Nurse nurse = emergencyDepartment.getIdleNurse();
-		if (nurse != null & emergencyDepartment.getAvailableRoom("ShockRoom") != null) {
-			Patient patient = this.getNextSeverePatient();
-			return new Task(this.emergencyDepartment.getTime(), new StartService(this, patient));				
-		}
-		else if (nurse != null & emergencyDepartment.getAvailableRoom("BoxRoom") != null) {
-			Patient patient = this.getNextLightPatient();
-			return new Task(this.emergencyDepartment.getTime(), new StartService(this, patient));				
-		}
-		else {
-			return this.tasksQueue.getNextTask();
-		}
+	public boolean canTreatPatient(Patient patient) {
+		String healthService = patient.getHistory().get(patient.getHistory().size()).getName().split(" ")[0];
+		String roomType = healthService + "Room";
+		return (patient != null & this.emergencyDepartment.getIdleTransporter() != null & emergencyDepartment.getAvailableRoom(roomType) != null);
 	}
-
+	
 	@Override
 	public void startServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub
-		Nurse nurse = emergencyDepartment.getIdleNurse();
-		nurse.setState("occupied");
-		Room room;
-		if(patient.getSeverityLevel().getLevel() <= 2) {
-			room = emergencyDepartment.getAvailableRoom("ShockRoom");
-			room.addPatient(patient);
-		}
-		else {
-			room = emergencyDepartment.getAvailableRoom("BoxRoom");
-			room.addPatient(patient);
-		}
+		Transporter transporter = emergencyDepartment.getIdleTransporter();
+		transporter.setState("occupied");
+		String healthService = patient.getHistory().get(patient.getHistory().size()).getName().split(" ")[0];
+		String roomType = healthService + "Room";
+		Room room = emergencyDepartment.getAvailableRoom(roomType);
 		Event beginTransportation = new Event("Transportation beginning", emergencyDepartment.getTime());
 		patient.addEvent(beginTransportation);
 		patient.setLocation(null);
 		patient.setState("being-transported");
-		Double endTimestamp = emergencyDepartment.getTime() + this.durationProbability.generateSample();
-		Task endTransportation = new Task(endTimestamp, new EndService(this, patient, nurse, room));
-		emergencyDepartment.getTasksQueue().addTask(endTransportation);
+		this.generateEndTask(this, patient, transporter, room);
 	}
 
 	@Override

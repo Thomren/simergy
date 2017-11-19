@@ -91,6 +91,7 @@ public class Consultation extends WorkflowElement {
 		physician.setState("visiting");
 		Event beginConsultation = new Event("Consultation beginning", emergencyDepartment.getTime());
 		patient.addEvent(beginConsultation);
+		patient.setState("being-visited");
 		this.generateEndTask(this, patient, physician);
 	}
 
@@ -108,6 +109,7 @@ public class Consultation extends WorkflowElement {
 		Event endConsultation = new Event("Consultation ending", emergencyDepartment.getTime());
 		patient.addEvent(endConsultation);
 		patient.addCharges(cost);
+		patient.setState("waiting");
 		this.examinePatient(patient);
 	}
 
