@@ -115,7 +115,7 @@ public class Patient extends Human implements Observable {
 	
 	public void addCharges(double charges) {
 		double discountedCharges = healthInsurance.computeDiscountedPrice(charges);
-		this.charges += Math.round(discountedCharges*100.0)/100.0;
+		this.charges += discountedCharges;
 	}
 
 	public ArrayList<Observer> getObservers() {

@@ -21,7 +21,7 @@ public abstract class HealthInsurance {
 	 * @return the discounted price effectively paid by the patient
 	 */
 	public double computeDiscountedPrice(double charge) {
-		return charge * (1 - discount);
+		return Math.round(charge * (1 - discount) * 100.0)/100.0;
 	}
 
 	@Override
