@@ -15,7 +15,11 @@ public class BloodTest extends HealthService {
 
 	public BloodTest(ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
 		super("BloodTest", durationProbability, cost, emergencyDepartment);
-		// TODO Auto-generated constructor stub
 	}
+	
+	public BloodTest(String name, ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
+		super(name, durationProbability, cost, emergencyDepartment);
+	}
+
 
 }

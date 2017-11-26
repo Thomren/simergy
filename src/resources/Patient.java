@@ -7,7 +7,6 @@ import core.Event;
 import utils.HealthInsurance;
 import utils.Observable;
 import utils.Observer;
-import utils.SeverityLevel;
 
 /**
  * Patient class represents the patients of the emergency department.

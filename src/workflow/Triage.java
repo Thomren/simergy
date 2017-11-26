@@ -30,6 +30,10 @@ public class Triage extends WorkflowElement {
 		super(name, durationProbability, cost, emergencyDepartment);
 	}
 	
+	public Triage(ProbabilityDistribution durationProbability, EmergencyDepartment emergencyDepartment, Double cost) {
+		super("Triage", durationProbability, cost, emergencyDepartment);
+	}
+	
 	/**
 	 * This method overrides canTreatPatient of WorkflowElement.
 	 * It checks if there is an available nurse for registering the patient.
