@@ -2,8 +2,6 @@ package test;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,19 +11,12 @@ import core.NurseFactory;
 import processing.EndService;
 import processing.StartService;
 import processing.Task;
-import resources.BloodTestRoom;
-import resources.BoxRoom;
-import resources.MRIRoom;
 import resources.Nurse;
 import resources.Patient;
-import resources.Room;
-import resources.ShockRoom;
 import resources.WaitingRoom;
-import resources.XRayRoom;
 import utils.DeterministicDistribution;
 import utils.NoInsurance;
-import utils.ProbabilityDistribution;
-import workflow.Transportation;
+import workflow.Installation;
 import workflow.Triage;
 import workflow.WorkflowElement;
 
@@ -33,7 +24,7 @@ public class TriageTest {
 	
 	private EmergencyDepartment ED;
 	private Triage triage;
-	private Transportation transportation;
+	private Installation installation;
 	private WaitingRoom waitingRoom;
 	private Patient patient;
 	private Nurse nurse;
@@ -43,11 +34,11 @@ public class TriageTest {
 		System.out.println("=== Initialisation ===");
 		ED = new EmergencyDepartment("Test ED");
 		ED.setServices(new WorkflowElement[]{new Triage("Triage", new DeterministicDistribution(1), ED, 2.),
-				new Transportation("Transportation", new DeterministicDistribution(2), ED, 3.)});
+				new Installation("Installation", new DeterministicDistribution(2), ED, 3.)});
 		waitingRoom = new WaitingRoom("Waiting Room", 10, ED);
 		ED.addRoom(waitingRoom);
 		triage = (Triage) ED.getService("Triage");
-		transportation = (Transportation) ED.getService("Transportation");
+		installation = (Installation) ED.getService("Installation");
 		ED.patientArrival(ED.getPatientFactory().create(ED.getSeverityLevel(3), ED));
 		NurseFactory nurseFactory = new NurseFactory();
 		ED.addStaff(1, nurseFactory);
@@ -61,7 +52,7 @@ public class TriageTest {
     public void tearDown() {
         ED = null;
         triage = null;
-        transportation = null;
+        installation = null;
         waitingRoom = null;
         patient = null;
         nurse = null;
@@ -72,72 +63,54 @@ public class TriageTest {
 		// Execution
 		triage.startServiceOnPatient(patient);
 		// Tests on patient
-		assertTrue(patient.getState().equals("being-registrated"));
+		assertTrue(patient.getState().equals("being-registered"));
 		assertTrue(patient.getHistory().get(patient.getHistory().size() - 1).getName().equals("Registration beginning"));
 		// Test on nurse
 		assertTrue(nurse.getState().equals("occupied"));
+		// Test on triage service
+		assertTrue(triage.getWaitingQueue().isEmpty());
 	}
 
 	@Test
 	public void testEndServiceOnPatient() {
 		// Simulate startServiceOnPatient effects
 		patient.setState("being-registrated");
-		patient.setLocation(null);
-		waitingRoom.removePatient(patient);
+		triage.removePatientFromWaitingList(patient);
 		// Execution
 		triage.endServiceOnPatient(patient);
 		// Tests on patient
 		assertTrue(patient.getState().equals("waiting"));
 		assertTrue(patient.getCharges() == 2.);
 		assertTrue(patient.getHistory().get(patient.getHistory().size() - 1).getName().equals("Registration ending"));
+		assertNull(patient.getLocation());
+		assertTrue(waitingRoom.getPatients().size() == 0);
 		// Test on nurse
 		assertTrue(nurse.getState().equals("idle"));
-		// Test on transportation service
-		assertTrue(transportation.getWaitingQueue().size() == 1);
-		// Test on triage service
-		System.out.println("*****" + triage.getWaitingQueue().equals(patient));
-		assertTrue(triage.getWaitingQueue().isEmpty());
-	}
-
-	@Test
-	public void testAddPatientToWaitingList() {
-		// Initialisation
-		triage.setWaitingQueue(new ArrayList<Patient>());
-		// Execution
-		triage.addPatientToWaitingList(patient);
-		// Test
-		assertTrue(triage.getWaitingQueue().contains(patient));
+		// Test on installation service
+		assertTrue(installation.getWaitingQueue().size() == 1);
 	}
 	
 	@Test
-	public void testRemovePatientFromWaitingList() {
-		// Execution
-		triage.removePatientFromWaitingList(patient);
-		// Test
-		assertTrue(triage.getWaitingQueue().isEmpty());
-	}
-
-	@Test
-	public void testGetNextPatient() {
-		// Initialisation
-		triage.getWaitingQueue().add(patient);
-		// Test
-		assertTrue(triage.getNextPatient().equals(patient));	
+	public void testCanTreatPatientWhenTrue() {
+		assertTrue(triage.canTreatPatient(patient));
 	}
 	
-	@Test
-	public void testGetNextTaskWhenNothingToDo() {
-		// Initialisation
-		triage.removePatientFromWaitingList(patient);
-		// Execution
-		Task task = triage.getNextTask();
-		// Test
-		assertNull(task);
+	@Test 
+	public void testCanTreatPatientWhenPatientIsNull() {
+		assertFalse(triage.canTreatPatient(null));
 	}
+	
+	@Test 
+	public void testCanTreatPatientWhenNoAvailableNurse() {
+		nurse.setState("occupied");
+		assertFalse(triage.canTreatPatient(patient));
+	}
+	
+	// Inherited methods
 	
 	@Test
 	public void testGetNextTaskWhenStartService() {
-		// Initialisation
+		// Initialization
 		ED.setTime(15.);
 		// Execution
 		Task task = triage.getNextTask();
@@ -150,7 +123,7 @@ public class TriageTest {
 	
 	@Test
 	public void testGetNextTaskWhenEndService() {
-		// Initialisation
+		// Initialization
 		triage.removePatientFromWaitingList(patient);
 		Task addedTask = new Task(5., new EndService(triage, patient));
 		triage.getTasksQueue().addTask(addedTask);
@@ -162,7 +135,13 @@ public class TriageTest {
 	
 	@Test
 	public void testGetNextTaskWhenNoNurseAvailable() {
-		fail("Not yet implemented");
+		// Initialization
+		ED.setTime(15.);
+		nurse.setState("occupied");
+		// Execution
+		Task task = triage.getNextTask();
+		// Test
+		assertNull(task);
 	}
 
 }

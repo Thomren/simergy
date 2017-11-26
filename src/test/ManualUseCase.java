@@ -56,12 +56,11 @@ public class ManualUseCase {
 		// Arrival of a patient
 		ED.getNextPatientArrival().getCommand().execute();
 		Patient patient = ED.getPatients().get(0);
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 15; i++) {
 			ED.executeNextTask();
 		}
 		patient.printReport();
 		ED.printReport();
 		System.out.println("Patient successfully treated and left hospital !");
-		
 	}
 }

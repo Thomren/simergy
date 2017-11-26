@@ -18,6 +18,7 @@ import resources.Room;
 import resources.ShockRoom;
 import resources.WaitingRoom;
 import utils.DeterministicDistribution;
+import utils.NoInsurance;
 import workflow.Consultation;
 import workflow.Installation;
 import workflow.Triage;
@@ -51,6 +52,7 @@ public class InstallationTest {
 		NurseFactory nurseFactory = new NurseFactory();
 		ED.addStaff(1, nurseFactory);
 		patient = ED.getPatients().get(0);
+		patient.setHealthInsurance(new NoInsurance());
 		nurse = ED.getIdleNurse();
 		System.out.println("=== End of initialisation ===");
 	}
@@ -67,7 +69,7 @@ public class InstallationTest {
 	
 	@Test
 	public void testStartServiceOnPatientLight() {
-		// Initialisation
+		// Initialization
 		patient.setSeverityLevel(ED.getSeverityLevel(3));
 		// Execution
 		installation.startServiceOnPatient(patient);
@@ -82,7 +84,7 @@ public class InstallationTest {
 	
 	@Test
 	public void testStartServiceOnPatientSevere() {
-		// Initialisation
+		// Initialization
 		patient.setSeverityLevel(ED.getSeverityLevel(2));
 		// Execution
 		installation.startServiceOnPatient(patient);
@@ -96,7 +98,9 @@ public class InstallationTest {
 	}
 
 	@Test
-	public void testEndServiceOnPatient() {
+	public void testEndServiceOnPatientLight() {
+		// Initialization
+		patient.setSeverityLevel(ED.getSeverityLevel(3));
 		// Simulate startServiceOnPatient effects
 		patient.setState("being-transported");
 		// Execution
@@ -104,6 +108,8 @@ public class InstallationTest {
 		// Tests on patient
 		assertTrue(patient.getState().equals("waiting"));
 		assertTrue(patient.getHistory().get(patient.getHistory().size() - 1).getName().equals("Installation ending"));
+		assertTrue(patient.getLocation().equals(shockRoom));
+		assertTrue(patient.getCharges() == 3.);
 		// Test on nurse
 		assertTrue(nurse.getState().equals("idle"));
 		// Test on consultation service
@@ -113,8 +119,50 @@ public class InstallationTest {
 	}
 	
 	@Test
+	public void testEndServiceOnPatientSevere() {
+		// Initialization
+		patient.setSeverityLevel(ED.getSeverityLevel(2));
+		// Simulate startServiceOnPatient effects
+		patient.setState("being-transported");
+		// Execution
+		installation.endServiceOnPatient(patient);
+		// Tests on patient
+		assertTrue(patient.getState().equals("waiting"));
+		assertTrue(patient.getHistory().get(patient.getHistory().size() - 1).getName().equals("Installation ending"));
+		assertTrue(patient.getLocation().equals(boxRoom));
+		// Test on nurse
+		assertTrue(nurse.getState().equals("idle"));
+		// Test on consultation service
+		assertTrue(consultation.getWaitingQueue().size() == 1);
+		// Test on installation service
+		assertTrue(installation.getWaitingQueue().isEmpty());
+	}
+	
+	@Test
+	public void testCanTreatPatientWhenTrue() {
+		assertTrue(installation.canTreatPatient(patient));
+	}
+	
+	@Test
+	public void testCanTreatPatientWhenPatientIsNull() {
+		assertFalse(installation.canTreatPatient(null));
+	}
+	
+	@Test
+	public void testCanTreatPatientWhenNoRoomAvailable() {
+		boxRoom.addPatient(new Patient("John", "Doe", new NoInsurance(), ED.getSeverityLevel(3), ED));
+		assertFalse(installation.canTreatPatient(patient));
+	}
+	
+	@Test
+	public void testCanTreatPatientWhenNoNurseAvailable() {
+		nurse.setState("occupied");
+		assertFalse(installation.canTreatPatient(patient));
+	}
+	
+	@Test
 	public void testGetNextTaskWhenLightPatientToBeTreated() {
-		// Initialisation
+		// Initialization
 		patient.setSeverityLevel(ED.getSeverityLevel(3));
 		installation.addPatientToWaitingList(patient);
 		ED.setTime(12.);
@@ -159,16 +207,6 @@ public class InstallationTest {
 		Task task = installation.getNextTask();
 		// Test
 		assertTrue(task.equals(addedTask));
-	}
-	
-	@Test
-	public void testGetNextTaskWhenNoNurseAvailable() {
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	public void testGetNextTaskWhenNoRoomAvailable() {
-		fail("Not yet implemented");
 	}
 	
 }
