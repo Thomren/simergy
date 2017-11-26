@@ -84,8 +84,9 @@ public class EmergencyDepartment {
 			}
 		}
 		queue.addTask(this.getNextPatientArrival());
-		double nextTime = queue.executeNextTask();
-		this.time = nextTime;
+		Task task = queue.executeNextTask();
+		this.time = task.getTimestamp();
+		this.history.add(new Event(task.toString(), this.time));
 	}
 	
 	/**

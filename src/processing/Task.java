@@ -25,7 +25,10 @@ public class Task {
 	public void setCommand(Command command) {
 		this.command = command;
 	}
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return timestamp + " : " + command;
+	}
+		
 }

@@ -34,4 +34,9 @@ public class PatientArrival implements Command {
 		this.emergencyDepartment = emergencyDepartment;
 	}
 
+	@Override
+	public String toString() {
+		return "Arrival of " + patient;
+	}
+
 }
