@@ -43,6 +43,7 @@ public class EmergencyDepartment {
 	protected double time;
 	protected String name;
 	protected PatientFactory patientFactory;
+	protected double[] nextPatientsTimestamp;
 	
 	public EmergencyDepartment(String name) {
 		this.name = name;
@@ -60,13 +61,17 @@ public class EmergencyDepartment {
 				new XRay((ProbabilityDistribution) new DeterministicDistribution(15), 50., this)};
 		severityLevels = new SeverityLevel[] {
 				new SeverityLevel_L1(new ExponentialDistribution(0.001)),
-				new SeverityLevel_L2(new ExponentialDistribution(0.001)),
-				new SeverityLevel_L3(new ExponentialDistribution(0.001)),
-				new SeverityLevel_L4(new ExponentialDistribution(0.001)),
-				new SeverityLevel_L5(new ExponentialDistribution(0.001))
+				new SeverityLevel_L2(new ExponentialDistribution(0.005)),
+				new SeverityLevel_L3(new ExponentialDistribution(0.01)),
+				new SeverityLevel_L4(new ExponentialDistribution(0.02)),
+				new SeverityLevel_L5(new ExponentialDistribution(0.05))
 		};
 		time = 0;
 		patientFactory = new PatientFactory();
+		nextPatientsTimestamp = new double[severityLevels.length];
+		for (int i = 0; i < nextPatientsTimestamp.length; i++) {
+			nextPatientsTimestamp[i] = severityLevels[i].getProbabilityDistribution().generateSample();
+		}
 		System.out.println("Hospital " + name + " successfully created !");
 	}
 	
@@ -95,18 +100,15 @@ public class EmergencyDepartment {
 	 * @return the task corresponding to the arrival of the next patient
 	 */
 	public Task getNextPatientArrival() {
-		double minTimestamp = -1;
-		SeverityLevel minSeverityLevel = null;
+		int argmin = -1;
 		for (int i = 0; i < severityLevels.length; i++) {
-			double timestamp = severityLevels[i].getProbabilityDistribution().generateSample();
-			if(i == 0 || timestamp < minTimestamp) {
-				minTimestamp = timestamp;
-				minSeverityLevel = severityLevels[i];
+			if(i == 0 || nextPatientsTimestamp[i] < nextPatientsTimestamp[argmin]) {
+				argmin = i;
 			}
 		}
-		Patient patient = patientFactory.create(minSeverityLevel, this);
+		Patient patient = patientFactory.create(severityLevels[argmin], this);
 		PatientArrival patientArrival = new PatientArrival(patient, this);
-		return new Task(minTimestamp, patientArrival);
+		return new Task(nextPatientsTimestamp[argmin], patientArrival);
 	}
 
 	/**
@@ -115,6 +117,8 @@ public class EmergencyDepartment {
 	 */
 	public void patientArrival(Patient patient) {
 		Room waitingRoom = getAvailableRoom("WaitingRoom");
+		int level = patient.getSeverityLevel().getLevel();
+		nextPatientsTimestamp[level-1] = nextPatientsTimestamp[level-1] + severityLevels[level-1].getProbabilityDistribution().generateSample();
 		if (waitingRoom != null) {
 			patient.setLocation(waitingRoom);
 			waitingRoom.addPatient(patient);
@@ -367,5 +371,12 @@ public class EmergencyDepartment {
 		this.patientFactory = patientFactory;
 	}
 
+	public double[] getNextPatientsTimestamp() {
+		return nextPatientsTimestamp;
+	}
 
+	public void setNextPatientsTimestamp(double[] nextPatientsTimestamp) {
+		this.nextPatientsTimestamp = nextPatientsTimestamp;
+	}
+	
 }
