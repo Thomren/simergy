@@ -12,7 +12,7 @@ import utils.HealthInsurance;
 
 
 /*
- * This is the JUnit test for DeterministicDistribution
+ * This is the JUnit test for HealthInsurance
  * @author Quentin
  */
 public class HealthInsuranceTest {

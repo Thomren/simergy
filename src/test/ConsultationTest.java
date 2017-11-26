@@ -92,7 +92,6 @@ public class ConsultationTest {
 		consultation.setNoExamRate(0.);
 		consultation.setBloodTestRate(1.);
 		consultation.setXRayRate(0.);
-		consultation.setMRIRate(0.);
 		// Execution
 		consultation.endServiceOnPatient(patient);
 		// Tests on patient

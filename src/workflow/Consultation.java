@@ -133,4 +133,15 @@ public class Consultation extends WorkflowElement {
 		}
 	}
 
+	public Double getNoExamRate() {
+		return noExamRate;
+	}
+
+	public Double getBloodTestRate() {
+		return bloodTestRate;
+	}
+
+	public Double getxRayRate() {
+		return xRayRate;
+	}
 }

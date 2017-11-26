@@ -11,7 +11,7 @@ import core.Entity;
 import resources.Nurse;
 
 /*
- * This is the JUnit test for EntityTest
+ * This is the JUnit test for Entity
  * @author Quentin
  */
 public class EntityTest {
