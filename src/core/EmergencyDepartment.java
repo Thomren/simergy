@@ -125,7 +125,7 @@ public class EmergencyDepartment {
 	
 	/**
 	 * This method searches an available room of a given type and return it if found, or null if there isn't one
-	 * @param roomType
+	 * @param roomType a string representing the type of the room
 	 * @return an available room of the given type if there is one, null otherwise
 	 */
 	public Room getAvailableRoom(String roomType) {

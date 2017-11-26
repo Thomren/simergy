@@ -33,9 +33,9 @@ public class Triage extends WorkflowElement {
 	/**
 	 * This method overrides canTreatPatient of WorkflowElement.
 	 * It checks if there is an available nurse for registering the patient.
-	 * @param patient
+	 * @param patient A Patient instance
 	 * @return boolean: true if the patient can be treated by the service, false otherwise
-	 * @see WorkflowElement.canTreatPatient
+	 * @see WorkflowElement#canTreatPatient
 	 */
 	@Override
 	public boolean canTreatPatient(Patient patient) {
@@ -49,7 +49,7 @@ public class Triage extends WorkflowElement {
 	 * It finds a nurse for the patient registration.
 	 * It updates the patient, and the nurse information.
 	 * Then it adds the end of the registration to the service task queue.
-	 * @param patient
+	 * @param patient A Patient instance
 	 */
 	@Override
 	public void startServiceOnPatient(Patient patient) {
@@ -68,7 +68,7 @@ public class Triage extends WorkflowElement {
 	 * It ends the registration of a patient before sending him to the waiting queue of installation.
 	 * First it updates the patient and the nurse information.
 	 * Then it adds the patient to the installation waiting queue.
-	 * @param patient
+	 * @param patient A Patient instance
 	 */
 	@Override
 	public void endServiceOnPatient(Patient patient) {

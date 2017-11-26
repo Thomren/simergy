@@ -17,8 +17,8 @@ public class PatientFactory extends HumanFactory {
 	
 	/**
 	 * Create a patient with given severity level and emergency department and random name and surnames
-	 * @param severityLevel
-	 * @param emergencyDepartment
+	 * @param severityLevel A SeverityLevel instance
+	 * @param emergencyDepartment An EmergencyDepartment instance
 	 * @return a patient
 	 */
 	public Patient create(SeverityLevel severityLevel, EmergencyDepartment emergencyDepartment) {

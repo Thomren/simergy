@@ -42,7 +42,7 @@ public class Physician extends Human implements Observer {
 	 * This method move a patient from the overseenPatients to the treatedPatients.
 	 * When the emission of the outcome for a patient happened, the physician no longer
 	 * need to follow him.
-	 * @param patient
+	 * @param patient A patient instance
 	 */
 	public void endPatientOverseeing(Patient patient) {
 		removeOverseenPatient(patient);

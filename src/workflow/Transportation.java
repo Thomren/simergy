@@ -46,9 +46,9 @@ public class Transportation extends WorkflowElement {
 	/**
 	 * This method overrides canTreatPatient of WorkflowElement.
 	 * It checks if there is an idle transporter and an available room for examining the patient.
-	 * @param patient
+	 * @param patient A Patient instance
 	 * @return boolean: true if the patient can be treated by the service, false otherwise
-	 * @see WorkflowElement.canTreatPatient
+	 * @see WorkflowElement#canTreatPatient
 	 */
 	@Override
 	public boolean canTreatPatient(Patient patient) {

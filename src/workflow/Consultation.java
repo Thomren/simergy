@@ -60,9 +60,9 @@ public class Consultation extends WorkflowElement {
 	/**
 	 * This method overrides canTreatPatient of WorkflowElement.
 	 * It checks if there is an available nurse for registering the patient.
-	 * @param patient
+	 * @param patient A Patient instance
 	 * @return boolean: true if the patient can be treated by the service, false otherwise
-	 * @see WorkflowElement.canTreatPatient
+	 * @see WorkflowElement#canTreatPatient
 	 */
 	@Override
 	public boolean canTreatPatient(Patient patient) {
@@ -74,7 +74,7 @@ public class Consultation extends WorkflowElement {
 	 * It simulates the consultation of a patient by a physician.
 	 * Either the patient is already overseen by a physician, or an available physician start overseeing the patient.
 	 * At the end, it generates the endTask using generateEndTask from WorkflowElement.
-	 * @see WorkflowElement.generateEndTask.
+	 * @see WorkflowElement#generateEndTask
 	 */
 	@Override
 	public void startServiceOnPatient(Patient patient) {
@@ -100,7 +100,7 @@ public class Consultation extends WorkflowElement {
 	 * It ends the installation of a patient before sending him to the waiting queue of consultation.
 	 * First it updates the patient, the nurse, and the room information.
 	 * Then it adds the patient to the consultation waiting queue.
-	 * @param patient
+	 * @param patient A Patient instance
 	 */
 	@Override
 	public void endServiceOnPatient(Patient patient) {

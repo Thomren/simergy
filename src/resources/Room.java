@@ -26,7 +26,7 @@ public abstract class Room extends Entity {
 
 	/**
 	 * This method return true if there is fewer patients than the capacity of the room, false if not
-	 * @return
+	 * @return True if the room is available, false otherwise
 	 */
 	public boolean isAvailable() {
 		return capacity > patients.size();

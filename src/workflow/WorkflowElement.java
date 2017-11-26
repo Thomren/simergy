@@ -42,7 +42,7 @@ public abstract class WorkflowElement extends Entity {
 	
 	/**
 	 * This method adds the incoming patient to the waiting queue of patients.
-	 * @param patient
+	 * @param patient A Patient instance
 	 */
 	public void addPatientToWaitingList(Patient patient) {
 		this.waitingQueue.add(patient);
@@ -50,7 +50,7 @@ public abstract class WorkflowElement extends Entity {
 	
 	/**
 	 * This method remove a patient from the waiting queue of patients.
-	 * @param patient to remove
+	 * @param patient A Patient instance
 	 */
 	public void removePatientFromWaitingList(Patient patient) {
 		this.waitingQueue.remove(patient);
@@ -87,13 +87,13 @@ public abstract class WorkflowElement extends Entity {
 	
 	/**
 	 * This method begin the application of the service to a patient.
-	 * @param patient
+	 * @param patient A Patient instance
 	 */
 	public abstract void startServiceOnPatient(Patient patient);
 	
 	/**
 	 * This method end the service for a patient.
-	 * @param patient
+	 * @param patient A Patient instance
 	 */
 	public abstract void endServiceOnPatient(Patient patient);
 	
@@ -124,7 +124,7 @@ public abstract class WorkflowElement extends Entity {
 	/**
 	 * This abstract method determine if the given patient can be treated by the service.
 	 * The requirements depend on the service.
-	 * @param patient
+	 * @param patient A Patient instance
 	 * @return boolean: true if the patient can be treated, false otherwise
 	 */
 	public abstract boolean canTreatPatient(Patient patient);

@@ -44,9 +44,9 @@ public class Installation extends WorkflowElement {
 	/**
 	 * This method overrides canTreatPatient of WorkflowElement.
 	 * It checks if there is an available nurse and an available room for patient's installation.
-	 * @param patient
+	 * @param patient A Patient instance
 	 * @return boolean: true if the patient can be treated by the service, false otherwise
-	 * @see WorkflowElement.canTreatPatient
+	 * @see WorkflowElement#canTreatPatient
 	 */
 	@Override
 	public boolean canTreatPatient(Patient patient) {
@@ -67,7 +67,7 @@ public class Installation extends WorkflowElement {
 	 * It finds a nurse and a room for the patient installation.
 	 * It updates the patient, the nurse, and the room information.
 	 * Then it adds the end of the task to the service task queue.
-	 * @param patient
+	 * @param patient A Patient instance
 	 */
 	@Override
 	public void startServiceOnPatient(Patient patient) {
@@ -95,7 +95,7 @@ public class Installation extends WorkflowElement {
 	 * It ends the installation of a patient before sending him to the waiting queue of consultation.
 	 * First it updates the patient, the nurse, and the room information.
 	 * Then it adds the patient to the consultation waiting queue.
-	 * @param patient
+	 * @param patient A Patient instance
 	 */
 	@Override
 	public void endServiceOnPatient(Patient patient) {
