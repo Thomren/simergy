@@ -1,8 +1,8 @@
 package processing;
 
-import resource.Human;
-import resource.Patient;
-import resource.Room;
+import resources.Human;
+import resources.Patient;
+import resources.Room;
 import workflow.WorkflowElement;
 
 public class EndService implements Command {

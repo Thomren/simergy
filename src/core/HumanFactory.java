@@ -2,8 +2,12 @@ package core;
 
 import java.util.Random;
 
-import resource.Human;
-import resource.Patient;
+import resources.Human;
+import resources.Patient;
+import utils.GoldInsurance;
+import utils.HealthInsurance;
+import utils.NoInsurance;
+import utils.SilverInsurance;
 
 /**
  * Abstract human factory that gives useful functions to generate human names and surnames.

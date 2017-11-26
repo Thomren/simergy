@@ -4,17 +4,17 @@ import java.util.Iterator;
 
 import core.EmergencyDepartment;
 import core.Event;
-import core.ProbabilityDistribution;
 import processing.Command;
 import processing.EndService;
 import processing.StartService;
 import processing.Task;
 import processing.TasksQueue;
-import resource.BoxRoom;
-import resource.Nurse;
-import resource.Patient;
-import resource.Room;
-import resource.ShockRoom;
+import resources.BoxRoom;
+import resources.Nurse;
+import resources.Patient;
+import resources.Room;
+import resources.ShockRoom;
+import utils.ProbabilityDistribution;
 
 /**
  * This is a class extending WorkflowElement. It represents the triage step.

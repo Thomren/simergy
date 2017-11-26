@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import core.EmergencyDepartment;
 import core.Entity;
-import resource.Nurse;
+import resources.Nurse;
 
 /*
  * This is the JUnit test for EntityTest

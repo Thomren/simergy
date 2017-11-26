@@ -1,7 +1,7 @@
 package processing;
 
 import core.EmergencyDepartment;
-import resource.Patient;
+import resources.Patient;
 
 public class PatientArrival implements Command {
 	protected Patient patient;

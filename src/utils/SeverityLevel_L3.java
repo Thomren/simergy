@@ -1,4 +1,4 @@
-package core;
+package utils;
 
 /**
  * This class represents an urgency level.

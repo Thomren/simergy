@@ -1,25 +1,16 @@
 package test;
 
 import core.EmergencyDepartment;
-import core.GoldInsurance;
-import core.HealthInsurance;
 import core.NurseFactory;
 import core.PhysicianFactory;
-import core.SeverityLevel;
-import core.SeverityLevel_L1;
 import core.TransporterFactory;
-import processing.PatientArrival;
-import resource.BloodTestRoom;
-import resource.BoxRoom;
-import resource.MRIRoom;
-import resource.Nurse;
-import resource.Patient;
-import resource.Physician;
-import resource.ShockRoom;
-import resource.Transporter;
-import resource.WaitingRoom;
-import resource.XRayRoom;
-import workflow.BloodTest;
+import resources.BloodTestRoom;
+import resources.BoxRoom;
+import resources.MRIRoom;
+import resources.Patient;
+import resources.ShockRoom;
+import resources.WaitingRoom;
+import resources.XRayRoom;
 
 /**
  * This class is a manual user case in order to test the first version of the app

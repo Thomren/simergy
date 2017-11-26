@@ -1,6 +1,6 @@
 package core;
 
-import resource.Transporter;
+import resources.Transporter;
 
 /**
  * Factory to generate nurses

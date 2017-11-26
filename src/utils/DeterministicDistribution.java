@@ -1,4 +1,4 @@
-package core;
+package utils;
 
 public class DeterministicDistribution implements ProbabilityDistribution {
 	protected double value;

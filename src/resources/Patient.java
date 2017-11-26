@@ -1,13 +1,13 @@
-package resource;
+package resources;
 
 import java.util.ArrayList;
 
 import core.EmergencyDepartment;
 import core.Event;
-import core.HealthInsurance;
-import core.Observable;
-import core.Observer;
-import core.SeverityLevel;
+import utils.HealthInsurance;
+import utils.Observable;
+import utils.Observer;
+import utils.SeverityLevel;
 
 /**
  * Patient class represents the patients of the emergency department.
@@ -20,12 +20,12 @@ public class Patient extends Human implements Observable {
 	protected double arrivalTime;
 	protected HealthInsurance healthInsurance;
 	protected Room location;
-	protected core.SeverityLevel severityLevel;
+	protected utils.SeverityLevel severityLevel;
 	protected double charges;
 	protected ArrayList<Observer> observers;
 
 	public Patient(String name, String surname, double arrivalTime, HealthInsurance healthInsurance, Room location,
-			core.SeverityLevel severityLevel, EmergencyDepartment emergencyDepartment) {
+			utils.SeverityLevel severityLevel, EmergencyDepartment emergencyDepartment) {
 		super(name, surname, "waiting", emergencyDepartment);
 		this.arrivalTime = arrivalTime;
 		this.healthInsurance = healthInsurance;
@@ -37,7 +37,7 @@ public class Patient extends Human implements Observable {
 	}
 	
 	public Patient(String name, String surname, HealthInsurance healthInsurance,
-			core.SeverityLevel severityLevel, EmergencyDepartment emergencyDepartment) {
+			utils.SeverityLevel severityLevel, EmergencyDepartment emergencyDepartment) {
 		super(name, surname, "waiting", emergencyDepartment);
 		this.healthInsurance = healthInsurance;
 		this.severityLevel = severityLevel;
@@ -89,11 +89,11 @@ public class Patient extends Human implements Observable {
 		this.location = location;
 	}
 
-	public core.SeverityLevel getSeverityLevel() {
+	public utils.SeverityLevel getSeverityLevel() {
 		return severityLevel;
 	}
 
-	public void setSeverityLevel(core.SeverityLevel severityLevel) {
+	public void setSeverityLevel(utils.SeverityLevel severityLevel) {
 		this.severityLevel = severityLevel;
 	}
 

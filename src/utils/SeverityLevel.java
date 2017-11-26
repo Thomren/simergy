@@ -1,4 +1,4 @@
-package core;
+package utils;
 
 /**
  * The subclasses of this class represent the levels of severity of a patient problem

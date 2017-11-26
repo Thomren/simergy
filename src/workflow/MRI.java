@@ -1,7 +1,7 @@
 package workflow;
 
 import core.EmergencyDepartment;
-import core.ProbabilityDistribution;
+import utils.ProbabilityDistribution;
 
 /**
  * This is a class extending HealthService. It represent the MRI service.

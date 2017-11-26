@@ -5,15 +5,15 @@ import java.util.Iterator;
 
 import core.EmergencyDepartment;
 import core.Entity;
-import core.ProbabilityDistribution;
 import processing.Command;
 import processing.EndService;
 import processing.StartService;
 import processing.Task;
 import processing.TasksQueue;
-import resource.Human;
-import resource.Patient;
-import resource.Room;
+import resources.Human;
+import resources.Patient;
+import resources.Room;
+import utils.ProbabilityDistribution;
 
 /**
  * This is an abstract class which represents every workflow element in the Emergency Department.

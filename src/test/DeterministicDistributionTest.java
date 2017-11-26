@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import core.DeterministicDistribution;
+import utils.DeterministicDistribution;
 
 /*
  * This is the JUnit test for DeterministicDistribution

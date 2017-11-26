@@ -6,9 +6,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import core.DeterministicDistribution;
-import core.GoldInsurance;
-import core.HealthInsurance;
+import utils.DeterministicDistribution;
+import utils.GoldInsurance;
+import utils.HealthInsurance;
 
 
 /*

@@ -1,17 +1,17 @@
-package resource;
+package resources;
 
 import core.EmergencyDepartment;
 
 /**
- * BoxRoom is a class which represent the Box Rooms of the Emergency Department.
+ * ShockRoom is a class which represent the Shock Rooms of the Emergency Department.
  * It extends Rooms.
  * @author Quentin
  *
  */
 
-public class BoxRoom extends Room {
+public class ShockRoom extends Room {
 
-	public BoxRoom(String name, int capacity, EmergencyDepartment emergencyDepartment) {
+	public ShockRoom(String name, int capacity, EmergencyDepartment emergencyDepartment) {
 		super(name, capacity, emergencyDepartment);
 		// TODO Auto-generated constructor stub
 	}
@@ -23,7 +23,7 @@ public class BoxRoom extends Room {
 		if (!super.equals(obj)) {
 			return false;
 		}
-		if (!(obj instanceof BoxRoom)) {
+		if (!(obj instanceof ShockRoom)) {
 			return false;
 		}
 		return true;

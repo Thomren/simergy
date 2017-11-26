@@ -1,4 +1,4 @@
-package core;
+package utils;
 
 /**
  * This class represent the most urgent situation in which the patient almost need to be resuscitated.

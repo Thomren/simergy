@@ -1,17 +1,17 @@
-package resource;
+package resources;
 
 import core.EmergencyDepartment;
 
 /**
- * WaitingRoom is a class which represent the Waiting Rooms of the Emergency Department.
- * It extends Rooms.
+ * This is a class extending Rooms. It represents the XRay rooms of the Emergency Department.
+ * It is needed to pass an XRay test.
  * @author Quentin
  *
  */
 
-public class WaitingRoom extends Room {
+public class XRayRoom extends Room {
 
-	public WaitingRoom(String name, int capacity, EmergencyDepartment emergencyDepartment) {
+	public XRayRoom(String name, int capacity, EmergencyDepartment emergencyDepartment) {
 		super(name, capacity, emergencyDepartment);
 		// TODO Auto-generated constructor stub
 	}
@@ -23,10 +23,9 @@ public class WaitingRoom extends Room {
 		if (!super.equals(obj)) {
 			return false;
 		}
-		if (!(obj instanceof WaitingRoom)) {
+		if (!(obj instanceof XRayRoom)) {
 			return false;
 		}
 		return true;
 	}
-	
 }

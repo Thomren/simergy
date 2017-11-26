@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import core.ExponentialDistribution;
+import utils.ExponentialDistribution;
 
 /*
  * This is the JUnit test for ExponentialDistribution

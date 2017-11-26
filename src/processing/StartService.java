@@ -1,6 +1,6 @@
 package processing;
 
-import resource.Patient;
+import resources.Patient;
 import workflow.WorkflowElement;
 
 public class StartService implements Command {

@@ -1,4 +1,4 @@
-package core;
+package utils;
 
 /**
  * This interface is used to implement the Observable/Observer pattern

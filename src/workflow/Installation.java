@@ -2,13 +2,13 @@ package workflow;
 
 import core.EmergencyDepartment;
 import core.Event;
-import core.ProbabilityDistribution;
 import processing.EndService;
 import processing.StartService;
 import processing.Task;
-import resource.Nurse;
-import resource.Patient;
-import resource.Room;
+import resources.Nurse;
+import resources.Patient;
+import resources.Room;
+import utils.ProbabilityDistribution;
 
 /**
  * This is a class extending WorkflowElement. It represents the installation in the consultation room.

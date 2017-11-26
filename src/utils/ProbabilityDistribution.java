@@ -1,4 +1,4 @@
-package core;
+package utils;
 
 /**
  * This interface implements a method to generate a sample from a given probability distribution.

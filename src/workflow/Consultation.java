@@ -4,14 +4,14 @@ import java.util.Random;
 
 import core.EmergencyDepartment;
 import core.Event;
-import core.ProbabilityDistribution;
 import processing.EndService;
 import processing.StartService;
 import processing.Task;
-import resource.Nurse;
-import resource.Patient;
-import resource.Physician;
-import resource.Room;
+import resources.Nurse;
+import resources.Patient;
+import resources.Physician;
+import resources.Room;
+import utils.ProbabilityDistribution;
 
 /**
  * This is a class extending WorkflowElement. It represent the consultation service.

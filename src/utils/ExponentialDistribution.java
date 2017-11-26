@@ -1,4 +1,4 @@
-package core;
+package utils;
 
 /**
  * This class simulates an exponential probability distribution

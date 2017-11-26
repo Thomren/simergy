@@ -1,18 +1,24 @@
 package core;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-
 import processing.PatientArrival;
 import processing.Task;
 import processing.TasksQueue;
-import resource.Human;
-import resource.Nurse;
-import resource.Patient;
-import resource.Physician;
-import resource.Room;
-import resource.Transporter;
-import resource.WaitingRoom;
+import resources.Human;
+import resources.Nurse;
+import resources.Patient;
+import resources.Physician;
+import resources.Room;
+import resources.Transporter;
+import utils.DeterministicDistribution;
+import utils.ExponentialDistribution;
+import utils.ProbabilityDistribution;
+import utils.SeverityLevel;
+import utils.SeverityLevel_L1;
+import utils.SeverityLevel_L2;
+import utils.SeverityLevel_L3;
+import utils.SeverityLevel_L4;
+import utils.SeverityLevel_L5;
 import workflow.BloodTest;
 import workflow.Consultation;
 import workflow.Installation;
@@ -76,6 +82,7 @@ public class EmergencyDepartment {
 			queue.addTask(service.getNextTask());
 		}
 		queue.addTask(this.getNextPatientArrival());
+		System.out.println(queue.getQueue().size());
 		double nextTime = queue.executeNextTask();
 		this.time = nextTime;
 	}
@@ -124,7 +131,7 @@ public class EmergencyDepartment {
 	public Room getAvailableRoom(String roomType) {
 		for (Room room: rooms) {
 			try {
-				if(Class.forName("resource." + roomType).isInstance(room) && room.isAvailable()) {
+				if(Class.forName("resources." + roomType).isInstance(room) && room.isAvailable()) {
 					return room;
 				}
 			} catch (ClassNotFoundException e) {

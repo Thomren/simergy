@@ -1,6 +1,6 @@
 package core;
 
-import resource.Physician;
+import resources.Physician;
 
 /**
  * Factory to generate nurses

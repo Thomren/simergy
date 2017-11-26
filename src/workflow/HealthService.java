@@ -2,10 +2,10 @@ package workflow;
 
 import core.EmergencyDepartment;
 import core.Event;
-import core.ProbabilityDistribution;
-import resource.Patient;
-import resource.Room;
-import resource.Transporter;
+import resources.Patient;
+import resources.Room;
+import resources.Transporter;
+import utils.ProbabilityDistribution;
 
 /**
  * This is an abstract class, extending WorkflowElement, which represents every Health Service in the Emergency Department.

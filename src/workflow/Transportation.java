@@ -2,18 +2,18 @@ package workflow;
 
 import core.EmergencyDepartment;
 import core.Event;
-import core.ProbabilityDistribution;
 import processing.EndService;
 import processing.StartService;
 import processing.Task;
-import resource.BloodTestRoom;
-import resource.MRIRoom;
-import resource.Nurse;
-import resource.Patient;
-import resource.Room;
-import resource.ShockRoom;
-import resource.Transporter;
-import resource.XRayRoom;
+import resources.BloodTestRoom;
+import resources.MRIRoom;
+import resources.Nurse;
+import resources.Patient;
+import resources.Room;
+import resources.ShockRoom;
+import resources.Transporter;
+import resources.XRayRoom;
+import utils.ProbabilityDistribution;
 
 /**
  * This is a class extending WorkflowElement. It represents the transportation to test step.

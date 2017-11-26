@@ -1,7 +1,8 @@
 package core;
 
 import processing.PatientArrival;
-import resource.Patient;
+import resources.Patient;
+import utils.SeverityLevel;
 
 /**
  * Factory to generate patients

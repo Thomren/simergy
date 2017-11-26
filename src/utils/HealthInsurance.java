@@ -1,4 +1,4 @@
-package core;
+package utils;
 
 /**
  * This abstract class represents an health insurance which give a discount to its subscribers on all charges
