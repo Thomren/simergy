@@ -27,7 +27,6 @@ public class Installation extends WorkflowElement {
 
 	// TO REMOVE ?
 	public void installPatient(Nurse nurse, Patient patient) {
-		// TODO Auto-generated method stub
 		Double installationBeginningTime = emergencyDepartment.getTime();
 		Event installationBeginning = new Event("Installation beginning", installationBeginningTime);
 		System.out.println(installationBeginning);
@@ -71,7 +70,6 @@ public class Installation extends WorkflowElement {
 	 */
 	@Override
 	public void startServiceOnPatient(Patient patient) {
-		// TODO Auto-generated method stub
 		this.waitingQueue.remove(patient);
 		Nurse nurse = emergencyDepartment.getIdleNurse();
 		nurse.setState("occupied");
@@ -99,7 +97,6 @@ public class Installation extends WorkflowElement {
 	 */
 	@Override
 	public void endServiceOnPatient(Patient patient) {
-		// TODO Auto-generated method stub
 		Event endTransportation = new Event("Installation ending", emergencyDepartment.getTime());
 		patient.addEvent(endTransportation);
 		patient.addCharges(cost);

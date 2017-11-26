@@ -89,7 +89,6 @@ public class Consultation extends WorkflowElement {
 	 */
 	@Override
 	public void endServiceOnPatient(Patient patient) {
-		// TODO Auto-generated method stub
 		Event endConsultation = new Event("Consultation ending", emergencyDepartment.getTime());
 		patient.addEvent(endConsultation);
 		patient.addCharges(cost);
@@ -100,7 +99,6 @@ public class Consultation extends WorkflowElement {
 	}
 
 	private String determineExamination() {
-		// TODO Auto-generated method stub
 		double exam = Math.random();
 		if(exam < noExamRate) {
 			return "Release";

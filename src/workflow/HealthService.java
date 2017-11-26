@@ -33,7 +33,6 @@ public abstract class HealthService extends WorkflowElement {
 	
 	@Override
 	public void startServiceOnPatient(Patient patient) {
-		// TODO Auto-generated method stub
 		this.waitingQueue.remove(patient);
 		Event beginService = new Event(this.name + " beginning", emergencyDepartment.getTime());
 		patient.addEvent(beginService);
@@ -43,7 +42,6 @@ public abstract class HealthService extends WorkflowElement {
 
 	@Override
 	public void endServiceOnPatient(Patient patient) {
-		// TODO Auto-generated method stub
 		Event endService = new Event(this.name + " ending", emergencyDepartment.getTime());
 		patient.addEvent(endService);
 		patient.addCharges(cost);

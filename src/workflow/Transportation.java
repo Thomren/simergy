@@ -29,7 +29,6 @@ public class Transportation extends WorkflowElement {
 	}
 
 	public void transportPatient(Transporter transporter, Patient patient) {
-		// TODO Auto-generated method stub
 		Double transportBeginningTime = emergencyDepartment.getTime();
 		Event transportBeginning = new Event("Transport beginning", transportBeginningTime);
 		Event transportEnding = new Event("Transport ending", transportBeginningTime + this.transportTime);
@@ -59,7 +58,6 @@ public class Transportation extends WorkflowElement {
 	
 	@Override
 	public void startServiceOnPatient(Patient patient) {
-		// TODO Auto-generated method stub
 		this.waitingQueue.remove(patient);
 		Transporter transporter = emergencyDepartment.getIdleTransporter();
 		transporter.setState("occupied");
@@ -75,7 +73,6 @@ public class Transportation extends WorkflowElement {
 
 	@Override
 	public void endServiceOnPatient(Patient patient) {
-		// TODO Auto-generated method stub
 		Event endTransportation = new Event("Transportation ending", emergencyDepartment.getTime());
 		patient.addEvent(endTransportation);
 		patient.addCharges(cost);
