@@ -3,7 +3,6 @@ package core;
 import java.util.Random;
 
 import resources.Human;
-import resources.Patient;
 import utils.GoldInsurance;
 import utils.HealthInsurance;
 import utils.NoInsurance;

@@ -2,8 +2,6 @@ package processing;
 
 import java.util.PriorityQueue;
 
-import core.Event;
-
 /**
  * Invoker class of the command pattern. It stores the task to execute with their timestamp and
  * can execute them in the right order.

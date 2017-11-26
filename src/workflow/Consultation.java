@@ -1,16 +1,9 @@
 package workflow;
 
-import java.util.Random;
-
 import core.EmergencyDepartment;
 import core.Event;
-import processing.EndService;
-import processing.StartService;
-import processing.Task;
-import resources.Nurse;
 import resources.Patient;
 import resources.Physician;
-import resources.Room;
 import utils.ProbabilityDistribution;
 
 /**

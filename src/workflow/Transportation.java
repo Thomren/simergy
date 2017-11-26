@@ -2,15 +2,9 @@ package workflow;
 
 import core.EmergencyDepartment;
 import core.Event;
-import processing.EndService;
-import processing.StartService;
-import processing.Task;
 import resources.BloodTestRoom;
-import resources.MRIRoom;
-import resources.Nurse;
 import resources.Patient;
 import resources.Room;
-import resources.ShockRoom;
 import resources.Transporter;
 import resources.XRayRoom;
 import utils.ProbabilityDistribution;

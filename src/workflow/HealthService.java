@@ -3,8 +3,6 @@ package workflow;
 import core.EmergencyDepartment;
 import core.Event;
 import resources.Patient;
-import resources.Room;
-import resources.Transporter;
 import utils.ProbabilityDistribution;
 
 /**

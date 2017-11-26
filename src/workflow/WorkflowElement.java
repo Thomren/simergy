@@ -1,11 +1,8 @@
 package workflow;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-
 import core.EmergencyDepartment;
 import core.Entity;
-import processing.Command;
 import processing.EndService;
 import processing.StartService;
 import processing.Task;

@@ -2,9 +2,6 @@ package workflow;
 
 import core.EmergencyDepartment;
 import core.Event;
-import processing.EndService;
-import processing.StartService;
-import processing.Task;
 import resources.Nurse;
 import resources.Patient;
 import resources.Room;

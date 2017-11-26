@@ -1,19 +1,9 @@
 package workflow;
 
-import java.util.Iterator;
-
 import core.EmergencyDepartment;
 import core.Event;
-import processing.Command;
-import processing.EndService;
-import processing.StartService;
-import processing.Task;
-import processing.TasksQueue;
-import resources.BoxRoom;
 import resources.Nurse;
 import resources.Patient;
-import resources.Room;
-import resources.ShockRoom;
 import utils.ProbabilityDistribution;
 
 /**
