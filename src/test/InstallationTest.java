@@ -108,7 +108,6 @@ public class InstallationTest {
 		// Tests on patient
 		assertTrue(patient.getState().equals("waiting"));
 		assertTrue(patient.getHistory().get(patient.getHistory().size() - 1).getName().equals("Installation ending"));
-		assertTrue(patient.getLocation().equals(shockRoom));
 		assertTrue(patient.getCharges() == 3.);
 		// Test on nurse
 		assertTrue(nurse.getState().equals("idle"));
@@ -129,7 +128,6 @@ public class InstallationTest {
 		// Tests on patient
 		assertTrue(patient.getState().equals("waiting"));
 		assertTrue(patient.getHistory().get(patient.getHistory().size() - 1).getName().equals("Installation ending"));
-		assertTrue(patient.getLocation().equals(boxRoom));
 		// Test on nurse
 		assertTrue(nurse.getState().equals("idle"));
 		// Test on consultation service

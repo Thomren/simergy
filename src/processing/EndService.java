@@ -39,7 +39,6 @@ public class EndService implements Command {
 
 	@Override
 	public void execute() {
-		service.endServiceOnPatient(patient);
 		service.removeNextTask();
 		if (this.employee != null) {
 			this.employee.setState("idle");
@@ -47,6 +46,7 @@ public class EndService implements Command {
 		if (this.room != null) {
 			this.patient.setLocation(room);
 		}
+		service.endServiceOnPatient(patient);
 	}
 
 	public WorkflowElement getService() {
