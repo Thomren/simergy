@@ -38,24 +38,11 @@ public class Consultation extends WorkflowElement {
 
 	public Consultation(String name, ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
 		super(name, durationProbability, cost, emergencyDepartment);
-		// TODO Auto-generated constructor stub
 	}
 	
-//	@Override
-//	public Task getNextTask() {
-//		// TODO Auto-generated method stub
-//		Patient severePatient = this.getNextSeverePatient();
-//		Patient lightPatient = this.getNextLightPatient();
-//		if (this.canTreatPatient(severePatient)) {
-//			return new Task(this.emergencyDepartment.getTime(), new StartService(this, severePatient));				
-//		}
-//		else if (this.canTreatPatient(lightPatient)) {
-//			return new Task(this.emergencyDepartment.getTime(), new StartService(this, lightPatient));				
-//		}
-//		else {
-//			return this.tasksQueue.getNextTask();
-//		}
-//	}
+	public Consultation(ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
+		super("Consultation", durationProbability, cost, emergencyDepartment);
+	}
 	
 	/**
 	 * This method overrides canTreatPatient of WorkflowElement.
@@ -78,7 +65,6 @@ public class Consultation extends WorkflowElement {
 	 */
 	@Override
 	public void startServiceOnPatient(Patient patient) {
-		// TODO Auto-generated method stub
 		this.waitingQueue.remove(patient);
 		Physician physician;
 		if(patient.getPhysician() != null) {

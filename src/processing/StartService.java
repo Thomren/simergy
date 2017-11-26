@@ -34,6 +34,9 @@ public class StartService implements Command {
 		this.patient = patient;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Start of service " + service + "on " + patient;
+	}
 	
 }

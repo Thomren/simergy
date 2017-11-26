@@ -43,7 +43,6 @@ public class EmergencyDepartment {
 	protected double time;
 	protected String name;
 	protected PatientFactory patientFactory;
-	protected TasksQueue tasksQueue;
 	
 	public EmergencyDepartment(String name) {
 		this.name = name;
@@ -53,11 +52,11 @@ public class EmergencyDepartment {
 		history = new ArrayList<Event>();
 		services = new WorkflowElement[] {
 				new BloodTest((ProbabilityDistribution) new DeterministicDistribution(5), 15., this),
-				new Consultation("Consultation", (ProbabilityDistribution) new DeterministicDistribution(2), 5., this),
-				new Installation("Installation", (ProbabilityDistribution) new DeterministicDistribution(5), this, 0.),
+				new Consultation((ProbabilityDistribution) new DeterministicDistribution(2), 5., this),
+				new Installation((ProbabilityDistribution) new DeterministicDistribution(5), this, 0.),
 				new MRI((ProbabilityDistribution) new DeterministicDistribution(10), 20., this),
-				new Transportation("Transportation", (ProbabilityDistribution) new DeterministicDistribution(5), this, 0.),
-				new Triage("Triage", (ProbabilityDistribution) new DeterministicDistribution(1), this, 0.),
+				new Transportation((ProbabilityDistribution) new DeterministicDistribution(5), this, 0.),
+				new Triage((ProbabilityDistribution) new DeterministicDistribution(1), this, 0.),
 				new XRay((ProbabilityDistribution) new DeterministicDistribution(15), 50., this)};
 		severityLevels = new SeverityLevel[] {
 				new SeverityLevel_L1(new ExponentialDistribution(0.01)),
@@ -68,7 +67,6 @@ public class EmergencyDepartment {
 		};
 		time = 0;
 		patientFactory = new PatientFactory();
-		tasksQueue = new TasksQueue();
 		System.out.println("Hospital " + name + " successfully created !");
 	}
 	
@@ -79,12 +77,16 @@ public class EmergencyDepartment {
 	public void executeNextTask() {
 		TasksQueue queue = new TasksQueue();
 		for (WorkflowElement service : services) {
-			queue.addTask(service.getNextTask());
+			try {
+				queue.addTask(service.getNextTask());
+			}
+			catch (NullPointerException e) {
+			}
 		}
 		queue.addTask(this.getNextPatientArrival());
-		System.out.println(queue.getQueue().size());
-		double nextTime = queue.executeNextTask();
-		this.time = nextTime;
+		Task task = queue.executeNextTask();
+		this.time = task.getTimestamp();
+		this.history.add(new Event(task.toString(), this.time));
 	}
 	
 	/**
@@ -218,15 +220,15 @@ public class EmergencyDepartment {
 		content.append("\n----- Emergency Department Report -----\n");
 		content.append(this.toString() + "\n");
 		content.append("Current time : " + time + "\n");
-		content.append("� Patients : \n");
+		content.append("- Patients : \n");
 		for (Patient patient : patients) {
 			content.append(patient).append('\n');
 		}
-		content.append("� Rooms : \n");
+		content.append("- Rooms : \n");
 		for (Room room : rooms) {
 			content.append(room.toStringDetailed()).append('\n');
 		}
-		content.append("� Staff : \n");
+		content.append("- Staff : \n");
 		for (Human employee : staff) {
 			if (employee instanceof Physician) {
 				content.append(((Physician) employee).toStringDetailed() + "\n");
@@ -235,11 +237,11 @@ public class EmergencyDepartment {
 				content.append(employee).append('\n');
 			}
 		}
-		content.append("� Services : \n");
+		content.append("- Services : \n");
 		for (WorkflowElement service : services) {
 			content.append(service.toStringDetailed()).append('\n');
 		}
-		content.append("� History : \n");
+		content.append("- History : \n");
 		for (Event event : history) {
 			content.append(event).append('\n');
 		}
@@ -342,14 +344,6 @@ public class EmergencyDepartment {
 
 	public void setTime(double time) {
 		this.time = time;
-	}
-
-	public TasksQueue getTasksQueue() {
-		return tasksQueue;
-	}
-
-	public void setTasksQueue(TasksQueue tasksQueue) {
-		this.tasksQueue = tasksQueue;
 	}
 
 	@Override

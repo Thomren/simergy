@@ -28,7 +28,10 @@ public class Transportation extends WorkflowElement {
 	
 	public Transportation(String name, ProbabilityDistribution durationProbability, EmergencyDepartment emergencyDepartment, Double cost) {
 		super(name, durationProbability, cost, emergencyDepartment);
-		// TODO Auto-generated constructor stub
+	}
+	
+	public Transportation(ProbabilityDistribution durationProbability, EmergencyDepartment emergencyDepartment, Double cost) {
+		super("Transportation", durationProbability, cost, emergencyDepartment);
 	}
 
 	public void transportPatient(Transporter transporter, Patient patient) {

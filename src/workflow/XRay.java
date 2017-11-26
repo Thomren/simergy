@@ -15,7 +15,10 @@ public class XRay extends HealthService {
 
 	public XRay(ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
 		super("XRay", durationProbability, cost, emergencyDepartment);
-		// TODO Auto-generated constructor stub
+	}
+	
+	public XRay(String name, ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
+		super(name, durationProbability, cost, emergencyDepartment);
 	}
 
 }

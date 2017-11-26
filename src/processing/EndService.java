@@ -72,4 +72,9 @@ public class EndService implements Command {
 		this.employee = employee;
 	}
 
+	@Override
+	public String toString() {
+		return "End of service " + service + " on " + patient + " by " + employee + " in " + room;
+	}
+
 }
