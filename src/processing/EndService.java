@@ -75,7 +75,15 @@ public class EndService implements Command {
 
 	@Override
 	public String toString() {
-		return "End of service " + service + " on " + patient + " by " + employee + " in " + room;
+		StringBuffer content = new StringBuffer();
+		content.append("End of service " + service + " on " + patient );
+		if(employee != null) {
+			content.append(" by " + employee);
+		}
+		if(room != null) {
+			content.append(" in " + room);
+		}
+		return content.toString();
 	}
 
 }

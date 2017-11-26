@@ -24,17 +24,23 @@ import utils.ProbabilityDistribution;
  */
 
 public class Consultation extends WorkflowElement {
-	private final Double noExamRate = 0.4;
-	private final Double bloodTestRate = 0.35;
-	private final Double xRayRate = 0.2;
+	private Double noExamRate;
+	private Double bloodTestRate;
+	private Double xRayRate;
 	
 
 	public Consultation(String name, ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
 		super(name, durationProbability, cost, emergencyDepartment);
+		noExamRate = 0.4;
+		bloodTestRate = 0.35;
+		xRayRate = 0.2;
 	}
 	
 	public Consultation(ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
 		super("Consultation", durationProbability, cost, emergencyDepartment);
+		noExamRate = 0.4;
+		bloodTestRate = 0.35;
+		xRayRate = 0.2;
 	}
 	
 	/**
@@ -84,7 +90,6 @@ public class Consultation extends WorkflowElement {
 	@Override
 	public void endServiceOnPatient(Patient patient) {
 		// TODO Auto-generated method stub
-		this.examinePatient(patient);
 		Event endConsultation = new Event("Consultation ending", emergencyDepartment.getTime());
 		patient.addEvent(endConsultation);
 		patient.addCharges(cost);
@@ -96,8 +101,7 @@ public class Consultation extends WorkflowElement {
 
 	private String determineExamination() {
 		// TODO Auto-generated method stub
-		Random random = new Random();
-		Double exam = random.nextDouble();
+		double exam = Math.random();
 		if(exam < noExamRate) {
 			return "Release";
 		}
@@ -122,6 +126,7 @@ public class Consultation extends WorkflowElement {
 			patient.addEvent(new Event("Released", this.emergencyDepartment.getTime()));
 			patient.getPhysician().addTreatedPatient(patient);
 			patient.getPhysician().removeOverseenPatient(patient);
+			patient.setState("released");
 			emergencyDepartment.removePatient(patient);
 		}
 	}
@@ -137,4 +142,17 @@ public class Consultation extends WorkflowElement {
 	public Double getxRayRate() {
 		return xRayRate;
 	}
+
+	public void setNoExamRate(Double noExamRate) {
+		this.noExamRate = noExamRate;
+	}
+
+	public void setBloodTestRate(Double bloodTestRate) {
+		this.bloodTestRate = bloodTestRate;
+	}
+
+	public void setXRayRate(Double xRayRate) {
+		this.xRayRate = xRayRate;
+	}
+	
 }

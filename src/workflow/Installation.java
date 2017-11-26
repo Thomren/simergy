@@ -25,6 +25,7 @@ public class Installation extends WorkflowElement {
 		super("Installation", durationProbability, cost, emergencyDepartment);
 	}
 
+	// TO REMOVE ?
 	public void installPatient(Nurse nurse, Patient patient) {
 		// TODO Auto-generated method stub
 		Double installationBeginningTime = emergencyDepartment.getTime();
@@ -51,7 +52,7 @@ public class Installation extends WorkflowElement {
 	public boolean canTreatPatient(Patient patient) {
 		Nurse nurse = emergencyDepartment.getIdleNurse();
 		String roomType;
-		if (patient.getSeverityLevel().getLevel() < 3) {
+		if (patient != null && patient.getSeverityLevel().getLevel() < 3) {
 			roomType = "ShockRoom";
 		}
 		else {

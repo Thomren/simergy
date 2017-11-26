@@ -49,9 +49,12 @@ public class Transportation extends WorkflowElement {
 	 */
 	@Override
 	public boolean canTreatPatient(Patient patient) {
-		String healthService = patient.getHistory().get(patient.getHistory().size()).getName().split(" ")[0];
-		String roomType = healthService + "Room";
-		return (patient != null && this.emergencyDepartment.getIdleTransporter() != null && emergencyDepartment.getAvailableRoom(roomType) != null);
+		if (patient != null) {
+			String healthService = patient.getHistory().get(patient.getHistory().size() - 1).getName().split(" ")[0];
+			String roomType = healthService + "Room";
+			return (this.emergencyDepartment.getIdleTransporter() != null && emergencyDepartment.getAvailableRoom(roomType) != null);
+		}
+		else return false;
 	}
 	
 	@Override
@@ -60,7 +63,7 @@ public class Transportation extends WorkflowElement {
 		this.waitingQueue.remove(patient);
 		Transporter transporter = emergencyDepartment.getIdleTransporter();
 		transporter.setState("occupied");
-		String healthService = patient.getHistory().get(patient.getHistory().size()).getName().split(" ")[0];
+		String healthService = patient.getHistory().get(patient.getHistory().size() - 1).getName().split(" ")[0];
 		String roomType = healthService + "Room";
 		Room room = emergencyDepartment.getAvailableRoom(roomType);
 		room.addPatient(patient);
