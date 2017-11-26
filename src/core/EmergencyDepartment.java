@@ -59,11 +59,11 @@ public class EmergencyDepartment {
 				new Triage((ProbabilityDistribution) new DeterministicDistribution(1), this, 0.),
 				new XRay((ProbabilityDistribution) new DeterministicDistribution(15), 50., this)};
 		severityLevels = new SeverityLevel[] {
-				new SeverityLevel_L1(new ExponentialDistribution(0.01)),
-				new SeverityLevel_L2(new ExponentialDistribution(0.05)),
-				new SeverityLevel_L3(new ExponentialDistribution(0.1)),
-				new SeverityLevel_L4(new ExponentialDistribution(0.2)),
-				new SeverityLevel_L5(new ExponentialDistribution(0.5))
+				new SeverityLevel_L1(new ExponentialDistribution(0.001)),
+				new SeverityLevel_L2(new ExponentialDistribution(0.001)),
+				new SeverityLevel_L3(new ExponentialDistribution(0.001)),
+				new SeverityLevel_L4(new ExponentialDistribution(0.001)),
+				new SeverityLevel_L5(new ExponentialDistribution(0.001))
 		};
 		time = 0;
 		patientFactory = new PatientFactory();
@@ -86,7 +86,7 @@ public class EmergencyDepartment {
 		queue.addTask(this.getNextPatientArrival());
 		Task task = queue.executeNextTask();
 		this.time = task.getTimestamp();
-		this.history.add(new Event(task.toString(), this.time));
+		this.history.add(new Event(task.getCommand().toString(), this.time));
 	}
 	
 	/**

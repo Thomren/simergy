@@ -60,7 +60,7 @@ public class Installation extends WorkflowElement {
 		else {
 			roomType = "BoxRoom";
 		}
-		return (patient != null & nurse != null & emergencyDepartment.getAvailableRoom(roomType) != null);
+		return (patient != null && nurse != null && emergencyDepartment.getAvailableRoom(roomType) != null);
 	}
 	
 

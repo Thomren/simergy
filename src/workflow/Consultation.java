@@ -53,7 +53,7 @@ public class Consultation extends WorkflowElement {
 	 */
 	@Override
 	public boolean canTreatPatient(Patient patient) {
-		return (patient != null & patient.getPhysician() == null & emergencyDepartment.getIdlePhysician() != null) || (patient != null & patient.getPhysician() != null);
+		return (patient != null && patient.getPhysician() == null && emergencyDepartment.getIdlePhysician() != null) || (patient != null && patient.getPhysician() != null);
 	}
 
 	/**

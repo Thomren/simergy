@@ -56,14 +56,9 @@ public class ManualUseCase {
 		// Arrival of a patient
 		ED.getNextPatientArrival().getCommand().execute();
 		Patient patient = ED.getPatients().get(0);
-		// Triage
-		ED.executeNextTask();
-		// Consultation
-		ED.executeNextTask();
-		// Examination
-		ED.executeNextTask();
-		// Consultation
-		ED.executeNextTask();
+		for (int i = 0; i < 10; i++) {
+			ED.executeNextTask();
+		}
 		patient.printReport();
 		ED.printReport();
 		System.out.println("Patient successfully treated and left hospital !");

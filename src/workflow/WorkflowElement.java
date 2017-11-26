@@ -208,6 +208,10 @@ public abstract class WorkflowElement extends Entity {
 	public void setTasksQueue(TasksQueue tasksQueue) {
 		this.tasksQueue = tasksQueue;
 	}
+	
+	public void removeNextTask() {
+		this.tasksQueue.getQueue().poll();
+	}
 
 	@Override
 	public String toString() {

@@ -2,6 +2,8 @@ package processing;
 
 import java.util.PriorityQueue;
 
+import core.Event;
+
 /**
  * Invoker class of the command pattern. It stores the task to execute with their timestamp and
  * can execute them in the right order.
@@ -41,7 +43,15 @@ public class TasksQueue {
 	public PriorityQueue<Task> getQueue() {
 		return queue;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		StringBuffer content = new StringBuffer();
+		content.append("Tasks queue : \n");
+		for (Task task : queue) {
+			content.append(task).append('\n');
+		}
+		return content.toString();
+	}
 	
 }

@@ -57,7 +57,7 @@ public class Transportation extends WorkflowElement {
 	public boolean canTreatPatient(Patient patient) {
 		String healthService = patient.getHistory().get(patient.getHistory().size()).getName().split(" ")[0];
 		String roomType = healthService + "Room";
-		return (patient != null & this.emergencyDepartment.getIdleTransporter() != null & emergencyDepartment.getAvailableRoom(roomType) != null);
+		return (patient != null && this.emergencyDepartment.getIdleTransporter() != null && emergencyDepartment.getAvailableRoom(roomType) != null);
 	}
 	
 	@Override

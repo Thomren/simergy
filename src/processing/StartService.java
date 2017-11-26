@@ -36,7 +36,7 @@ public class StartService implements Command {
 
 	@Override
 	public String toString() {
-		return "Start of service " + service + "on " + patient;
+		return "Start of service " + service + " on " + patient;
 	}
 	
 }

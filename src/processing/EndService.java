@@ -40,6 +40,7 @@ public class EndService implements Command {
 	@Override
 	public void execute() {
 		service.endServiceOnPatient(patient);
+		service.removeNextTask();
 		if (this.employee != null) {
 			this.employee.setState("idle");
 		}
