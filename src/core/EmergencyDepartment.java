@@ -36,6 +36,7 @@ import workflow.XRay;
 public class EmergencyDepartment {
 	protected ArrayList<Patient> patients;
 	protected ArrayList<Room> rooms;
+	protected Corridor corridor;
 	protected ArrayList<Human> staff;
 	protected ArrayList<Event> history;
 	protected WorkflowElement[] services;
@@ -49,6 +50,7 @@ public class EmergencyDepartment {
 		this.name = name;
 		patients = new ArrayList<Patient>();
 		rooms = new ArrayList<Room>();
+		corridor = new Corridor;
 		staff = new ArrayList<Human>();
 		history = new ArrayList<Event>();
 		services = new WorkflowElement[] {
@@ -143,6 +145,9 @@ public class EmergencyDepartment {
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
+		}
+		if (roomType == "WaitingRoom") {
+			return corridor
 		}
 		return null;
 	}
