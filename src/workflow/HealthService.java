@@ -45,7 +45,11 @@ public abstract class HealthService extends WorkflowElement {
 		Event endService = new Event(this.name + " ending", emergencyDepartment.getTime());
 		patient.addEvent(endService);
 		patient.addCharges(cost);
-		patient.getLocation().removePatient(patient);
+		try {
+			patient.getLocation().removePatient(patient);
+		}
+		catch (NullPointerException e){
+		}
 		patient.setLocation(null);
 		patient.setState("waiting");
 		emergencyDepartment.getService("Installation").addPatientToWaitingList(patient);

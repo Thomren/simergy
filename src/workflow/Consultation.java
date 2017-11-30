@@ -93,7 +93,11 @@ public class Consultation extends WorkflowElement {
 		patient.addEvent(endConsultation);
 		patient.addCharges(cost);
 		patient.setState("waiting");
-		patient.getLocation().removePatient(patient);
+		try { 
+			patient.getLocation().removePatient(patient);
+		}
+		catch (NullPointerException e) {
+		}
 		patient.setLocation(null);
 		this.examinePatient(patient);
 	}
