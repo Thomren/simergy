@@ -16,11 +16,11 @@ import utils.ProbabilityDistribution;
 
 public class Triage extends WorkflowElement {
 
-	public Triage(String name, ProbabilityDistribution durationProbability, EmergencyDepartment emergencyDepartment, Double cost) {
+	public Triage(String name, ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
 		super(name, durationProbability, cost, emergencyDepartment);
 	}
 	
-	public Triage(ProbabilityDistribution durationProbability, EmergencyDepartment emergencyDepartment, Double cost) {
+	public Triage(ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
 		super("Triage", durationProbability, cost, emergencyDepartment);
 	}
 	

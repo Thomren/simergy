@@ -13,7 +13,6 @@ import resources.Room;
 import resources.Transporter;
 import utils.DeterministicDistribution;
 import utils.ExponentialDistribution;
-import utils.ProbabilityDistribution;
 import utils.SeverityLevel;
 import utils.SeverityLevel_L1;
 import utils.SeverityLevel_L2;
@@ -55,13 +54,13 @@ public class EmergencyDepartment {
 		staff = new ArrayList<Human>();
 		history = new ArrayList<Event>();
 		services = new WorkflowElement[] {
-				new BloodTest((ProbabilityDistribution) new DeterministicDistribution(5), 15., this),
-				new Consultation((ProbabilityDistribution) new DeterministicDistribution(2), 5., this),
-				new Installation((ProbabilityDistribution) new DeterministicDistribution(5), this, 0.),
-				new MRI((ProbabilityDistribution) new DeterministicDistribution(10), 20., this),
-				new Transportation((ProbabilityDistribution) new DeterministicDistribution(5), this, 0.),
-				new Triage((ProbabilityDistribution) new DeterministicDistribution(1), this, 0.),
-				new XRay((ProbabilityDistribution) new DeterministicDistribution(15), 50., this)};
+				new BloodTest(new DeterministicDistribution(5), 15., this),
+				new Consultation(new DeterministicDistribution(2), 5., this),
+				new Installation(new DeterministicDistribution(5), 0., this),
+				new MRI(new DeterministicDistribution(10), 20., this),
+				new Transportation(new DeterministicDistribution(5), 0., this),
+				new Triage(new DeterministicDistribution(1), 0., this),
+				new XRay(new DeterministicDistribution(15), 50., this)};
 		severityLevels = new SeverityLevel[] {
 				new SeverityLevel_L1(new ExponentialDistribution(0.001)),
 				new SeverityLevel_L2(new ExponentialDistribution(0.005)),

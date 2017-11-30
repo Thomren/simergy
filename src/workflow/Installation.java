@@ -17,11 +17,11 @@ import utils.ProbabilityDistribution;
 
 public class Installation extends WorkflowElement {
 
-	public Installation(String name, ProbabilityDistribution durationProbability, EmergencyDepartment emergencyDepartment, Double cost) {
+	public Installation(String name, ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
 		super(name, durationProbability, cost, emergencyDepartment);
 	}
 	
-	public Installation(ProbabilityDistribution durationProbability, EmergencyDepartment emergencyDepartment, Double cost) {
+	public Installation(ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
 		super("Installation", durationProbability, cost, emergencyDepartment);
 	}
 

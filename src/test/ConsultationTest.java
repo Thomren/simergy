@@ -39,8 +39,8 @@ public class ConsultationTest {
 	public void setUp() throws Exception {
 		System.out.println("=== Initialisation ===");
 		ED = new EmergencyDepartment("Test ED");
-		ED.setServices(new WorkflowElement[]{new Triage(new DeterministicDistribution(1), ED, 2.), 
-				new Transportation (new DeterministicDistribution(2), ED, 3.),
+		ED.setServices(new WorkflowElement[]{new Triage(new DeterministicDistribution(1), 2., ED), 
+				new Transportation (new DeterministicDistribution(2), 3., ED),
 				new Consultation(new DeterministicDistribution(4), 25., ED)
 				});
 		waitingRoom = new WaitingRoom("Waiting Room", 10, ED);

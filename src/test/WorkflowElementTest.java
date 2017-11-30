@@ -26,7 +26,7 @@ public class WorkflowElementTest {
 	@Before
 	public void setUp() throws Exception {
 		ED = new EmergencyDepartment("Test Hospital");
-		triage = new Triage(new DeterministicDistribution(5), ED, 3.);
+		triage = new Triage(new DeterministicDistribution(5), 3., ED);
 		patient = new Patient("John", "Doe", new NoInsurance(), new SeverityLevel_L3(new DeterministicDistribution(2)), ED);
 		severePatient = new Patient("Henri", "Golo", new NoInsurance(), new SeverityLevel_L1(new DeterministicDistribution(2)), ED);
 	}

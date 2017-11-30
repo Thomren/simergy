@@ -33,8 +33,8 @@ public class HealthServiceTest {
 	public void setUp() throws Exception {
 		System.out.println("=== Initialisation ===");
 		ED = new EmergencyDepartment("Test ED");
-		ED.setServices(new WorkflowElement[]{new Triage(new DeterministicDistribution(1), ED, 2.), 
-				new Installation (new DeterministicDistribution(2), ED, 3.),
+		ED.setServices(new WorkflowElement[]{new Triage(new DeterministicDistribution(1), 2., ED), 
+				new Installation (new DeterministicDistribution(2), 3., ED),
 				new XRay(new DeterministicDistribution(4), 12., ED)
 				});
 		xRayRoom = new XRayRoom("XRay Room", 1, ED);

@@ -20,11 +20,11 @@ import utils.ProbabilityDistribution;
 public class Transportation extends WorkflowElement {
 	protected final Double transportTime = 5.0;
 	
-	public Transportation(String name, ProbabilityDistribution durationProbability, EmergencyDepartment emergencyDepartment, Double cost) {
+	public Transportation(String name, ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
 		super(name, durationProbability, cost, emergencyDepartment);
 	}
 	
-	public Transportation(ProbabilityDistribution durationProbability, EmergencyDepartment emergencyDepartment, Double cost) {
+	public Transportation(ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
 		super("Transportation", durationProbability, cost, emergencyDepartment);
 	}
 
