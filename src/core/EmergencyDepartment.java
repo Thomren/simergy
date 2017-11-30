@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import processing.PatientArrival;
 import processing.Task;
 import processing.TasksQueue;
+import resources.Corridor;
 import resources.Human;
 import resources.Nurse;
 import resources.Patient;
@@ -50,7 +51,7 @@ public class EmergencyDepartment {
 		this.name = name;
 		patients = new ArrayList<Patient>();
 		rooms = new ArrayList<Room>();
-		corridor = new Corridor;
+		corridor = new Corridor(this);
 		staff = new ArrayList<Human>();
 		history = new ArrayList<Event>();
 		services = new WorkflowElement[] {
@@ -147,7 +148,7 @@ public class EmergencyDepartment {
 			}
 		}
 		if (roomType == "WaitingRoom") {
-			return corridor
+			return corridor;
 		}
 		return null;
 	}
