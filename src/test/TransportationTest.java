@@ -47,6 +47,7 @@ public class TransportationTest {
 		TransporterFactory transporterFactory = new TransporterFactory();
 		ED.addStaff(1, transporterFactory);
 		patient = ED.getPatients().get(0);
+		patient.setHealthInsurance(new NoInsurance());
 		transporter = ED.getIdleTransporter();
 		System.out.println("=== End of initialisation ===");
 	}
@@ -71,19 +72,17 @@ public class TransportationTest {
 		transportation.startServiceOnPatient(patient);
 		// Tests on patient
 		assertTrue(patient.getState().equals("being-transported"));
-		assertNull(patient.getLocation());
 		assertTrue(bloodTestRoom.getPatients().contains(patient));
-		assertTrue(patient.getHistory().get(patient.getHistory().size() - 1).getName().equals("Installation beginning"));
+		assertTrue(patient.getHistory().get(patient.getHistory().size() - 1).getName().equals("Transportation beginning"));
 		// Test on nurse
 		assertTrue(transporter.getState().equals("occupied"));
-		// Test on room
-		assertFalse(waitingRoom.getPatients().contains(patient));
 	}
 
 	@Test
 	public void testEndServiceOnPatient() {
 		// Simulate startServiceOnPatient effects
 		patient.setState("being-transported");
+		patient.setLocation(bloodTestRoom);
 		// Execution
 		transportation.endServiceOnPatient(patient);
 		// Tests on patient

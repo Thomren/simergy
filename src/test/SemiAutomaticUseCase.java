@@ -56,7 +56,7 @@ public class SemiAutomaticUseCase {
 		// Arrival of a patient
 		ED.getNextPatientArrival().getCommand().execute();
 		Patient patient = ED.getPatients().get(0);
-		for (int i = 0; i < 15; i++) {
+		for (int i = 0; i < 30; i++) {
 			ED.executeNextTask();
 		}
 		patient.printReport();

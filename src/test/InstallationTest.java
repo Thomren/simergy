@@ -75,7 +75,6 @@ public class InstallationTest {
 		installation.startServiceOnPatient(patient);
 		// Tests on patient
 		assertTrue(patient.getState().equals("being-installed"));
-		assertNull(patient.getLocation());
 		assertTrue(boxRoom.getPatients().contains(patient));
 		assertTrue(patient.getHistory().get(patient.getHistory().size() - 1).getName().equals("Installation beginning"));
 		// Test on nurse
@@ -90,7 +89,6 @@ public class InstallationTest {
 		installation.startServiceOnPatient(patient);
 		// Tests on patient
 		assertTrue(patient.getState().equals("being-installed"));
-		assertNull(patient.getLocation());
 		assertTrue(shockRoom.getPatients().contains(patient));
 		assertTrue(patient.getHistory().get(patient.getHistory().size() - 1).getName().equals("Installation beginning"));
 		// Test on nurse
