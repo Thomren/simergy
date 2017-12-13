@@ -12,7 +12,10 @@ import resources.Physician;
 import resources.Room;
 import resources.Transporter;
 import utils.DeterministicDistribution;
+import utils.DoorToDoctorTime;
 import utils.ExponentialDistribution;
+import utils.KeyPerformanceIndicator;
+import utils.LengthOfStay;
 import utils.SeverityLevel;
 import utils.SeverityLevel_L1;
 import utils.SeverityLevel_L2;
@@ -129,6 +132,26 @@ public class EmergencyDepartment {
 			addPatient(patient); // Add the patient in the ED
 			getService("Triage").addPatientToWaitingList(patient);
 		}
+	}
+	
+	/**
+	 * This method computes the given KPI of the emergency department
+	 * @param category a string representing the category of KPI wanted by the user
+	 * @return the average KPI of the emergency department if the String is correct, an Exception otherwise
+	 */
+	public double computeKPI(String category) throws Exception {
+		KeyPerformanceIndicator KPI;
+		if (category == "los") {
+			KPI = new LengthOfStay(this);
+			
+		}
+		else if (category == "dtdt") {
+			KPI = new DoorToDoctorTime(this);
+		}
+		else {
+			throw new Exception();
+		}
+		return KPI.computeAverageKPI();
 	}
 	
 	/**
