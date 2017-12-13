@@ -143,36 +143,6 @@ public abstract class WorkflowElement extends Entity {
 		Task endTask = new Task(endTimestamp, new EndService(workflowElement, patient, employee, room));
 		this.getTasksQueue().addTask(endTask);
 	}
-	
-//	public Double getNextAvailableEmployeeTime(String className) {
-//		Iterator<Task> iteratorTasksQueue = this.emergencyDepartment.getTasksQueue().getQueue().iterator();
-//		Double nextAvailableEmployeeTime = Double.POSITIVE_INFINITY;
-//		while (iteratorTasksQueue.hasNext()) {
-//			Task task = (Task) iteratorTasksQueue.next();
-//			Command commandTask = task.getCommand();
-//			if (commandTask instanceof EndService) {
-//				EndService endServiceTask = (EndService) commandTask;
-//				if (endServiceTask.getEmployee().getClass().getName() == className) {
-//					nextAvailableEmployeeTime = Math.min(nextAvailableEmployeeTime, task.getTimestamp());
-//				}
-//			}
-//		}
-//		return nextAvailableEmployeeTime;
-//	}
-//	
-//	/**
-//	 * This method handle the next patient of the service.
-//	 * @see getNextPatient
-//	 * @see executeServiceOnPatient
-//	 */
-//	public void handleNextPatient() {
-//		try {
-//			this.executeServiceOnPatient(this.getNextPatient());
-//		}
-//		catch(IndexOutOfBoundsException e) {
-//			// Do nothing
-//		}
-//	}
 
 	public Double getCost() {
 		return cost;
