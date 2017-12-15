@@ -3,6 +3,7 @@ package workflow;
 import core.EmergencyDepartment;
 import core.Event;
 import resources.Patient;
+import resources.Room;
 import utils.ProbabilityDistribution;
 
 /**
@@ -37,7 +38,9 @@ public abstract class HealthService extends WorkflowElement {
 		Event beginService = new Event(this.name + " beginning", emergencyDepartment.getTime());
 		patient.addEvent(beginService);
 		patient.setState("taking-" + this.name);
-		this.generateEndTask(this, patient);
+		Room room = emergencyDepartment.getAvailableRoom("WaitingRoom");
+		room.addPatient(patient);
+		this.generateEndTask(this, patient, room);
 	}
 
 	@Override
@@ -45,12 +48,6 @@ public abstract class HealthService extends WorkflowElement {
 		Event endService = new Event(this.name + " ending", emergencyDepartment.getTime());
 		patient.addEvent(endService);
 		patient.addCharges(cost);
-		try {
-			patient.getLocation().removePatient(patient);
-		}
-		catch (NullPointerException e){
-		}
-		patient.setLocation(null);
 		patient.setState("waiting");
 		emergencyDepartment.getService("Installation").addPatientToWaitingList(patient);
 	}

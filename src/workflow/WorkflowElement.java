@@ -143,6 +143,12 @@ public abstract class WorkflowElement extends Entity {
 		Task endTask = new Task(endTimestamp, new EndService(workflowElement, patient, employee, room));
 		this.getTasksQueue().addTask(endTask);
 	}
+	
+	public void generateEndTask(WorkflowElement workflowElement, Patient patient, Room room) {
+		Double endTimestamp = emergencyDepartment.getTime() + workflowElement.durationProbability.generateSample();
+		Task endTask = new Task(endTimestamp, new EndService(workflowElement, patient, room));
+		this.getTasksQueue().addTask(endTask);
+	}
 
 	public Double getCost() {
 		return cost;

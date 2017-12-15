@@ -40,9 +40,9 @@ public class ManualUseCase {
 		workflowElement.startServiceOnPatient(patient);
 		workflowElement.generateEndTask(workflowElement, patient);
 		Task endService = workflowElement.getTasksQueue().getNextTask();
+		ED.setTime(endService.getTimestamp());
 		workflowElement.getTasksQueue().removeTask(endService);
 		endService.getCommand().execute();
-		ED.setTime(endService.getTimestamp());
 	}
 	
 	public static void main(String[] args) {
@@ -97,6 +97,17 @@ public class ManualUseCase {
 				new Transportation( new DeterministicDistribution(5), 0., ED),
 				new Triage(new DeterministicDistribution(1), 0., ED),
 				new XRay(new DeterministicDistribution(15), 50., ED)});
+		// Compute KPI
+		try {
+			System.out.println("Current KPI");
+			System.out.print("  * Lenght of stay : ");
+			System.out.println(ED.computeKPI("los"));
+			System.out.print("  * Door to doctor time : ");
+			System.out.println(ED.computeKPI("dtdt"));
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
 		// Arrival of a patient
 		Task patientArrivalTask = ED.getNextPatientArrival();
 		patientArrivalTask.getCommand().execute();
@@ -108,6 +119,17 @@ public class ManualUseCase {
 		executeService("Installation", patient, ED);
 		// Consultation
 		executeService("Consultation", patient, ED);
+		// Compute KPI
+				try {
+				System.out.println("Current KPI");
+				System.out.print("  * Lenght of stay : ");
+				System.out.println(ED.computeKPI("los"));
+				System.out.print("  * Door to doctor time : ");
+				System.out.println(ED.computeKPI("dtdt"));
+				}
+				catch (Exception e) {
+					System.out.println(e);
+				}
 		// Released or exam
 		while(patient.getHistory().get(patient.getHistory().size() - 1).getName() != "Released") {
 			switch (patient.getHistory().get(patient.getHistory().size() - 1).getName()) {

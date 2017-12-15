@@ -4,6 +4,13 @@ import core.EmergencyDepartment;
 import core.Event;
 import resources.Patient;
 
+/**
+ * This class herits from KeyPerformanceIndicator.
+ * It implements computeKPI to compute the duration between a patient's arrival and his first consultation.
+ * @author Quentin
+ *
+ */
+
 public class DoorToDoctorTime extends KeyPerformanceIndicator {
 
 	public DoorToDoctorTime(EmergencyDepartment emergencyDepartment) {

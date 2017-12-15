@@ -4,6 +4,7 @@ import core.EmergencyDepartment;
 import core.Event;
 import resources.Patient;
 import resources.Physician;
+import resources.Room;
 import utils.ProbabilityDistribution;
 
 /**
@@ -77,7 +78,9 @@ public class Consultation extends WorkflowElement {
 		Event beginConsultation = new Event("Consultation beginning", emergencyDepartment.getTime());
 		patient.addEvent(beginConsultation);
 		patient.setState("being-visited");
-		this.generateEndTask(this, patient, physician);
+		Room room = emergencyDepartment.getAvailableRoom("WaitingRoom");
+		room.addPatient(patient);
+		this.generateEndTask(this, patient, physician, room);
 	}
 
 	/**
@@ -93,12 +96,6 @@ public class Consultation extends WorkflowElement {
 		patient.addEvent(endConsultation);
 		patient.addCharges(cost);
 		patient.setState("waiting");
-		try { 
-			patient.getLocation().removePatient(patient);
-		}
-		catch (NullPointerException e) {
-		}
-		patient.setLocation(null);
 		this.examinePatient(patient);
 	}
 

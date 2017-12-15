@@ -26,19 +26,19 @@ public class Installation extends WorkflowElement {
 	}
 
 	// TO REMOVE ?
-	public void installPatient(Nurse nurse, Patient patient) {
-		Double installationBeginningTime = emergencyDepartment.getTime();
-		Event installationBeginning = new Event("Installation beginning", installationBeginningTime);
-		System.out.println(installationBeginning);
-		Event installationEnding = new Event("Installation ending", installationBeginningTime + durationProbability.generateSample());
-		patient.addEvent(installationBeginning);
-		patient.addEvent(installationEnding);
-		System.out.println(nurse);
-		nurse.addEvent(installationBeginning);
-		nurse.addEvent(installationEnding);
-		patient.addCharges(cost);
-		
-	}
+//	public void installPatient(Nurse nurse, Patient patient) {
+//		Double installationBeginningTime = emergencyDepartment.getTime();
+//		Event installationBeginning = new Event("Installation beginning", installationBeginningTime);
+//		System.out.println(installationBeginning);
+//		Event installationEnding = new Event("Installation ending", installationBeginningTime + durationProbability.generateSample());
+//		patient.addEvent(installationBeginning);
+//		patient.addEvent(installationEnding);
+//		System.out.println(nurse);
+//		nurse.addEvent(installationBeginning);
+//		nurse.addEvent(installationEnding);
+//		patient.addCharges(cost);
+//		
+//	}
 	
 	/**
 	 * This method overrides canTreatPatient of WorkflowElement.

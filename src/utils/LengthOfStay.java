@@ -4,6 +4,12 @@ import core.EmergencyDepartment;
 import core.Event;
 import resources.Patient;
 
+/**
+ * This class herits from KeyPerformanceIndicator.
+ * It implements computeKPI to compute the duration between a patient's arrival and his release.
+ * @author Quentin
+ *
+ */
 public class LengthOfStay extends KeyPerformanceIndicator {
 
 	public LengthOfStay(EmergencyDepartment emergencyDepartment) {

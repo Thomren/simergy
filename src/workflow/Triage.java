@@ -4,6 +4,7 @@ import core.EmergencyDepartment;
 import core.Event;
 import resources.Nurse;
 import resources.Patient;
+import resources.Room;
 import utils.ProbabilityDistribution;
 
 /**
@@ -52,7 +53,9 @@ public class Triage extends WorkflowElement {
 		Event beginRegistration = new Event("Registration beginning", emergencyDepartment.getTime());
 		patient.addEvent(beginRegistration);
 		patient.setState("being-registered");
-		this.generateEndTask(this, patient, nurse);
+		Room room = emergencyDepartment.getAvailableRoom("WaitingRoom");
+		room.addPatient(patient);
+		this.generateEndTask(this, patient, nurse, room);
 	}
 
 	/**
@@ -67,8 +70,6 @@ public class Triage extends WorkflowElement {
 		Event endRegistration = new Event("Registration ending", emergencyDepartment.getTime());
 		patient.addEvent(endRegistration);
 		patient.addCharges(cost);
-		patient.getLocation().removePatient(patient);
-		patient.setLocation(null);
 		patient.setState("waiting");
 		emergencyDepartment.getService("Installation").addPatientToWaitingList(patient);
 	}

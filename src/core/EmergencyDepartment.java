@@ -38,6 +38,7 @@ import workflow.XRay;
  */
 public class EmergencyDepartment {
 	protected ArrayList<Patient> patients;
+	protected ArrayList<Patient> releasedPatients;
 	protected ArrayList<Room> rooms;
 	protected Corridor corridor;
 	protected ArrayList<Human> staff;
@@ -52,6 +53,7 @@ public class EmergencyDepartment {
 	public EmergencyDepartment(String name) {
 		this.name = name;
 		patients = new ArrayList<Patient>();
+		releasedPatients = new ArrayList<Patient>();
 		rooms = new ArrayList<Room>();
 		corridor = new Corridor(this);
 		staff = new ArrayList<Human>();
@@ -260,6 +262,7 @@ public class EmergencyDepartment {
 		for (Room room : rooms) {
 			content.append(room.toStringDetailed()).append('\n');
 		}
+		content.append(corridor.toStringDetailed()).append('\n');
 		content.append("- Staff : \n");
 		for (Human employee : staff) {
 			if (employee instanceof Physician) {
@@ -273,9 +276,24 @@ public class EmergencyDepartment {
 		for (WorkflowElement service : services) {
 			content.append(service.toStringDetailed()).append('\n');
 		}
-		content.append("- History : \n");
-		for (Event event : history) {
-			content.append(event).append('\n');
+//		content.append("- History : \n");
+//		for (Event event : history) {
+//			content.append(event).append('\n');
+//		}
+		content.append("- KPI : \n");
+		content.append("  * Lenght of stay : ");
+		try {
+			content.append(this.computeKPI("los")).append('\n');
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		content.append("  * Door to doctor time : ");
+		try {
+			content.append(this.computeKPI("dtdt")).append('\n');
+		}
+		catch (Exception e) {
+			System.out.println(e);
 		}
 		System.out.println(content.toString());
 	}
@@ -294,6 +312,7 @@ public class EmergencyDepartment {
 	
 	public void removePatient(Patient patient) {
 		this.patients.remove(patient);
+		this.releasedPatients.add(patient);
 	}
 	
 	public ArrayList<Room> getRooms() {
@@ -405,6 +424,13 @@ public class EmergencyDepartment {
 
 	public void setNextPatientsTimestamp(double[] nextPatientsTimestamp) {
 		this.nextPatientsTimestamp = nextPatientsTimestamp;
+	}
+	
+	public ArrayList<Patient> getAllPatients() {
+		ArrayList<Patient> allPatients = new ArrayList<Patient>();
+		allPatients.addAll(this.patients);
+		allPatients.addAll(this.releasedPatients);
+		return allPatients;
 	}
 	
 }

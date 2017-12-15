@@ -27,6 +27,14 @@ public class EndService implements Command {
 		this.room = null;
 	}
 	
+	public EndService(WorkflowElement service, Patient patient, Room room) {
+		super();
+		this.service = service;
+		this.patient = patient;
+		this.employee = null;
+		this.room = room;
+	}
+	
 	public EndService(WorkflowElement service, Patient patient, Human employee, Room room) {
 		super();
 		this.service = service;
@@ -34,9 +42,7 @@ public class EndService implements Command {
 		this.employee = employee;
 		this.room = room;
 	}
-
-
-
+	
 	@Override
 	public void execute() {
 		service.removeNextTask();
@@ -44,6 +50,7 @@ public class EndService implements Command {
 			this.employee.setState("idle");
 		}
 		if (this.room != null) {
+			this.patient.getLocation().removePatient(patient);
 			this.patient.setLocation(room);
 		}
 		service.endServiceOnPatient(patient);
