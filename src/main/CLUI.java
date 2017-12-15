@@ -7,13 +7,20 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 import core.EmergencyDepartment;
+import core.Event;
 import core.NurseFactory;
 import core.PhysicianFactory;
+import processing.PatientArrival;
+import processing.Task;
 import resources.Nurse;
+import resources.Patient;
 import resources.Room;
 import utils.DeterministicDistribution;
 import utils.ExponentialDistribution;
+import utils.GoldInsurance;
+import utils.NoInsurance;
 import utils.SeverityLevel;
+import utils.SilverInsurance;
 import utils.UniformDistribution;
 
 public class CLUI {
@@ -47,6 +54,8 @@ public class CLUI {
 				case "deterministic":
 					severityLevel.setProbabilityDistribution(new DeterministicDistribution(Double.parseDouble(input[3])));
 					break;
+				default:
+					System.out.println("Error: 2nd argument DistType must be exponentiel, deterministic or uniform");
 				}
 				System.out.println("Probability distribution of patient with severity level " + level + " successfuly set for " + input[1]);
 			} catch(Exception e) {
@@ -95,15 +104,10 @@ public class CLUI {
 						try {
 							capacity = Integer.parseInt(input[4]);
 							Class<?> roomClass = Class.forName("resources." + input[2]);
-							if(!roomClass.isAssignableFrom(Room.class)){
-								System.out.println("Error: " + input[2] + " room type doesn't exist");;
-							}
-							else {
 							Constructor<?> cons = roomClass.getConstructor(String.class, int.class, EmergencyDepartment.class);
 							Room room = (Room) cons.newInstance(input[3], capacity, ED);
 							ED.addRoom(room);
 							System.out.println(input[2] + " " + input[3] + " of capacity " + input[4] + " successfully added to " + input[1]);
-							}
 						} catch (NoSuchMethodException | SecurityException e) {
 							System.out.println("Error: " + input[2] + " doesn't have the right constructor");
 						} catch (ClassNotFoundException e) {
@@ -125,7 +129,7 @@ public class CLUI {
 					break;
 					
 				case "addNurse":
-					if(input.length < 1){
+					if(input.length < 2){
 						System.out.println("Error: Argument <EDname> compulsory but not found");
 					}
 					else if(!emergencyDepartments.containsKey(input[1])) {
@@ -147,7 +151,7 @@ public class CLUI {
 					break;
 					
 				case "addPhysician":
-					if(input.length < 1){
+					if(input.length < 2){
 						System.out.println("Error: Argument <EDname> compulsory but not found");
 					}
 					else if(!emergencyDepartments.containsKey(input[1])) {
@@ -188,16 +192,98 @@ public class CLUI {
 					break;
 					
 				case "addPatient":
+					if(input.length < 5){
+						System.out.println("Error: addPatient requires 4 arguments <EDname, PatientName, PatientSurname, HealthInsurance");
+					}
+					else if(!emergencyDepartments.containsKey(input[1])) {
+						System.out.println("Error: There is no Emergency Department called " + input[1] + ". You can create it with createED " + input[1]);
+					}
+					else {
+						EmergencyDepartment ED = emergencyDepartments.get(input[1]);
+						Task nextPatientArrival = ED.getNextPatientArrival();
+						nextPatientArrival.setTimestamp(ED.getTime());
+						Patient patient = ((PatientArrival) nextPatientArrival.getCommand()).getPatient();
+						patient.setName(input[2]);
+						patient.setSurname(input[3]);
+						switch(input[4]){
+						case "gold":
+							patient.setHealthInsurance(new GoldInsurance());
+							break;
+						case "silver":
+							patient.setHealthInsurance(new SilverInsurance());
+							break;
+						case "none":
+							patient.setHealthInsurance(new NoInsurance());
+							break;
+						default:
+							System.out.println("Error: 4th argument <HealthInsurance> must be either 'gold', 'silver' or 'none'");
+						}
+						nextPatientArrival.getCommand().execute();
+						ED.getHistory().add(new Event(nextPatientArrival.getCommand().toString(), ED.getTime()));
+						System.out.println("Patient " + input[2] + " " + input[3] + " with ID " + patient.getID() + " successfully arrived to " + input[1]);
+					}
 					break;
 					
-				case "registerPatient":
+				case "executeEvents":
+					if(input.length < 2){
+						System.out.println("Error: executeEvents requires 2 arguments <EDname, NumberOfEvents>");
+					}
+					else if(!emergencyDepartments.containsKey(input[1])) {
+						System.out.println("Error: There is no Emergency Department called " + input[1] + ". You can create it with createED " + input[1]);
+					}
+					else {
+						EmergencyDepartment ED = emergencyDepartments.get(input[1]);
+						try {
+							int n = Integer.parseInt(input[2]);
+							for(int i=0; i<n; i++) {
+								ED.executeNextTask();
+							}
+						} catch (Exception e) {
+							System.out.println("Error: 2nd argument NumberOfEvents must be an integer");
+						}
+					}
 					break;
 					
-				case "setPatientInsurance":
+				case "simulate":
+					if(input.length < 2){
+						System.out.println("Error: simulate requires 2 arguments <EDname, DurationToSimulate>");
+					}
+					else if(!emergencyDepartments.containsKey(input[1])) {
+						System.out.println("Error: There is no Emergency Department called " + input[1] + ". You can create it with createED " + input[1]);
+					}
+					else {
+						EmergencyDepartment ED = emergencyDepartments.get(input[1]);
+						try {
+							double t = Double.parseDouble(input[2]);
+							while(ED.getTime() < t) {
+								ED.executeNextTask();
+							}
+							System.out.println("Hospital " + input[1] + " is now at time " + ED.getTime());
+						} catch (Exception e) {
+							System.out.println("Error: 2nd argument DurationToSimulate must be a double");
+						}
+					}
+					break;
+					
+				case "kpi":
+					if(input.length < 2){
+						System.out.println("Error: kpi requires 2 arguments <EDname, KPIname>");
+					}
+					else if(!emergencyDepartments.containsKey(input[1])) {
+						System.out.println("Error: There is no Emergency Department called " + input[1] + ". You can create it with createED " + input[1]);
+					}
+					else {
+						EmergencyDepartment ED = emergencyDepartments.get(input[1]);
+						try {
+							System.out.println("Length-of-stay for hospital " + input[1] + " is " + ED.computeKPI((String)input[2]));
+						} catch (Exception e) {
+							System.out.println("Error: 2nd argument KPIname must be either los (Length-of-stay) or dtdt (Door-to-doctor-time)");
+						}
+					}
 					break;
 					
 				case "executeEvent":
-					if(input.length < 1){
+					if(input.length < 2){
 						System.out.println("Error: Argument <EDname> compulsory but not found");
 					}
 					else if(!emergencyDepartments.containsKey(input[1])) {
@@ -234,6 +320,9 @@ public class CLUI {
 					System.out.println("\t succ [source-stattion]: to display the list of successor station of source-station");
 					System.out.println("\t loadmap: to load the map-file for a metro network");
 					System.out.println("\t boston: to load the map-file for Boston metro network (equivalent to 'loadmap bostonmetro.txt')");
+					break;
+				default:
+					System.out.println("The command " + command + " doesn't exist. Type help to see the list of possible commands or enter a valid one");
 			}
 		}
 		System.out.println("---- The SimErgy terminal stopped ---- ");	

@@ -143,11 +143,10 @@ public class EmergencyDepartment {
 	 */
 	public double computeKPI(String category) throws Exception {
 		KeyPerformanceIndicator KPI;
-		if (category == "los") {
+		if (category.contentEquals("los")) {
 			KPI = new LengthOfStay(this);
-			
 		}
-		else if (category == "dtdt") {
+		else if (category.contentEquals("dtdt")) {
 			KPI = new DoorToDoctorTime(this);
 		}
 		else {
