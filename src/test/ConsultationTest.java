@@ -119,14 +119,11 @@ public class ConsultationTest {
 		assertTrue(patient.getState().equals("released"));
 		assertTrue(patient.getHistory().get(patient.getHistory().size() - 2).getName().equals("Consultation ending"));
 		assertTrue(patient.getHistory().get(patient.getHistory().size() - 1).getName().equals("Released"));
-		assertNull(patient.getLocation());
 		assertTrue(patient.getCharges() == 25.);
 		// Test on physician
 		assertTrue(physician.getState().equals("idle"));
 		assertTrue(physician.getTreatedPatients().get(0).equals(patient));
 		assertTrue(physician.getOverseenPatients().size() == 0);
-		// Test on room
-		assertTrue(boxRoom.getPatients().size() == 0);
 		// Test on consultation service
 		assertTrue(consultation.getWaitingQueue().isEmpty());
 	}

@@ -7,7 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import core.EmergencyDepartment;
-import core.Event;
 import core.NurseFactory;
 import resources.Nurse;
 

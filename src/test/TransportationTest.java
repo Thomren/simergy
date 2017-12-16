@@ -111,6 +111,7 @@ public class TransportationTest {
 	
 	@Test
 	public void testCanTreatPatientWhenNoRoomAvailable() {
+		patient.addEvent(new Event("BloodTest prescribed", 0.));
 		bloodTestRoom.addPatient(new Patient("John", "Doe", new NoInsurance(), ED.getSeverityLevel(3), ED));
 		assertFalse(transportation.canTreatPatient(patient));
 	}
@@ -118,6 +119,7 @@ public class TransportationTest {
 	@Test
 	public void testCanTreatPatientWhenNoTransporterAvailable() {
 		transporter.setState("occupied");
+		patient.addEvent(new Event("BloodTest prescribed", 0.));
 		assertFalse(transportation.canTreatPatient(patient));
 	}
 	

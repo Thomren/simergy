@@ -10,13 +10,11 @@ import core.EmergencyDepartment;
 import core.Event;
 import core.NurseFactory;
 import resources.Human;
-import resources.Nurse;
 
 public class HumanTest {
 	private EmergencyDepartment emergencyDepartment;
 	private NurseFactory humanFactory;
 	private Human human1;
-	private Human human2;
 	private Event event;
 
 	@Before
@@ -24,7 +22,7 @@ public class HumanTest {
 		emergencyDepartment = new EmergencyDepartment("ED");
 		humanFactory = new NurseFactory();
 		human1 = humanFactory.create(emergencyDepartment);
-		human2 = humanFactory.create(emergencyDepartment);
+		humanFactory.create(emergencyDepartment);
 		event = new Event("test event", 2.0);
 	}
 
@@ -33,7 +31,6 @@ public class HumanTest {
 		emergencyDepartment = null;
 		humanFactory = null;
 		human1 = null;
-		human2 = null;
 		event = null;
 	}
 
