@@ -22,6 +22,7 @@ import utils.SeverityLevel_L2;
 import utils.SeverityLevel_L3;
 import utils.SeverityLevel_L4;
 import utils.SeverityLevel_L5;
+import utils.UniformDistribution;
 import workflow.BloodTest;
 import workflow.Consultation;
 import workflow.Installation;
@@ -59,13 +60,13 @@ public class EmergencyDepartment {
 		staff = new ArrayList<Human>();
 		history = new ArrayList<Event>();
 		services = new WorkflowElement[] {
-				new BloodTest(new DeterministicDistribution(5), 15., this),
-				new Consultation(new DeterministicDistribution(2), 5., this),
+				new Triage(new UniformDistribution(2,5), 0., this),
 				new Installation(new DeterministicDistribution(5), 0., this),
-				new MRI(new DeterministicDistribution(10), 20., this),
+				new Consultation(new UniformDistribution(5,20), 15., this),
 				new Transportation(new DeterministicDistribution(5), 0., this),
-				new Triage(new DeterministicDistribution(1), 0., this),
-				new XRay(new DeterministicDistribution(15), 50., this)};
+				new BloodTest(new UniformDistribution(15,90), 25., this),
+				new MRI(new UniformDistribution(30,70), 30., this),
+				new XRay(new UniformDistribution(10,20), 20., this)};
 		severityLevels = new SeverityLevel[] {
 				new SeverityLevel_L1(new ExponentialDistribution(0.001)),
 				new SeverityLevel_L2(new ExponentialDistribution(0.005)),
