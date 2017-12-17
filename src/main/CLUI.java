@@ -1,8 +1,13 @@
 package main;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.FileDescriptor;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
@@ -488,6 +493,7 @@ public class CLUI {
 						+ "the first event after currentTime + time");
 				System.out.println("\t display <EDname> [<PatientName> <PatientSurname>]: to display the current state of an entire ED or"
 						+ "of a patient of an ED");
+				System.out.println("\t runtest <Filename> <OutputFilename>: to run the commands in a file and optionnaly output the results to another file");
 				break;
 			default:
 				System.out.println("The command " + command + " doesn't exist. Type help to see the list of possible commands or enter a valid one");
@@ -540,10 +546,16 @@ public class CLUI {
 			if(command.contentEquals("runtest")) {
 				if(input.length < 2){
 					System.out.println("Error: Argument <Filename> is compulsory");
-				} else if(input.length > 2) {
-					System.out.println("Error: Only one text at a time can be executed");
-				} else { 
+				} else if(input.length == 2) {
 					executeScenarioFile(input[1]);
+				} else { 
+					try {
+						System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream(input[2])), true));
+						executeScenarioFile(input[1]);
+						System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
+					} catch (FileNotFoundException e) {
+						System.out.println("Error: File  " + input[2] + " cannot be created");
+					}
 				}
 			}
 			else {
