@@ -125,6 +125,8 @@ public class Consultation extends WorkflowElement {
 			patient.addEvent(new Event("Released", this.emergencyDepartment.getTime()));
 			patient.getPhysician().addTreatedPatient(patient);
 			patient.getPhysician().removeOverseenPatient(patient);
+			patient.getLocation().removePatient(patient);
+			patient.setLocation(null);
 			patient.setState("released");
 			emergencyDepartment.removePatient(patient);
 		}

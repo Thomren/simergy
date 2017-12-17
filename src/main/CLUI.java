@@ -1,4 +1,4 @@
-package core;
+package main;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -14,6 +14,11 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Set;
 
+import core.EmergencyDepartment;
+import core.Event;
+import core.NurseFactory;
+import core.PhysicianFactory;
+import core.TransporterFactory;
 import processing.PatientArrival;
 import processing.Task;
 import resources.Nurse;
@@ -386,7 +391,7 @@ public class CLUI {
 				else {
 					EmergencyDepartment ED = emergencyDepartments.get(input[1]);
 					try {
-						System.out.println("Length-of-stay for hospital " + input[1] + " is " + ED.computeKPI((String)input[2]));
+						System.out.println(input[1] + " for hospital " + input[1] + " is " + ED.computeKPI((String)input[2]));
 					} catch (Exception e) {
 						System.out.println("Error: 2nd argument KPIname must be either los (Length-of-stay) or dtdt (Door-to-doctor-time)");
 					}
