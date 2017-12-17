@@ -1,4 +1,4 @@
-package main;
+package core;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -14,11 +14,6 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Set;
 
-import core.EmergencyDepartment;
-import core.Event;
-import core.NurseFactory;
-import core.PhysicianFactory;
-import core.TransporterFactory;
 import processing.PatientArrival;
 import processing.Task;
 import resources.Nurse;
@@ -95,7 +90,7 @@ public class CLUI {
 	 */
 	private static void setServiceDuration(String[] input) {
 		if(input.length < 5){
-			System.out.println("Error: set<ServiceName>Duration requires 4 arguments <EDname, ServiceName, DistType, DistParams>");
+			System.out.println("Error: setDuration requires 4 arguments <EDname, ServiceName, DistType, DistParams>");
 		}
 		else if(!emergencyDepartments.containsKey(input[1])) {
 			System.out.println("Error: There is no Emergency Department called " + input[1] + ". You can create it with createED " + input[1]);
@@ -107,7 +102,7 @@ public class CLUI {
 				System.out.println("Error: the service " + input[2] + " doesn't exist");
 			}
 			try {
-				switch(input[2]){
+				switch(input[3]){
 				case "uniform":
 					if(input.length > 3){
 						service.setDurationProbability((new UniformDistribution(Double.parseDouble(input[4]), Double.parseDouble(input[5]))));
@@ -123,7 +118,7 @@ public class CLUI {
 					service.setDurationProbability(new DeterministicDistribution(Double.parseDouble(input[4])));
 					break;
 				default:
-					System.out.println("Error: 2nd argument DistType must be exponential, deterministic or uniform");
+					System.out.println("Error: 3rd argument DistType must be exponential, deterministic or uniform");
 				}
 				System.out.println("Duration probability distribution of " + input[2] + " successfuly set for " + input[1]);
 			} catch(Exception e) {
@@ -154,7 +149,7 @@ public class CLUI {
 				service.setCost(Double.parseDouble(input[3]));
 				System.out.println("Cost of " + input[2] + " successfuly set to " + input[3] + " for " + input[1]);
 			} catch(Exception e) {
-				System.out.println("Error: Argument(s) <Cost> must be a double");
+				System.out.println("Error: Argument <Cost> must be a double");
 			}
 		}
 	}

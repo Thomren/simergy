@@ -3523,6 +3523,632 @@
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_ggB3UNUuEeeOrbHJWfWYbw" name="probabilityDistribution" type="_gZ1vwNUuEeeOrbHJWfWYbw"/>
           </ownedOperation>
         </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_-lnLQONaEeeDgLgaAXk2xQ" name="DoorToDoctorTime" visibility="public">
+          <generalization xmi:type="uml:Generalization" xmi:id="_-lt48ONaEeeDgLgaAXk2xQ" general="_-ltR4ONaEeeDgLgaAXk2xQ"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-ooDAONaEeeDgLgaAXk2xQ" name="DoorToDoctorTime" specification="_-ogHMONaEeeDgLgaAXk2xQ">
+            <language>JAVA</language>
+            <body>&#xD;
+    super(emergencyDepartment);&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-ovXwONaEeeDgLgaAXk2xQ" name="computeKPI" specification="_-osUcONaEeeDgLgaAXk2xQ">
+            <language>JAVA</language>
+            <body>&#xD;
+    for (Event event : patient.getHistory()) {&#xD;
+        if (event.getName() == &quot;Consultation beginning&quot;) {&#xD;
+            return event.getTimestamp() - patient.getArrivalTime();&#xD;
+        }&#xD;
+    }&#xD;
+    return Double.POSITIVE_INFINITY;&#xD;
+</body>
+          </ownedBehavior>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_-ogHMONaEeeDgLgaAXk2xQ" name="DoorToDoctorTime" visibility="public" method="_-ooDAONaEeeDgLgaAXk2xQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-ojxkONaEeeDgLgaAXk2xQ" name="emergencyDepartment" type="_gNv0gdUuEeeOrbHJWfWYbw"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_-osUcONaEeeDgLgaAXk2xQ" name="computeKPI" visibility="public" method="_-ovXwONaEeeDgLgaAXk2xQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-ouJoONaEeeDgLgaAXk2xQ" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-ouwsONaEeeDgLgaAXk2xQ" name="patient" type="_gOliANUuEeeOrbHJWfWYbw"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_-ltR4ONaEeeDgLgaAXk2xQ" name="KeyPerformanceIndicator" visibility="public" isAbstract="true">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_-o3TkONaEeeDgLgaAXk2xQ" name="emergencyDepartment" visibility="protected" type="_gNv0gdUuEeeOrbHJWfWYbw" isUnique="false"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-o7lAeNaEeeDgLgaAXk2xQ" name="KeyPerformanceIndicator" specification="_-o36oONaEeeDgLgaAXk2xQ">
+            <language>JAVA</language>
+            <body>&#xD;
+    super();&#xD;
+    this.emergencyDepartment = emergencyDepartment;&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-o8zIONaEeeDgLgaAXk2xQ" name="computeAverageKPI" specification="_-o8MEONaEeeDgLgaAXk2xQ">
+            <language>JAVA</language>
+            <body>&#xD;
+    ArrayList&lt;Patient> patients = emergencyDepartment.getAllPatients();&#xD;
+    if (patients.size() == 0) {&#xD;
+        return 0;&#xD;
+    } else {&#xD;
+        double sumKPI = 0.0;&#xD;
+        int numberPatientsConsidered = 0;&#xD;
+        for (Patient patient : patients) {&#xD;
+            double KPI = computeKPI(patient);&#xD;
+            if (!(Double.isInfinite(KPI))) {&#xD;
+                sumKPI += KPI;&#xD;
+                numberPatientsConsidered++;&#xD;
+            }&#xD;
+        }&#xD;
+        if (numberPatientsConsidered == 0) {&#xD;
+            return 0;&#xD;
+        }&#xD;
+        return sumKPI / numberPatientsConsidered;&#xD;
+    }&#xD;
+</body>
+          </ownedBehavior>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_-o36oONaEeeDgLgaAXk2xQ" name="KeyPerformanceIndicator" visibility="public" method="_-o7lAeNaEeeDgLgaAXk2xQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-o7lAONaEeeDgLgaAXk2xQ" name="emergencyDepartment" type="_gNv0gdUuEeeOrbHJWfWYbw"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_-o8MEONaEeeDgLgaAXk2xQ" name="computeAverageKPI" visibility="public" method="_-o8zIONaEeeDgLgaAXk2xQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-o8MEeNaEeeDgLgaAXk2xQ" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_-o9aMONaEeeDgLgaAXk2xQ" name="computeKPI" visibility="public" isAbstract="true">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-o9aMeNaEeeDgLgaAXk2xQ" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-o-BQONaEeeDgLgaAXk2xQ" name="patient" type="_gOliANUuEeeOrbHJWfWYbw"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_-pAdgONaEeeDgLgaAXk2xQ" name="LengthOfStay" visibility="public">
+          <generalization xmi:type="uml:Generalization" xmi:id="_-pBEkONaEeeDgLgaAXk2xQ" general="_-ltR4ONaEeeDgLgaAXk2xQ"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-pFWAONaEeeDgLgaAXk2xQ" name="LengthOfStay" specification="_-pBEkeNaEeeDgLgaAXk2xQ">
+            <language>JAVA</language>
+            <body>&#xD;
+    super(emergencyDepartment);&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-pHLMONaEeeDgLgaAXk2xQ" name="computeKPI" specification="_-pF9EONaEeeDgLgaAXk2xQ">
+            <language>JAVA</language>
+            <body>&#xD;
+    Event lastEvent = patient.getHistory().get(patient.getHistory().size() - 1);&#xD;
+    if (lastEvent.getName().equals(&quot;Released&quot;)) {&#xD;
+        return lastEvent.getTimestamp() - patient.getArrivalTime();&#xD;
+    }&#xD;
+    return Double.POSITIVE_INFINITY;&#xD;
+</body>
+          </ownedBehavior>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_-pBEkeNaEeeDgLgaAXk2xQ" name="LengthOfStay" visibility="public" method="_-pFWAONaEeeDgLgaAXk2xQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-pEu8ONaEeeDgLgaAXk2xQ" name="emergencyDepartment" type="_gNv0gdUuEeeOrbHJWfWYbw"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_-pF9EONaEeeDgLgaAXk2xQ" name="computeKPI" visibility="public" method="_-pHLMONaEeeDgLgaAXk2xQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-pF9EeNaEeeDgLgaAXk2xQ" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_6j0jABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_-pGkIONaEeeDgLgaAXk2xQ" name="patient" type="_gOliANUuEeeOrbHJWfWYbw"/>
+          </ownedOperation>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_aEUjIONbEeeDgLgaAXk2xQ" name="main">
+        <packagedElement xmi:type="uml:Class" xmi:id="_aEW_YONbEeeDgLgaAXk2xQ" name="CLUI" visibility="public">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_aEb34ONbEeeDgLgaAXk2xQ" name="emergencyDepartments" visibility="private" isStatic="true" type="_aEXmcONbEeeDgLgaAXk2xQ" isUnique="false">
+            <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_aEce8ONbEeeDgLgaAXk2xQ" name="defaultValue">
+              <language>JAVA</language>
+              <body>new HashMap&lt;String, EmergencyDepartment>()</body>
+            </defaultValue>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_aEeUIeNbEeeDgLgaAXk2xQ" name="nurseFactory" visibility="private" isStatic="true" type="_gPuKcNUuEeeOrbHJWfWYbw" isUnique="false">
+            <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_aEe7MONbEeeDgLgaAXk2xQ" name="defaultValue">
+              <language>JAVA</language>
+              <body>new NurseFactory()</body>
+            </defaultValue>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_aEgJUeNbEeeDgLgaAXk2xQ" name="physicianFactory" visibility="private" isStatic="true" type="_gP8M4NUuEeeOrbHJWfWYbw" isUnique="false">
+            <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_aEgwYONbEeeDgLgaAXk2xQ" name="defaultValue">
+              <language>JAVA</language>
+              <body>new PhysicianFactory()</body>
+            </defaultValue>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_aEilkONbEeeDgLgaAXk2xQ" name="transporterFactory" visibility="private" isStatic="true" type="_gQjQ4NUuEeeOrbHJWfWYbw" isUnique="false">
+            <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_aEjMoONbEeeDgLgaAXk2xQ" name="defaultValue">
+              <language>JAVA</language>
+              <body>new TransporterFactory()</body>
+            </defaultValue>
+          </ownedAttribute>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_aEm3AONbEeeDgLgaAXk2xQ" name="setSeverityLevelDistribution" specification="_aEjzsONbEeeDgLgaAXk2xQ">
+            <language>JAVA</language>
+            <body>&#xD;
+    if (input.length &lt; 4) {&#xD;
+        System.out.println(&quot;Error: setL*arrivalDist requires 3 arguments &lt;EDname, DistType, DistParams>&quot;);&#xD;
+    } else if (!emergencyDepartments.containsKey(input[1])) {&#xD;
+        System.out.println(&quot;Error: There is no Emergency Department called &quot; + input[1] + &quot;. You can create it with createED &quot; + input[1]);&#xD;
+    } else {&#xD;
+        EmergencyDepartment ED = emergencyDepartments.get(input[1]);&#xD;
+        SeverityLevel severityLevel = ED.getSeverityLevel(level);&#xD;
+        try {&#xD;
+            switch(input[2]) {&#xD;
+                case &quot;uniform&quot;:&#xD;
+                    if (input.length > 3) {&#xD;
+                        severityLevel.setProbabilityDistribution(new UniformDistribution(Double.parseDouble(input[3]), Double.parseDouble(input[4])));&#xD;
+                    } else {&#xD;
+                        severityLevel.setProbabilityDistribution(new UniformDistribution(Double.parseDouble(input[3])));&#xD;
+                    }&#xD;
+                    break;&#xD;
+                case &quot;exponential&quot;:&#xD;
+                    severityLevel.setProbabilityDistribution(new ExponentialDistribution(Double.parseDouble(input[3])));&#xD;
+                    break;&#xD;
+                case &quot;deterministic&quot;:&#xD;
+                    severityLevel.setProbabilityDistribution(new DeterministicDistribution(Double.parseDouble(input[3])));&#xD;
+                    break;&#xD;
+                default:&#xD;
+                    System.out.println(&quot;Error: 2nd argument DistType must be exponential, deterministic or uniform&quot;);&#xD;
+            }&#xD;
+            System.out.println(&quot;Probability distribution of patient with severity level &quot; + level + &quot; successfuly set for &quot; + input[1]);&#xD;
+        } catch (Exception e) {&#xD;
+            System.out.println(&quot;Error: Argument(s) &lt;DistParam> must be double(s)&quot;);&#xD;
+        }&#xD;
+    }&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_aEosMuNbEeeDgLgaAXk2xQ" name="setServiceDuration" specification="_aEneEONbEeeDgLgaAXk2xQ">
+            <language>JAVA</language>
+            <body>&#xD;
+    if (input.length &lt; 5) {&#xD;
+        System.out.println(&quot;Error: set&lt;ServiceName>Duration requires 4 arguments &lt;EDname, ServiceName, DistType, DistParams>&quot;);&#xD;
+    } else if (!emergencyDepartments.containsKey(input[1])) {&#xD;
+        System.out.println(&quot;Error: There is no Emergency Department called &quot; + input[1] + &quot;. You can create it with createED &quot; + input[1]);&#xD;
+    } else {&#xD;
+        EmergencyDepartment ED = emergencyDepartments.get(input[1]);&#xD;
+        WorkflowElement service = ED.getService(input[2]);&#xD;
+        if (service == null) {&#xD;
+            System.out.println(&quot;Error: the service &quot; + input[2] + &quot; doesn't exist&quot;);&#xD;
+        }&#xD;
+        try {&#xD;
+            switch(input[2]) {&#xD;
+                case &quot;uniform&quot;:&#xD;
+                    if (input.length > 3) {&#xD;
+                        service.setDurationProbability((new UniformDistribution(Double.parseDouble(input[4]), Double.parseDouble(input[5]))));&#xD;
+                    } else {&#xD;
+                        service.setDurationProbability(new UniformDistribution(Double.parseDouble(input[4])));&#xD;
+                    }&#xD;
+                    break;&#xD;
+                case &quot;exponential&quot;:&#xD;
+                    service.setDurationProbability(new ExponentialDistribution(Double.parseDouble(input[4])));&#xD;
+                    break;&#xD;
+                case &quot;deterministic&quot;:&#xD;
+                    service.setDurationProbability(new DeterministicDistribution(Double.parseDouble(input[4])));&#xD;
+                    break;&#xD;
+                default:&#xD;
+                    System.out.println(&quot;Error: 2nd argument DistType must be exponential, deterministic or uniform&quot;);&#xD;
+            }&#xD;
+            System.out.println(&quot;Duration probability distribution of &quot; + input[2] + &quot; successfuly set for &quot; + input[1]);&#xD;
+        } catch (Exception e) {&#xD;
+            System.out.println(&quot;Error: Argument(s) &lt;DistParam> must be double(s)&quot;);&#xD;
+        }&#xD;
+    }&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_aEqhYONbEeeDgLgaAXk2xQ" name="setServiceCost" specification="_aEpTQONbEeeDgLgaAXk2xQ">
+            <language>JAVA</language>
+            <body>&#xD;
+    if (input.length &lt; 4) {&#xD;
+        System.out.println(&quot;Error: set&lt;ServiceName>Cost requires 3 arguments &lt;EDname, ServiceName, Cost>&quot;);&#xD;
+    } else if (!emergencyDepartments.containsKey(input[1])) {&#xD;
+        System.out.println(&quot;Error: There is no Emergency Department called &quot; + input[1] + &quot;. You can create it with createED &quot; + input[1]);&#xD;
+    } else {&#xD;
+        EmergencyDepartment ED = emergencyDepartments.get(input[1]);&#xD;
+        WorkflowElement service = ED.getService(input[2]);&#xD;
+        if (service == null) {&#xD;
+            System.out.println(&quot;Error: the service &quot; + input[1] + &quot; doesn't exist&quot;);&#xD;
+        }&#xD;
+        try {&#xD;
+            service.setCost(Double.parseDouble(input[3]));&#xD;
+            System.out.println(&quot;Cost of &quot; + input[2] + &quot; successfuly set to &quot; + input[3] + &quot; for &quot; + input[1]);&#xD;
+        } catch (Exception e) {&#xD;
+            System.out.println(&quot;Error: Argument(s) &lt;Cost> must be a double&quot;);&#xD;
+        }&#xD;
+    }&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_aEtksONbEeeDgLgaAXk2xQ" name="processCommand" specification="_aEqhYeNbEeeDgLgaAXk2xQ">
+            <language>JAVA</language>
+            <body>&#xD;
+    String command = input[0];&#xD;
+    // distinguishing between the chosen Exercise number &#xD;
+    switch(command) {&#xD;
+        case &quot;createED&quot;:&#xD;
+            if (input.length &lt; 2) {&#xD;
+                System.out.println(&quot;Error: Argument &lt;name> compulsory but not found&quot;);&#xD;
+            } else {&#xD;
+                emergencyDepartments.put(input[1], new EmergencyDepartment(input[1]));&#xD;
+            }&#xD;
+            break;&#xD;
+        case &quot;addRoom&quot;:&#xD;
+            if (input.length &lt; 5) {&#xD;
+                System.out.println(&quot;Error: addRoom requires 4 arguments &lt;EDname, RoomType, RoomName, RoomCapacity>&quot;);&#xD;
+            } else if (!emergencyDepartments.containsKey(input[1])) {&#xD;
+                System.out.println(&quot;Error: There is no Emergency Department called &quot; + input[1] + &quot;. You can create it with createED &quot; + input[1]);&#xD;
+            } else {&#xD;
+                EmergencyDepartment ED = emergencyDepartments.get(input[1]);&#xD;
+                int capacity;&#xD;
+                try {&#xD;
+                    capacity = Integer.parseInt(input[4]);&#xD;
+                    Class&lt;?> roomClass = Class.forName(&quot;resources.&quot; + input[2]);&#xD;
+                    Constructor&lt;?> cons = roomClass.getConstructor(String.class, int.class, EmergencyDepartment.class);&#xD;
+                    Room room = (Room) cons.newInstance(input[3], capacity, ED);&#xD;
+                    ED.addRoom(room);&#xD;
+                    System.out.println(input[2] + &quot; &quot; + input[3] + &quot; of capacity &quot; + input[4] + &quot; successfully added to &quot; + input[1]);&#xD;
+                } catch (NoSuchMethodExceptionSecurityException |  e) {&#xD;
+                    System.out.println(&quot;Error: &quot; + input[2] + &quot; doesn't have the right constructor&quot;);&#xD;
+                } catch (ClassNotFoundException e) {&#xD;
+                    System.out.println(&quot;Error: &quot; + input[2] + &quot; room type doesn't exist&quot;);&#xD;
+                } catch (InstantiationExceptionIllegalAccessException | IllegalArgumentException | InvocationTargetException |  e) {&#xD;
+                    System.out.println(&quot;Error: 4th argument &lt;capacity> must be an integer&quot;);&#xD;
+                }&#xD;
+            }&#xD;
+            break;&#xD;
+        case &quot;addNurse&quot;:&#xD;
+            if (input.length &lt; 2) {&#xD;
+                System.out.println(&quot;Error: Argument &lt;EDname> compulsory but not found&quot;);&#xD;
+            } else if (!emergencyDepartments.containsKey(input[1])) {&#xD;
+                System.out.println(&quot;Error: There is no Emergency Department called &quot; + input[1] + &quot;. You can create it with createED &quot; + input[1]);&#xD;
+            } else {&#xD;
+                EmergencyDepartment ED = emergencyDepartments.get(input[1]);&#xD;
+                if (input.length &lt; 3) {&#xD;
+                    ED.addStaff(1, nurseFactory);&#xD;
+                    System.out.println(&quot;Nurse successfully added to &quot; + input[1]);&#xD;
+                } else {&#xD;
+                    ED.addEmployee(new Nurse(input[2], input[3], ED));&#xD;
+                    System.out.println(&quot;Nurse &quot; + input[2] + &quot; &quot; + input[3] + &quot; successfully added to &quot; + input[1]);&#xD;
+                }&#xD;
+            }&#xD;
+            break;&#xD;
+        case &quot;addPhysician&quot;:&#xD;
+            if (input.length &lt; 2) {&#xD;
+                System.out.println(&quot;Error: Argument &lt;EDname> compulsory but not found&quot;);&#xD;
+            } else if (!emergencyDepartments.containsKey(input[1])) {&#xD;
+                System.out.println(&quot;Error: There is no Emergency Department called &quot; + input[1] + &quot;. You can create it with createED &quot; + input[1]);&#xD;
+            } else {&#xD;
+                EmergencyDepartment ED = emergencyDepartments.get(input[1]);&#xD;
+                if (input.length &lt; 3) {&#xD;
+                    ED.addStaff(1, physicianFactory);&#xD;
+                    System.out.println(&quot;Physician successfully added to &quot; + input[1]);&#xD;
+                } else {&#xD;
+                    ED.addEmployee(new Physician(input[2], input[3], ED));&#xD;
+                    System.out.println(&quot;Physician &quot; + input[2] + &quot; &quot; + input[3] + &quot; successfully added to &quot; + input[1]);&#xD;
+                }&#xD;
+            }&#xD;
+            break;&#xD;
+        case &quot;addTransporter&quot;:&#xD;
+            if (input.length &lt; 2) {&#xD;
+                System.out.println(&quot;Error: Argument &lt;EDname> compulsory but not found&quot;);&#xD;
+            } else if (!emergencyDepartments.containsKey(input[1])) {&#xD;
+                System.out.println(&quot;Error: There is no Emergency Department called &quot; + input[1] + &quot;. You can create it with createED &quot; + input[1]);&#xD;
+            } else {&#xD;
+                EmergencyDepartment ED = emergencyDepartments.get(input[1]);&#xD;
+                if (input.length &lt; 3) {&#xD;
+                    ED.addStaff(1, transporterFactory);&#xD;
+                    System.out.println(&quot;Transporter successfully added to &quot; + input[1]);&#xD;
+                } else {&#xD;
+                    ED.addEmployee(new Transporter(input[2], input[3], ED));&#xD;
+                    System.out.println(&quot;Transporter &quot; + input[2] + &quot; &quot; + input[3] + &quot; successfully added to &quot; + input[1]);&#xD;
+                }&#xD;
+            }&#xD;
+            break;&#xD;
+        case &quot;setL1arrivalDist&quot;:&#xD;
+            setSeverityLevelDistribution(1, input);&#xD;
+            break;&#xD;
+        case &quot;setL2arrivalDist&quot;:&#xD;
+            setSeverityLevelDistribution(2, input);&#xD;
+            break;&#xD;
+        case &quot;setL3arrivalDist&quot;:&#xD;
+            setSeverityLevelDistribution(3, input);&#xD;
+            break;&#xD;
+        case &quot;setL4arrivalDist&quot;:&#xD;
+            setSeverityLevelDistribution(4, input);&#xD;
+            break;&#xD;
+        case &quot;setL5arrivalDist&quot;:&#xD;
+            setSeverityLevelDistribution(5, input);&#xD;
+            break;&#xD;
+        case &quot;setDuration&quot;:&#xD;
+            setServiceDuration(input);&#xD;
+            break;&#xD;
+        case &quot;setCost&quot;:&#xD;
+            setServiceCost(input);&#xD;
+            break;&#xD;
+        case &quot;addPatient&quot;:&#xD;
+            if (input.length &lt; 5) {&#xD;
+                System.out.println(&quot;Error: addPatient requires 4 arguments &lt;EDname, PatientName, PatientSurname, HealthInsurance>&quot;);&#xD;
+            } else if (!emergencyDepartments.containsKey(input[1])) {&#xD;
+                System.out.println(&quot;Error: There is no Emergency Department called &quot; + input[1] + &quot;. You can create it with createED &quot; + input[1]);&#xD;
+            } else {&#xD;
+                EmergencyDepartment ED = emergencyDepartments.get(input[1]);&#xD;
+                Task nextPatientArrival = ED.getNextPatientArrival();&#xD;
+                nextPatientArrival.setTimestamp(ED.getTime());&#xD;
+                Patient patient = ((PatientArrival) nextPatientArrival.getCommand()).getPatient();&#xD;
+                patient.setName(input[2]);&#xD;
+                patient.setSurname(input[3]);&#xD;
+                switch(input[4]) {&#xD;
+                    case &quot;gold&quot;:&#xD;
+                        patient.setHealthInsurance(new GoldInsurance());&#xD;
+                        break;&#xD;
+                    case &quot;silver&quot;:&#xD;
+                        patient.setHealthInsurance(new SilverInsurance());&#xD;
+                        break;&#xD;
+                    case &quot;none&quot;:&#xD;
+                        patient.setHealthInsurance(new NoInsurance());&#xD;
+                        break;&#xD;
+                    default:&#xD;
+                        System.out.println(&quot;Error: 4th argument &lt;HealthInsurance> must be either 'gold', 'silver' or 'none'&quot;);&#xD;
+                }&#xD;
+                if (input.length == 6) {&#xD;
+                    try {&#xD;
+                        int level = Integer.parseInt(input[5]);&#xD;
+                        SeverityLevel severityLevel = ED.getSeverityLevel(level);&#xD;
+                        patient.setSeverityLevel(severityLevel);&#xD;
+                    } catch (Exception e) {&#xD;
+                        System.out.println(&quot;Error: 5th argument &lt;SeverityLevel> must be an integer between 1 and 5&quot;);&#xD;
+                    }&#xD;
+                }&#xD;
+                nextPatientArrival.getCommand().execute();&#xD;
+                ED.getHistory().add(new Event(nextPatientArrival.getCommand().toString(), ED.getTime()));&#xD;
+                System.out.println(&quot;Patient &quot; + input[2] + &quot; &quot; + input[3] + &quot; with ID &quot; + patient.getID() + &quot; successfully arrived to &quot; + input[1]);&#xD;
+            }&#xD;
+            break;&#xD;
+        case &quot;executeEvents&quot;:&#xD;
+            if (input.length &lt; 2) {&#xD;
+                System.out.println(&quot;Error: executeEvents requires 2 arguments &lt;EDname, NumberOfEvents>&quot;);&#xD;
+            } else if (!emergencyDepartments.containsKey(input[1])) {&#xD;
+                System.out.println(&quot;Error: There is no Emergency Department called &quot; + input[1] + &quot;. You can create it with createED &quot; + input[1]);&#xD;
+            } else {&#xD;
+                EmergencyDepartment ED = emergencyDepartments.get(input[1]);&#xD;
+                try {&#xD;
+                    int n = Integer.parseInt(input[2]);&#xD;
+                    for (int i = 0; i &lt; n; i++) {&#xD;
+                        ED.executeNextTask();&#xD;
+                    }&#xD;
+                } catch (Exception e) {&#xD;
+                    System.out.println(&quot;Error: 2nd argument NumberOfEvents must be an integer&quot;);&#xD;
+                }&#xD;
+            }&#xD;
+            break;&#xD;
+        case &quot;simulate&quot;:&#xD;
+            if (input.length &lt; 2) {&#xD;
+                System.out.println(&quot;Error: simulate requires 2 arguments &lt;EDname, DurationToSimulate>&quot;);&#xD;
+            } else if (!emergencyDepartments.containsKey(input[1])) {&#xD;
+                System.out.println(&quot;Error: There is no Emergency Department called &quot; + input[1] + &quot;. You can create it with createED &quot; + input[1]);&#xD;
+            } else {&#xD;
+                EmergencyDepartment ED = emergencyDepartments.get(input[1]);&#xD;
+                try {&#xD;
+                    double t = Double.parseDouble(input[2]);&#xD;
+                    double beginning = ED.getTime();&#xD;
+                    while (ED.getTime() - beginning &lt; t) {&#xD;
+                        ED.executeNextTask();&#xD;
+                    }&#xD;
+                    System.out.println(&quot;Hospital &quot; + input[1] + &quot; is now at time &quot; + ED.getTime());&#xD;
+                } catch (Exception e) {&#xD;
+                    System.out.println(&quot;Error: 2nd argument DurationToSimulate must be a double&quot;);&#xD;
+                }&#xD;
+            }&#xD;
+            break;&#xD;
+        case &quot;kpi&quot;:&#xD;
+            if (input.length &lt; 2) {&#xD;
+                System.out.println(&quot;Error: kpi requires 2 arguments &lt;EDname, KPIname>&quot;);&#xD;
+            } else if (!emergencyDepartments.containsKey(input[1])) {&#xD;
+                System.out.println(&quot;Error: There is no Emergency Department called &quot; + input[1] + &quot;. You can create it with createED &quot; + input[1]);&#xD;
+            } else {&#xD;
+                EmergencyDepartment ED = emergencyDepartments.get(input[1]);&#xD;
+                try {&#xD;
+                    System.out.println(&quot;Length-of-stay for hospital &quot; + input[1] + &quot; is &quot; + ED.computeKPI((String) input[2]));&#xD;
+                } catch (Exception e) {&#xD;
+                    System.out.println(&quot;Error: 2nd argument KPIname must be either los (Length-of-stay) or dtdt (Door-to-doctor-time)&quot;);&#xD;
+                }&#xD;
+            }&#xD;
+            break;&#xD;
+        case &quot;executeEvent&quot;:&#xD;
+            if (input.length &lt; 2) {&#xD;
+                System.out.println(&quot;Error: Argument &lt;EDname> compulsory but not found&quot;);&#xD;
+            } else if (!emergencyDepartments.containsKey(input[1])) {&#xD;
+                System.out.println(&quot;Error: There is no Emergency Department called &quot; + input[1] + &quot;. You can create it with createED &quot; + input[1]);&#xD;
+            } else {&#xD;
+                EmergencyDepartment ED = emergencyDepartments.get(input[1]);&#xD;
+                ED.executeNextTask();&#xD;
+            }&#xD;
+            break;&#xD;
+        case &quot;displayHistory&quot;:&#xD;
+            if (input.length &lt; 2) {&#xD;
+                System.out.println(&quot;Error: Argument &lt;EDname> compulsory but not found&quot;);&#xD;
+            } else if (!emergencyDepartments.containsKey(input[1])) {&#xD;
+                System.out.println(&quot;Error: There is no Emergency Department called &quot; + input[1] + &quot;. You can create it with createED &quot; + input[1]);&#xD;
+            } else {&#xD;
+                EmergencyDepartment ED = emergencyDepartments.get(input[1]);&#xD;
+                ED.printHistory();&#xD;
+            }&#xD;
+            break;&#xD;
+        case &quot;display&quot;:&#xD;
+            if (input.length &lt; 2) {&#xD;
+                System.out.println(&quot;Error: Argument &lt;EDname> compulsory but not found&quot;);&#xD;
+            } else if (!emergencyDepartments.containsKey(input[1])) {&#xD;
+                System.out.println(&quot;Error: There is no Emergency Department called &quot; + input[1] + &quot;. You can create it with createED &quot; + input[1]);&#xD;
+            } else {&#xD;
+                EmergencyDepartment ED = emergencyDepartments.get(input[1]);&#xD;
+                if (input.length == 2) {&#xD;
+                    ED.printReport();&#xD;
+                } else {&#xD;
+                    Patient targetedPatient = null;&#xD;
+                    for (Patient patient : ED.getAllPatients()) {&#xD;
+                        if (patient.getName().equals(input[2]) &amp;&amp; patient.getSurname().equals(input[3])) {&#xD;
+                            targetedPatient = patient;&#xD;
+                        }&#xD;
+                    }&#xD;
+                    if (targetedPatient != null) {&#xD;
+                        targetedPatient.printReport();&#xD;
+                    } else {&#xD;
+                        System.out.println(&quot;Error: No patient named &quot; + input[2] + &quot; &quot; + input[3] + &quot; found in &quot; + input[1]);&#xD;
+                    }&#xD;
+                }&#xD;
+            }&#xD;
+            break;&#xD;
+        case &quot;stop&quot;:&#xD;
+            System.out.println(&quot;---- Stopping the SimErgy terminal ---- &quot;);&#xD;
+            break;&#xD;
+        case &quot;list&quot;:&#xD;
+            Set&lt;String> EDnames = emergencyDepartments.keySet();&#xD;
+            if (EDnames.size() > 0) {&#xD;
+                System.out.println(&quot;The existing emergency departments are :&quot;);&#xD;
+                for (String EDname : emergencyDepartments.keySet()) {&#xD;
+                    System.out.println(&quot;- &quot; + EDname);&#xD;
+                }&#xD;
+            } else {&#xD;
+                System.out.println(&quot;There is no emergency department created. You can create one with createED &lt;EDname>&quot;);&#xD;
+            }&#xD;
+            break;&#xD;
+        case &quot;help&quot;:&#xD;
+            System.out.println(&quot;The list of possible commands is:&quot;);&#xD;
+            System.out.println(&quot;\t stop: to quit this program&quot;);&#xD;
+            System.out.println(&quot;\t list: to display the list of created emergency departments&quot;);&#xD;
+            System.out.println(&quot;\t createED &lt;EDname>: to create an emergency department&quot;);&#xD;
+            System.out.println(&quot;\t addRoom &lt;EDname> &lt;RoomType> &lt;RoomName> &lt;RoomCapacity>: to add a room to an ED&quot;);&#xD;
+            System.out.println(&quot;\t addNurse &lt;EDname> [&lt;NurseName>} [&lt;NurseSurname>]: to add a nurse to an ED&quot;);&#xD;
+            System.out.println(&quot;\t addPhysician &lt;EDname> [&lt;PhysicianName>] [&lt;PhysicianSurname>]: to add a physician to an ED&quot;);&#xD;
+            System.out.println(&quot;\t addPatient &lt;EDname> &lt;PatientName> &lt;PatientSurname> &lt;HealthInsurance> [&lt;SeverityLevel>]: to add a patient to an ED&quot;);&#xD;
+            System.out.println(&quot;\t setL[1|2|3|4|5]arrivalDist &lt;EDname> &lt;DistType> &lt;DistParam1> [&lt;DistParam2>]: to set the distribution &quot; + &quot;of patient arrivals of a given severity level in an ED&quot;);&#xD;
+            System.out.println(&quot;\t setDuration &lt;EDname> &lt;ServiceName> &lt;DistType> &lt;DistParam1> [&lt;DistParam2>]: to set the distribution&quot; + &quot;of probability of the duration of a service of an ED&quot;);&#xD;
+            System.out.println(&quot;\t setCost &lt;EDname> &lt;ServiceName> &lt;Cost>: to set the cost of a service in an ED&quot;);&#xD;
+            System.out.println(&quot;\t executeEvent &lt;EDname>: to execute the next event of an ED&quot;);&#xD;
+            System.out.println(&quot;\t executeEvents &lt;EDname> &lt;NumberOfEvents>: to execute the next NumberOfEvents events in an ED&quot;);&#xD;
+            System.out.println(&quot;\t kpi &lt;EDname> &lt;KPIname>: to calculate and display a KPI of an ED (los:Length-of-stay or dtdt:Door-to-doctor-time)&quot;);&#xD;
+            System.out.println(&quot;\t simulate &lt;EDname> &lt;time>: to simulate at least a certain time in an ED. The simulation stops just before&quot; + &quot;the first event after currentTime + time&quot;);&#xD;
+            System.out.println(&quot;\t display &lt;EDname> [&lt;PatientName> &lt;PatientSurname>]: to display the current state of an entire ED or&quot; + &quot;of a patient of an ED&quot;);&#xD;
+            System.out.println(&quot;\t displayHistory &lt;EDname>: to display the history an ED&quot;);&#xD;
+            System.out.println(&quot;\t runtest &lt;Filename> [&lt;OutputFilename>]: to run the commands in a file and optionally output the results to another file&quot;);&#xD;
+            break;&#xD;
+        default:&#xD;
+            System.out.println(&quot;The command &quot; + command + &quot; doesn't exist. Type help to see the list of possible commands or enter a valid one&quot;);&#xD;
+    }&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_aEwA8eNbEeeDgLgaAXk2xQ" name="executeScenarioFile" specification="_aEuy0ONbEeeDgLgaAXk2xQ">
+            <language>JAVA</language>
+            <body>&#xD;
+    FileReader file = null;&#xD;
+    BufferedReader reader = null;&#xD;
+    try {&#xD;
+        // a FileReader for reading byte by byte&#xD;
+        file = new FileReader(fileName);&#xD;
+        // wrapping a FileReader into a BufferedReader for reading line by line&#xD;
+        reader = new BufferedReader(file);&#xD;
+        String line = &quot;&quot;;&#xD;
+        while (// read the file line by line&#xD;
+        (line = reader.readLine()) != null) {&#xD;
+            processCommand(splitInput(line));&#xD;
+        }&#xD;
+    } catch (Exception e) {&#xD;
+        throw new RuntimeException(e);&#xD;
+    } finally {&#xD;
+        if (reader != null) {&#xD;
+            try {&#xD;
+                reader.close();&#xD;
+            }// Ignore issues&#xD;
+             catch (IOException e) {&#xD;
+            }&#xD;
+        }&#xD;
+        if (file != null) {&#xD;
+            try {&#xD;
+                file.close();&#xD;
+            }// Ignore issues during closing&#xD;
+             catch (IOException e) {&#xD;
+            }&#xD;
+        }&#xD;
+    }&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_aEydMONbEeeDgLgaAXk2xQ" name="splitInput" specification="_aExPEONbEeeDgLgaAXk2xQ">
+            <language>JAVA</language>
+            <body>&#xD;
+    return input.split(&quot;\&quot;?( |$)(?=(([^\&quot;]*\&quot;){2})*[^\&quot;]*$)\&quot;?&quot;);&#xD;
+</body>
+          </ownedBehavior>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_aEzrUONbEeeDgLgaAXk2xQ" name="main" specification="_aEydMeNbEeeDgLgaAXk2xQ">
+            <language>JAVA</language>
+            <body>&#xD;
+    // declaring a scanner object for to ask input to the user&#xD;
+    Scanner sc = new Scanner(System.in);&#xD;
+    String[] input;&#xD;
+    String command = &quot;&quot;;&#xD;
+    System.out.println(&quot;This is the SimErgy application - type \&quot;help\&quot; for a list of available commands or \&quot;stop\&quot;  to quit):&quot;);&#xD;
+    // the command-interpreter main loop: asking the user the next command to execute&#xD;
+    while (!command.equals(&quot;stop&quot;)) {&#xD;
+        // asking the user what exercise he wants to solve		&#xD;
+        System.out.print(&quot;>> &quot;);&#xD;
+        //Split arguments on spaces except if the space if between two double quotes&#xD;
+        input = splitInput(sc.nextLine());&#xD;
+        command = input[0];&#xD;
+        if (command.contentEquals(&quot;runtest&quot;)) {&#xD;
+            if (input.length &lt; 2) {&#xD;
+                System.out.println(&quot;Error: Argument &lt;Filename> is compulsory&quot;);&#xD;
+            } else if (input.length == 2) {&#xD;
+                executeScenarioFile(input[1]);&#xD;
+            } else {&#xD;
+                try {&#xD;
+                    System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream(input[2])), true));&#xD;
+                    executeScenarioFile(input[1]);&#xD;
+                    System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));&#xD;
+                } catch (FileNotFoundException e) {&#xD;
+                    System.out.println(&quot;Error: File  &quot; + input[2] + &quot; cannot be created&quot;);&#xD;
+                }&#xD;
+            }&#xD;
+        } else {&#xD;
+            processCommand(input);&#xD;
+        }&#xD;
+    }&#xD;
+    sc.close();&#xD;
+    System.out.println(&quot;---- The SimErgy terminal stopped ---- &quot;);&#xD;
+</body>
+          </ownedBehavior>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_aEjzsONbEeeDgLgaAXk2xQ" name="setSeverityLevelDistribution" visibility="private" isStatic="true" method="_aEm3AONbEeeDgLgaAXk2xQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_aEkawONbEeeDgLgaAXk2xQ" name="level">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_aElo4ONbEeeDgLgaAXk2xQ" name="input" type="_QS9G4MU3Eee3662SoTSOhw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aEmP8ONbEeeDgLgaAXk2xQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aEmP8eNbEeeDgLgaAXk2xQ" value="*"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_aEneEONbEeeDgLgaAXk2xQ" name="setServiceDuration" visibility="private" isStatic="true" method="_aEosMuNbEeeDgLgaAXk2xQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_aEoFIONbEeeDgLgaAXk2xQ" name="input" type="_QS9G4MU3Eee3662SoTSOhw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aEosMONbEeeDgLgaAXk2xQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aEosMeNbEeeDgLgaAXk2xQ" value="*"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_aEpTQONbEeeDgLgaAXk2xQ" name="setServiceCost" visibility="private" isStatic="true" method="_aEqhYONbEeeDgLgaAXk2xQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_aEp6UONbEeeDgLgaAXk2xQ" name="input" type="_QS9G4MU3Eee3662SoTSOhw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aEp6UeNbEeeDgLgaAXk2xQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aEp6UuNbEeeDgLgaAXk2xQ" value="*"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_aEqhYeNbEeeDgLgaAXk2xQ" name="processCommand" visibility="public" isStatic="true" method="_aEtksONbEeeDgLgaAXk2xQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_aErIcONbEeeDgLgaAXk2xQ" name="input" type="_QS9G4MU3Eee3662SoTSOhw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aErIceNbEeeDgLgaAXk2xQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aErIcuNbEeeDgLgaAXk2xQ" value="*"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_aEuy0ONbEeeDgLgaAXk2xQ" name="executeScenarioFile" visibility="public" isStatic="true" method="_aEwA8eNbEeeDgLgaAXk2xQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_aEwA8ONbEeeDgLgaAXk2xQ" name="fileName" type="_QS9G4MU3Eee3662SoTSOhw"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_aExPEONbEeeDgLgaAXk2xQ" name="splitInput" visibility="public" isStatic="true" method="_aEydMONbEeeDgLgaAXk2xQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_aExPEeNbEeeDgLgaAXk2xQ" type="_QS9G4MU3Eee3662SoTSOhw" direction="return">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aEx2IONbEeeDgLgaAXk2xQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aEx2IeNbEeeDgLgaAXk2xQ" value="*"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_aEx2IuNbEeeDgLgaAXk2xQ" name="input" type="_QS9G4MU3Eee3662SoTSOhw"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_aEydMeNbEeeDgLgaAXk2xQ" name="main" visibility="public" isStatic="true" method="_aEzrUONbEeeDgLgaAXk2xQ">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_aEzEQONbEeeDgLgaAXk2xQ" name="args" type="_QS9G4MU3Eee3662SoTSOhw">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aEzEQeNbEeeDgLgaAXk2xQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aEzEQuNbEeeDgLgaAXk2xQ" value="*"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_QS6DkMU3Eee3662SoTSOhw" name="java">
@@ -3534,6 +4160,7 @@
         <packagedElement xmi:type="uml:Package" xmi:id="_cHi58ssDEee5UJxcLjtuSw" name="util">
           <packagedElement xmi:type="uml:Class" xmi:id="_cHjhAMsDEee5UJxcLjtuSw" name="Random"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_cKtisMsDEee5UJxcLjtuSw" name="PriorityQueue"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_aEXmcONbEeeDgLgaAXk2xQ" name="HashMap"/>
         </packagedElement>
       </packagedElement>
     </packagedElement>
@@ -3847,4 +4474,13 @@
   <standard:Create xmi:id="_gjtdcNUuEeeOrbHJWfWYbw" base_BehavioralFeature="_gjroQNUuEeeOrbHJWfWYbw"/>
   <standard:Create xmi:id="_gj_KQNUuEeeOrbHJWfWYbw" base_BehavioralFeature="_gj9VENUuEeeOrbHJWfWYbw"/>
   <standard:Create xmi:id="_gkF38NUuEeeOrbHJWfWYbw" base_BehavioralFeature="_gkEp0NUuEeeOrbHJWfWYbw"/>
+  <PapyrusJava:External xmi:id="_-odD4ONaEeeDgLgaAXk2xQ" name="core.EmergencyDepartment" base_Classifier="_gNv0gdUuEeeOrbHJWfWYbw"/>
+  <standard:Create xmi:id="_-oijcONaEeeDgLgaAXk2xQ" base_BehavioralFeature="_-ogHMONaEeeDgLgaAXk2xQ"/>
+  <PapyrusJava:External xmi:id="_-ortYONaEeeDgLgaAXk2xQ" name="resources.Patient" base_Classifier="_gOliANUuEeeOrbHJWfWYbw"/>
+  <standard:Create xmi:id="_-o698ONaEeeDgLgaAXk2xQ" base_BehavioralFeature="_-o36oONaEeeDgLgaAXk2xQ"/>
+  <standard:Create xmi:id="_-pEH4ONaEeeDgLgaAXk2xQ" base_BehavioralFeature="_-pBEkeNaEeeDgLgaAXk2xQ"/>
+  <PapyrusJava:External xmi:id="_aEaCsONbEeeDgLgaAXk2xQ" name="java.util.HashMap" base_Classifier="_aEXmcONbEeeDgLgaAXk2xQ"/>
+  <PapyrusJava:External xmi:id="_aEeUIONbEeeDgLgaAXk2xQ" name="core.NurseFactory" base_Classifier="_gPuKcNUuEeeOrbHJWfWYbw"/>
+  <PapyrusJava:External xmi:id="_aEgJUONbEeeDgLgaAXk2xQ" name="core.PhysicianFactory" base_Classifier="_gP8M4NUuEeeOrbHJWfWYbw"/>
+  <PapyrusJava:External xmi:id="_aEh-gONbEeeDgLgaAXk2xQ" name="core.TransporterFactory" base_Classifier="_gQjQ4NUuEeeOrbHJWfWYbw"/>
 </xmi:XMI>
