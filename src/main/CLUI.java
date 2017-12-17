@@ -93,36 +93,39 @@ public class CLUI {
 	 * @param serviceName is the name of the service whose duration must be changed
 	 * @param input is the command entered by the user
 	 */
-	private static void setServiceDuration(String serviceName, String[] input) {
-		if(input.length < 4){
-			System.out.println("Error: set<ServiceName>Duration requires 3 arguments <EDname, DistType, DistParams>");
+	private static void setServiceDuration(String[] input) {
+		if(input.length < 5){
+			System.out.println("Error: set<ServiceName>Duration requires 4 arguments <EDname, ServiceName, DistType, DistParams>");
 		}
 		else if(!emergencyDepartments.containsKey(input[1])) {
 			System.out.println("Error: There is no Emergency Department called " + input[1] + ". You can create it with createED " + input[1]);
 		}
 		else {
 			EmergencyDepartment ED = emergencyDepartments.get(input[1]);
-			WorkflowElement service = ED.getService(serviceName);
+			WorkflowElement service = ED.getService(input[2]);
+			if(service == null){
+				System.out.println("Error: the service " + input[2] + " doesn't exist");
+			}
 			try {
 				switch(input[2]){
 				case "uniform":
 					if(input.length > 3){
-						service.setDurationProbability((new UniformDistribution(Double.parseDouble(input[3]), Double.parseDouble(input[4]))));
+						service.setDurationProbability((new UniformDistribution(Double.parseDouble(input[4]), Double.parseDouble(input[5]))));
 					}
 					else{
-						service.setDurationProbability(new UniformDistribution(Double.parseDouble(input[3])));
+						service.setDurationProbability(new UniformDistribution(Double.parseDouble(input[4])));
 					}
 					break;
 				case "exponential":
-					service.setDurationProbability(new ExponentialDistribution(Double.parseDouble(input[3])));
+					service.setDurationProbability(new ExponentialDistribution(Double.parseDouble(input[4])));
 					break;
 				case "deterministic":
-					service.setDurationProbability(new DeterministicDistribution(Double.parseDouble(input[3])));
+					service.setDurationProbability(new DeterministicDistribution(Double.parseDouble(input[4])));
 					break;
 				default:
 					System.out.println("Error: 2nd argument DistType must be exponential, deterministic or uniform");
 				}
-				System.out.println("Duration probability distribution of " + serviceName + " successfuly set for " + input[1]);
+				System.out.println("Duration probability distribution of " + input[2] + " successfuly set for " + input[1]);
 			} catch(Exception e) {
 				System.out.println("Error: Argument(s) <DistParam> must be double(s)");
 			}
@@ -134,19 +137,22 @@ public class CLUI {
 	 * @param serviceName is the name of the service whose cost must be changed
 	 * @param input is the command entered by the user
 	 */
-	private static void setServiceCost(String serviceName, String[] input) {
-		if(input.length < 3){
-			System.out.println("Error: set<ServiceName>Cost requires 2 arguments <EDname, Cost>");
+	private static void setServiceCost(String[] input) {
+		if(input.length < 4){
+			System.out.println("Error: set<ServiceName>Cost requires 3 arguments <EDname, ServiceName, Cost>");
 		}
 		else if(!emergencyDepartments.containsKey(input[1])) {
 			System.out.println("Error: There is no Emergency Department called " + input[1] + ". You can create it with createED " + input[1]);
 		}
 		else {
 			EmergencyDepartment ED = emergencyDepartments.get(input[1]);
-			WorkflowElement service = ED.getService(serviceName);
+			WorkflowElement service = ED.getService(input[2]);
+			if(service == null){
+				System.out.println("Error: the service " + input[1] + " doesn't exist");
+			}
 			try {
-				service.setCost(Double.parseDouble(input[2]));
-				System.out.println("Cost of " + serviceName + " successfuly set to " + input[2] + " for " + input[1]);
+				service.setCost(Double.parseDouble(input[3]));
+				System.out.println("Cost of " + input[2] + " successfuly set to " + input[3] + " for " + input[1]);
 			} catch(Exception e) {
 				System.out.println("Error: Argument(s) <Cost> must be a double");
 			}
@@ -283,62 +289,14 @@ public class CLUI {
 				setSeverityLevelDistribution(5, input);
 				break;
 				
-			case "setRegistrationDuration":
-				setServiceDuration("Triage", input);
+			case "setDuration":
+				setServiceDuration(input);
 				break;
 				
-			case "setInstallationDuration":
-				setServiceDuration("Installation", input);
+			case "setCost":
+				setServiceCost(input);
 				break;
-			
-			case "setConsultationDuration":
-				setServiceDuration("Consultation", input);
-				break;
-				
-			case "setTransportationDuration":
-				setServiceDuration("Transportation", input);
-				break;
-				
-			case "setXRayDuration":
-				setServiceDuration("XRay", input);
-				break;
-			
-			case "setMRIDuration":
-				setServiceDuration("MRI", input);
-				break;
-				
-			case "setBloodTestDuration":
-				setServiceDuration("BloodTest", input);
-				break;
-				
-			case "setRegistrationCost":
-				setServiceCost("Triage", input);
-				break;
-				
-			case "setInstallationCost":
-				setServiceCost("Installation", input);
-				break;
-			
-			case "setConsultationCost":
-				setServiceCost("Consultation", input);
-				break;
-				
-			case "setTransportationCost":
-				setServiceCost("Transportation", input);
-				break;
-				
-			case "setXRayCost":
-				setServiceCost("XRay", input);
-				break;
-			
-			case "setMRICost":
-				setServiceCost("MRI", input);
-				break;
-				
-			case "setBloodTestCost":
-				setServiceCost("BloodTest", input);
-				break;
-				
+
 			case "addPatient":
 				if(input.length < 5){
 					System.out.println("Error: addPatient requires 4 arguments <EDname, PatientName, PatientSurname, HealthInsurance>");
@@ -513,7 +471,7 @@ public class CLUI {
 			case "help":
 				System.out.println("The list of possible commands is:");
 				System.out.println("\t stop: to quit this program");
-				System.out.println("\t list: to display the list of stations in the loaded metro network");
+				System.out.println("\t list: to display the list of created emergency departments");
 				System.out.println("\t createED <EDname>: to create an emergency department");
 				System.out.println("\t addRoom <EDname> <RoomType> <RoomName> <RoomCapacity>: to add a room to an ED");
 				System.out.println("\t addNurse <EDname> [<NurseName>} [<NurseSurname>]: to add a nurse to an ED");
@@ -521,9 +479,9 @@ public class CLUI {
 				System.out.println("\t addPatient <EDname> <PatientName> <PatientSurname> <HealthInsurance> [<SeverityLevel>]: to add a patient to an ED");
 				System.out.println("\t setL[1|2|3|4|5]arrivalDist <EDname> <DistType> <DistParam1> [<DistParam2>]: to set the distribution "
 						+ "of patient arrivals of a given severity level in an ED");
-				System.out.println("\t set[serviceName]Duration <EDname> <DistType> <DistParam1> [<DistParam2>]: to set the distribution"
+				System.out.println("\t setDuration <EDname> <ServiceName> <DistType> <DistParam1> [<DistParam2>]: to set the distribution"
 						+ "of probability of the duration of a service of an ED");
-				System.out.println("\t set[serviceName]Cost <EDname> <Cost>: to set the cost of a service in an ED");
+				System.out.println("\t setCost <EDname> <ServiceName> <Cost>: to set the cost of a service in an ED");
 				System.out.println("\t executeEvent <EDname>: to execute the next event of an ED");
 				System.out.println("\t executeEvents <EDname> <NumberOfEvents>: to execute the next NumberOfEvents events in an ED");
 				System.out.println("\t kpi <EDname> <KPIname>: to calculate and display a KPI of an ED (los:Length-of-stay or dtdt:Door-to-doctor-time)");
@@ -532,7 +490,7 @@ public class CLUI {
 				System.out.println("\t display <EDname> [<PatientName> <PatientSurname>]: to display the current state of an entire ED or"
 						+ "of a patient of an ED");
 				System.out.println("\t displayHistory <EDname>: to display the history an ED");
-				System.out.println("\t runtest <Filename> <OutputFilename>: to run the commands in a file and optionnaly output the results to another file");
+				System.out.println("\t runtest <Filename> [<OutputFilename>]: to run the commands in a file and optionally output the results to another file");
 				break;
 			default:
 				System.out.println("The command " + command + " doesn't exist. Type help to see the list of possible commands or enter a valid one");
