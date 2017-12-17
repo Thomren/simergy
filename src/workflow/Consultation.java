@@ -78,9 +78,7 @@ public class Consultation extends WorkflowElement {
 		Event beginConsultation = new Event("Consultation beginning", emergencyDepartment.getTime());
 		patient.addEvent(beginConsultation);
 		patient.setState("being-visited");
-		Room room = emergencyDepartment.getAvailableRoom("WaitingRoom");
-		room.addPatient(patient);
-		this.generateEndTask(this, patient, physician, room);
+		this.generateEndTask(this, patient, physician);
 	}
 
 	/**
@@ -93,6 +91,10 @@ public class Consultation extends WorkflowElement {
 	@Override
 	public void endServiceOnPatient(Patient patient) {
 		Event endConsultation = new Event("Consultation ending", emergencyDepartment.getTime());
+		Room room = emergencyDepartment.getAvailableRoom("WaitingRoom");
+		room.addPatient(patient);
+		patient.getLocation().removePatient(patient);
+		patient.setLocation(room);
 		patient.addEvent(endConsultation);
 		patient.addCharges(cost);
 		patient.setState("waiting");

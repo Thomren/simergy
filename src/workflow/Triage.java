@@ -55,7 +55,9 @@ public class Triage extends WorkflowElement {
 		patient.setState("being-registered");
 		Room room = emergencyDepartment.getAvailableRoom("WaitingRoom");
 		room.addPatient(patient);
-		this.generateEndTask(this, patient, nurse, room);
+		patient.getLocation().removePatient(patient);
+		patient.setLocation(room);
+		this.generateEndTask(this, patient, nurse);
 	}
 
 	/**

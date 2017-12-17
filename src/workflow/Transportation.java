@@ -65,10 +65,12 @@ public class Transportation extends WorkflowElement {
 		String roomType = healthService + "Room";
 		Room room = emergencyDepartment.getAvailableRoom(roomType);
 		room.addPatient(patient);
+		patient.getLocation().removePatient(patient);
+		patient.setLocation(room);
 		Event beginTransportation = new Event("Transportation beginning", emergencyDepartment.getTime());
 		patient.addEvent(beginTransportation);
 		patient.setState("being-transported");
-		this.generateEndTask(this, patient, transporter, room);
+		this.generateEndTask(this, patient, transporter);
 	}
 
 	@Override

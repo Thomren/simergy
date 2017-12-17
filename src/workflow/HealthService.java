@@ -38,14 +38,16 @@ public abstract class HealthService extends WorkflowElement {
 		Event beginService = new Event(this.name + " beginning", emergencyDepartment.getTime());
 		patient.addEvent(beginService);
 		patient.setState("taking-" + this.name);
-		Room room = emergencyDepartment.getAvailableRoom("WaitingRoom");
-		room.addPatient(patient);
-		this.generateEndTask(this, patient, room);
+		this.generateEndTask(this, patient);
 	}
 
 	@Override
 	public void endServiceOnPatient(Patient patient) {
 		Event endService = new Event(this.name + " ending", emergencyDepartment.getTime());
+		Room room = emergencyDepartment.getAvailableRoom("WaitingRoom");
+		room.addPatient(patient);
+		patient.getLocation().removePatient(patient);
+		patient.setLocation(room);
 		patient.addEvent(endService);
 		patient.addCharges(cost);
 		patient.setState("waiting");

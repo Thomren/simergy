@@ -49,10 +49,6 @@ public class EndService implements Command {
 		if (this.employee != null) {
 			this.employee.setState("idle");
 		}
-		if (this.room != null) {
-			this.patient.getLocation().removePatient(patient);
-			this.patient.setLocation(room);
-		}
 		service.endServiceOnPatient(patient);
 	}
 

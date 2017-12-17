@@ -512,7 +512,7 @@ public class CLUI {
 				processCommand(splitInput(line));
 			}
 		} catch (Exception e) {
-			System.out.println("Error: File " + filename + " not found");
+			System.out.println("Error: File " + fileName + " not found");
 		} finally {
 			if (reader != null) {
 				try {reader.close();}

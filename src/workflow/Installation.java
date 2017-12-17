@@ -24,21 +24,6 @@ public class Installation extends WorkflowElement {
 	public Installation(ProbabilityDistribution durationProbability, Double cost, EmergencyDepartment emergencyDepartment) {
 		super("Installation", durationProbability, cost, emergencyDepartment);
 	}
-
-	// TO REMOVE ?
-//	public void installPatient(Nurse nurse, Patient patient) {
-//		Double installationBeginningTime = emergencyDepartment.getTime();
-//		Event installationBeginning = new Event("Installation beginning", installationBeginningTime);
-//		System.out.println(installationBeginning);
-//		Event installationEnding = new Event("Installation ending", installationBeginningTime + durationProbability.generateSample());
-//		patient.addEvent(installationBeginning);
-//		patient.addEvent(installationEnding);
-//		System.out.println(nurse);
-//		nurse.addEvent(installationBeginning);
-//		nurse.addEvent(installationEnding);
-//		patient.addCharges(cost);
-//		
-//	}
 	
 	/**
 	 * This method overrides canTreatPatient of WorkflowElement.
@@ -82,10 +67,12 @@ public class Installation extends WorkflowElement {
 			room = emergencyDepartment.getAvailableRoom("BoxRoom");
 			room.addPatient(patient);
 		}
+		patient.getLocation().removePatient(patient);
+		patient.setLocation(room);
 		Event beginTransportation = new Event("Installation beginning", emergencyDepartment.getTime());
 		patient.addEvent(beginTransportation);
 		patient.setState("being-installed");
-		this.generateEndTask(this, patient, nurse, room);
+		this.generateEndTask(this, patient, nurse);
 	}
 	
 	/**
