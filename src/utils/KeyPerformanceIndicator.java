@@ -7,8 +7,8 @@ import resources.Patient;
 
 /**
  * This is an abstract class for the computation of KPI.i
- * The method computeAverageKPI compute the average of each patient KPI.
- * The abstract method computeKPI compute the KPI for one patient.
+ * The method computeAverageKPI computes the average of each patient KPI.
+ * The abstract method computeKPI computes the KPI for one patient.
  * @author Quentin
  *
  */
@@ -21,6 +21,10 @@ public abstract class KeyPerformanceIndicator {
 		this.emergencyDepartment = emergencyDepartment;
 	}
 
+	/**
+	 * This method computes the average of each patient KPI.
+	 * @return the average computed KPI for all the patients in the ED
+	 */
 	public double computeAverageKPI() {
 		ArrayList<Patient> patients = emergencyDepartment.getAllPatients();
 		if(patients.size() == 0) {
@@ -43,6 +47,11 @@ public abstract class KeyPerformanceIndicator {
 		}
 	}
 	
+	/**
+	 * This method computes the KPI for one patient.
+	 * @param patient
+	 * @return the computed KPI
+	 */
 	public abstract double computeKPI(Patient patient);
 	
 }

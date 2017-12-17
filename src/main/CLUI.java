@@ -35,12 +35,23 @@ import utils.SilverInsurance;
 import utils.UniformDistribution;
 import workflow.WorkflowElement;
 
+/**
+ * This class is a CLUI in which you can enter commands to use the SimErgy simulator and see results of the simulation.
+ * You can also load scenario files and output their result to a file. The list of command can be obtained by entering the
+ * help command.
+ * @author Thomas
+ */
 public class CLUI {
 	private static HashMap<String, EmergencyDepartment> emergencyDepartments = new HashMap<String, EmergencyDepartment>();
 	private static NurseFactory nurseFactory = new NurseFactory();
 	private static PhysicianFactory physicianFactory = new PhysicianFactory();
 	private static TransporterFactory transporterFactory = new TransporterFactory();
 	
+	/**
+	 * This method set the probability distribution of the arrival of patients with a given severity level of an ED
+	 * @param level whose probability distribution must be changed
+	 * @param input is the command entered by the user
+	 */
 	private static void setSeverityLevelDistribution(int level, String[] input) {
 		if(input.length < 4){
 			System.out.println("Error: setL*arrivalDist requires 3 arguments <EDname, DistType, DistParams>");
@@ -77,6 +88,11 @@ public class CLUI {
 		}
 	}
 	
+	/**
+	 * This method set the duration of a given service in an ED
+	 * @param serviceName is the name of the service whose duration must be changed
+	 * @param input is the command entered by the user
+	 */
 	private static void setServiceDuration(String serviceName, String[] input) {
 		if(input.length < 4){
 			System.out.println("Error: set<ServiceName>Duration requires 3 arguments <EDname, DistType, DistParams>");
@@ -113,6 +129,11 @@ public class CLUI {
 		}
 	}
 	
+	/**
+	 * This method set the cost of a given service in an ED
+	 * @param serviceName is the name of the service whose cost must be changed
+	 * @param input is the command entered by the user
+	 */
 	private static void setServiceCost(String serviceName, String[] input) {
 		if(input.length < 3){
 			System.out.println("Error: set<ServiceName>Cost requires 2 arguments <EDname, Cost>");
@@ -132,6 +153,10 @@ public class CLUI {
 		}
 	}
 	
+	/**
+	 * This method processes the commands entered by the user
+	 * @param input is the command entered by the user
+	 */
 	public static void processCommand(String[] input) {
 		String command = input[0];
 		// distinguishing between the chosen Exercise number 
@@ -427,6 +452,19 @@ public class CLUI {
 					ED.executeNextTask();
 				}
 				break;
+			
+			case "displayHistory":
+				if(input.length < 2){
+					System.out.println("Error: Argument <EDname> compulsory but not found");
+				}
+				else if(!emergencyDepartments.containsKey(input[1])) {
+					System.out.println("Error: There is no Emergency Department called " + input[1] + ". You can create it with createED " + input[1]);
+				}
+				else {
+					EmergencyDepartment ED = emergencyDepartments.get(input[1]);
+					ED.printHistory();
+				}
+				break;
 				
 			case "display":
 				if(input.length < 2){
@@ -493,6 +531,7 @@ public class CLUI {
 						+ "the first event after currentTime + time");
 				System.out.println("\t display <EDname> [<PatientName> <PatientSurname>]: to display the current state of an entire ED or"
 						+ "of a patient of an ED");
+				System.out.println("\t displayHistory <EDname>: to display the history an ED");
 				System.out.println("\t runtest <Filename> <OutputFilename>: to run the commands in a file and optionnaly output the results to another file");
 				break;
 			default:
@@ -500,6 +539,10 @@ public class CLUI {
 		}
 	}
 	
+	/**
+	 * This method execute the commands contained in a scenario file
+	 * @param fileName is the filename of the scenario file to load
+	 */
 	public static void executeScenarioFile(String fileName) {
 		FileReader file = null;
 		BufferedReader reader = null;
@@ -524,10 +567,20 @@ public class CLUI {
 		}
 	}
 	
+	/**
+	 * This method split the command entered by the user into the command itself and the different arguments separated by spaces
+	 * A argument can contain spaces if it is given between double quotes (ex: createED "St James Hospital")
+	 * @param input is the input entered by the user
+	 * @return an array of strings containing the command and the different arguments if any
+	 */
 	public static String[] splitInput(String input) {
 		return input.split("\"?( |$)(?=(([^\"]*\"){2})*[^\"]*$)\"?");
 	}
 	
+	/**
+	 * This method starts the CLUI
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// declaring a scanner object for to ask input to the user
 		Scanner sc = new Scanner(System.in);

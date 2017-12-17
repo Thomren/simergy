@@ -298,6 +298,22 @@ public class EmergencyDepartment {
 		System.out.println(content.toString());
 	}
 	
+	/**
+	 * This method print all the informations about the Emergency Department and
+	 * all its content
+	 */
+	public void printHistory() {
+		StringBuffer content = new StringBuffer();
+		content.append("\n----- Emergency Department History -----\n");
+		content.append(this.toString() + "\n");
+		content.append("Current time : " + time + "\n");
+		content.append("- History : \n");
+		for (Event event : history) {
+			content.append(event).append('\n');
+		}
+		System.out.println(content.toString());
+	}
+	
 	public ArrayList<Patient> getPatients() {
 		return patients;
 	}
