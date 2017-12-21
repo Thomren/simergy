@@ -3,6 +3,11 @@ package processing;
 import core.EmergencyDepartment;
 import resources.Patient;
 
+/**
+ * This class represents the command corresponding to the arrival of a patient
+ * @author Thomas
+ *
+ */
 public class PatientArrival implements Command {
 	protected Patient patient;
 	protected EmergencyDepartment emergencyDepartment;

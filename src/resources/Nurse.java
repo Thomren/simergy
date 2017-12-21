@@ -2,6 +2,11 @@ package resources;
 
 import core.EmergencyDepartment;
 
+/**
+ * The Nurse class represents a nurse of the Emergency Department
+ * @author Thomas
+ *
+ */
 public class Nurse extends Human {
 
 	public Nurse(String name, String surname, EmergencyDepartment emergencyDepartment) {

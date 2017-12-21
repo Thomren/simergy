@@ -1,5 +1,10 @@
 package utils;
 
+/**
+ * This class simulates a deterministic probability distribution
+ * @author Thomas
+ *
+ */
 public class DeterministicDistribution implements ProbabilityDistribution {
 	protected double value;
 		

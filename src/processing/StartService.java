@@ -3,6 +3,11 @@ package processing;
 import resources.Patient;
 import workflow.WorkflowElement;
 
+/**
+ * This class represents the command corresponding to the start of a service on a patient
+ * @author Thomas
+ *
+ */
 public class StartService implements Command {
 	protected WorkflowElement service;
 	protected Patient patient;

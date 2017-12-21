@@ -1,5 +1,10 @@
 package processing;
 
+/**
+ * This class represent a command associated with the timestamp when it should be executed
+ * @author Thomas
+ *
+ */
 public class Task {
 	protected double timestamp;
 	protected Command command;

@@ -5,6 +5,11 @@ import resources.Patient;
 import resources.Room;
 import workflow.WorkflowElement;
 
+/**
+ * This class represents the command corresponding to the end of a service on a patient
+ * @author Thomas
+ *
+ */
 public class EndService implements Command {
 	protected WorkflowElement service;
 	protected Patient patient;

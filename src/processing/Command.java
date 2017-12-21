@@ -7,5 +7,9 @@ package processing;
  */
 @FunctionalInterface
 public interface Command {
-   public void execute();
+	
+	/**
+	 * This method execute the stored command
+	 */
+	public void execute();
 }
