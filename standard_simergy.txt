@@ -52,3 +52,4 @@ executeEvents "OvercrowdedHospital" 100
 kpi "OvercrowdedHospital" los
 kpi "OvercrowdedHospital" dtdt
 display "OvercrowdedHospital"
+display "OvercrowdedHospital" Justin Case
