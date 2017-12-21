@@ -1,55 +1,55 @@
-createED "OvercrowdedHospital"
-setL1arrivalDist "OvercrowdedHospital" exponential 0.03
-setL2arrivalDist "OvercrowdedHospital" exponential 0.04
-setL3arrivalDist "OvercrowdedHospital" exponential 0.05
-setL4arrivalDist "OvercrowdedHospital" exponential 0.07
-setL5arrivalDist "OvercrowdedHospital" exponential 0.1
-setDuration "OvercrowdedHospital" Triage uniform 2 5
-setCost "OvercrowdedHospital" Triage 0
-setDuration "OvercrowdedHospital" Installation deterministic 5
-setCost "OvercrowdedHospital" Installation 0
-setDuration "OvercrowdedHospital" Consultation uniform 5 20
-setCost "OvercrowdedHospital" Consultation 15
-setDuration "OvercrowdedHospital" Transportation deterministic 5
-setCost "OvercrowdedHospital" Transportation 0
-setDuration "OvercrowdedHospital" BloodTest uniform 15 90
-setCost "OvercrowdedHospital" BloodTest 10
-setDuration "OvercrowdedHospital" XRay uniform 10 20
-setCost "OvercrowdedHospital" XRay 20
-setDuration "OvercrowdedHospital" MRI uniform 30 70
-setCost "OvercrowdedHospital" MRI 30
-addRoom "OvercrowdedHospital" WaitingRoom "Waiting Room 1" 10
-addRoom "OvercrowdedHospital" BoxRoom "Box Room 1" 1
-addRoom "OvercrowdedHospital" BoxRoom "Box Room 2" 1
-addRoom "OvercrowdedHospital" BoxRoom "Box Room 3" 1
-addRoom "OvercrowdedHospital" BoxRoom "Box Room 4" 1
-addRoom "OvercrowdedHospital" ShockRoom "Shock Room 1" 1
-addRoom "OvercrowdedHospital" BloodTestRoom "Blood Test Room 1" 1
-addRoom "OvercrowdedHospital" XRayRoom "XRay Room 1" 1
-addRoom "OvercrowdedHospital" MRIRoom "MRIRoom 1" 1
-addNurse "OvercrowdedHospital"
-addNurse "OvercrowdedHospital" 
-addNurse "OvercrowdedHospital" 
-addNurse "OvercrowdedHospital" 
-addNurse "OvercrowdedHospital" 
-addPhysician "OvercrowdedHospital"
-addPhysician "OvercrowdedHospital"
-addPhysician "OvercrowdedHospital"
-addTransporter "OvercrowdedHospital"
-addTransporter "OvercrowdedHospital"
-addTransporter "OvercrowdedHospital"
-addPatient "OvercrowdedHospital" Harry Cover gold 5
-addPatient "OvercrowdedHospital" John Duff silver 5
-addPatient "OvercrowdedHospital" Justin Case none 5
-addPatient "OvercrowdedHospital" Anna Prentice none 2
-executeEvents "OvercrowdedHospital" 100
-kpi "OvercrowdedHospital" los
-kpi "OvercrowdedHospital" dtdt
-executeEvents "OvercrowdedHospital" 100
-kpi "OvercrowdedHospital" los
-kpi "OvercrowdedHospital" dtdt
-executeEvents "OvercrowdedHospital" 100
-kpi "OvercrowdedHospital" los
-kpi "OvercrowdedHospital" dtdt
-display "OvercrowdedHospital"
-display "OvercrowdedHospital" Justin Case
+createED "StandardHospital"
+setL1arrivalDist "StandardHospital" exponential 0.03
+setL2arrivalDist "StandardHospital" exponential 0.04
+setL3arrivalDist "StandardHospital" exponential 0.05
+setL4arrivalDist "StandardHospital" exponential 0.07
+setL5arrivalDist "StandardHospital" exponential 0.1
+setDuration "StandardHospital" Triage uniform 2 5
+setCost "StandardHospital" Triage 0
+setDuration "StandardHospital" Installation deterministic 5
+setCost "StandardHospital" Installation 0
+setDuration "StandardHospital" Consultation uniform 5 20
+setCost "StandardHospital" Consultation 15
+setDuration "StandardHospital" Transportation deterministic 5
+setCost "StandardHospital" Transportation 0
+setDuration "StandardHospital" BloodTest uniform 15 90
+setCost "StandardHospital" BloodTest 10
+setDuration "StandardHospital" XRay uniform 10 20
+setCost "StandardHospital" XRay 20
+setDuration "StandardHospital" MRI uniform 30 70
+setCost "StandardHospital" MRI 30
+addRoom "StandardHospital" WaitingRoom "Waiting Room 1" 10
+addRoom "StandardHospital" BoxRoom "Box Room 1" 1
+addRoom "StandardHospital" BoxRoom "Box Room 2" 1
+addRoom "StandardHospital" BoxRoom "Box Room 3" 1
+addRoom "StandardHospital" BoxRoom "Box Room 4" 1
+addRoom "StandardHospital" ShockRoom "Shock Room 1" 1
+addRoom "StandardHospital" BloodTestRoom "Blood Test Room 1" 1
+addRoom "StandardHospital" XRayRoom "XRay Room 1" 1
+addRoom "StandardHospital" MRIRoom "MRIRoom 1" 1
+addNurse "StandardHospital"
+addNurse "StandardHospital" 
+addNurse "StandardHospital" 
+addNurse "StandardHospital" 
+addNurse "StandardHospital" 
+addPhysician "StandardHospital"
+addPhysician "StandardHospital"
+addPhysician "StandardHospital"
+addTransporter "StandardHospital"
+addTransporter "StandardHospital"
+addTransporter "StandardHospital"
+addPatient "StandardHospital" Harry Cover gold 5
+addPatient "StandardHospital" John Duff silver 5
+addPatient "StandardHospital" Justin Case none 5
+addPatient "StandardHospital" Anna Prentice none 2
+executeEvents "StandardHospital" 100
+kpi "StandardHospital" los
+kpi "StandardHospital" dtdt
+executeEvents "StandardHospital" 100
+kpi "StandardHospital" los
+kpi "StandardHospital" dtdt
+executeEvents "StandardHospital" 100
+kpi "StandardHospital" los
+kpi "StandardHospital" dtdt
+display "StandardHospital"
+display "StandardHospital" Justin Case
